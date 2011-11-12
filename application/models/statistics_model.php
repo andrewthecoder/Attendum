@@ -13,8 +13,7 @@ class Statistics_model extends CI_Model {
 									LEFT JOIN code AS c ON m.mid = c.mid
 									LEFT JOIN usercode AS uc ON uc.cid = c.cid
 									LEFT JOIN user AS u ON u.uid = uc.uid
-									WHERE u.unid = '.$uni_id.'
-									GROUP BY name');
+									WHERE u.unid = '.$uni_id.' GROUP BY name');
 		return $query->result();
 	}
 	
@@ -25,7 +24,7 @@ class Statistics_model extends CI_Model {
 									LEFT JOIN module AS m ON c.mid = m.mid
 									LEFT JOIN usercode AS uc ON c.cid = uc.cid
 									LEFT JOIN user AS u ON u.uid = uc.uid
-									WHERE u.unid = '.$uni_id.'GROUP BY name');
+									WHERE u.unid = '.$uni_id.' GROUP BY name');
 									return $query->result();
 	}
 	
