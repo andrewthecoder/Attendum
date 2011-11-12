@@ -116,7 +116,7 @@ class User extends CI_Controller {
 
 
 		$data = array(
-			'error' => $error
+			'error' => $error,
 			'e1' => $e1,
 			'e2' => $e2,
 			'users' => $this->user_model->get_users(),		
