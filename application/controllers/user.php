@@ -225,7 +225,7 @@ class User extends CI_Controller {
 
 	public function compare_achievements()
 	{
-		$this->load->database('user');
+		/*$this->load->database('user');
 
 		$error = '';
 
@@ -263,7 +263,7 @@ class User extends CI_Controller {
 			'achievements' => $this->achievement_model->get_achievements()
 		);
 		
-		$this->load->view('comparing_achievements', $data);
+		$this->load->view('comparing_achievements', $data);*/
 	}
 }
 
