@@ -47,6 +47,9 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function create_code() {
+		$this->load->view('create_code');
+	}
 	
 }
 
