@@ -87,13 +87,16 @@ class User extends CI_Controller {
 	public function compare_achievements()
 	{
 		$this->load->model('user_model');
-		$data['users'] = $this->user_model->get_users();		
-		
 		$this->load->model('user_achievement_model');
-		$data['userachievements'] = $this->user_achievement_model->get_user_achievements();
-		
 		$this->load->model('achievement_model');
-		$data['achievements'] = $this->achievement_model->get_achievements();
+
+		$data = array(
+			'e1' => $this->input->post('e1');
+			'e2' => $this->input->post('e2');
+			'users' => $this->user_model->get_users(),		
+			'userachievements' => $this->user_achievement_model->get_user_achievements(),
+			'achievements' => $this->achievement_model->get_achievements(),
+		);
 		
 		$this->load->view('comparing_achievements', $data);
 	}
