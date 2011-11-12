@@ -4,6 +4,7 @@
 	
 	<div>
 		<h3>View Codes</h3>
+		<p>Key: <span style="background-color: #FFB3B3">Expired</span> | <span style="background-color: #B3FFD7">Current</span></p>
 		<table>
 			<tr>
 				<td>Code</td>
