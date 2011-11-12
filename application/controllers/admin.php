@@ -157,7 +157,7 @@ class Admin extends CI_Controller {
 			<tr>
 				<td>{$row->code}</td>
 				<td>{$start_date}</td>
-				<td>{$validity}</td>
+				<td>{$validity} mins</td>
 				<td>{$row->name}</td>
 				<td>{$row->ref}</td>
 			</tr>";

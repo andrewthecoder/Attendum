@@ -17,18 +17,20 @@
 				</form>
 			</div>
 		</div>
-		<div class="span6">
-			<h3>Remove Lecturer</h3>
-			<form action="<?php echo site_url('admin/remove_lecturer'); ?>" method="post">
-				<table>
-				<tr>
-				<td><label for="username">Email</label></td><td><input type="text" name="email"></td>
-				</tr>
-				<tr>
-				<td></td><td><input type="submit" name="Remove" class="btn primary" value="Remove"></td>
-				</tr>
-				</table>
-			</form>
+		<div class="span10">
+			<div class="span6">
+				<h3>Remove Lecturer</h3>
+				<form action="<?php echo site_url('admin/remove_lecturer'); ?>" method="post">
+					<table>
+					<tr>
+					<td><label for="username">Email</label></td><td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+					<td></td><td><input type="submit" name="Remove" class="btn primary" value="Remove"></td>
+					</tr>
+					</table>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
