@@ -18,9 +18,10 @@
 
 		// Create the data table.
 		//Percentage Graph
-			var data = new google.visualization.DataTable();
-			data.addColumn('string', 'Module');
+			var data = new google.visualization.DataTable();			
 			data.addColumn('number', '% of Attendance');
+			data.addColumn('string', 'Module');
+
 			data.addRows([
 				<?php foreach($percofattenpermodule as $percofattenpermodule1):
 				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
@@ -31,7 +32,8 @@
 			// Set chart options
 			var options = {'title':'How many students per module',
 			'width':800,
-			'height':600};
+			'height':600, 
+			hAxis: {title: "Module"}};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
