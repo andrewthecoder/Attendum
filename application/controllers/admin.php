@@ -123,6 +123,23 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function remove_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 0 WHERE email = '$email'");
+			
+			
+			//redirect
+			redirect('/');
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
 	public function list_codes() {
 		$this->load->model('code_model');
 		$rows = $this->code_model->query_codes("SELECT * 
