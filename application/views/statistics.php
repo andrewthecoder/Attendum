@@ -32,7 +32,8 @@
 			var options = {'title':'How many students per module',
 				'width':800,
 				'height':600, 
-				'color':49A2D1
+				'max':100,
+				'min':0
 			};
 
 			// Instantiate and draw our chart, passing in some options.
