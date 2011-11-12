@@ -31,6 +31,40 @@ class User extends CI_Controller {
 		redirect('/');
 	}
 	
+	public function login() {
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			
+			//verify email/password
+			
+			if($this->user_model->check_login($email, sha1($password))) {
+				//get user details
+				$user = $this->user_model->get_user($email);
+				
+				//setup session data
+				$sess = array(
+					'uid' => $user->uid,
+					'email' => $user->email,
+					'unid' => $user->unid,
+					'admin_rights' => $user->admin_rights,
+					'logged_in' => TRUE
+				);
+				
+				$this->session->set_userdata($sess);
+			
+				//redirect
+				redirect('/');
+			}
+			else {
+			}
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
 	public function signup() {
 		if($this->input->post()) {
 			$this->load->helper(array('form', 'url'));
