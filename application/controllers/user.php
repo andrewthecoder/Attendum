@@ -91,11 +91,8 @@ class User extends CI_Controller {
 			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = $email");
 			
 			
-				//redirect
-				redirect('/');
-			}
-			else {
-			}
+			//redirect
+			redirect('/');
 		}
 		else {
 			redirect('/');
