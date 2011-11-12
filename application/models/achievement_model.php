@@ -1,15 +1,15 @@
 <?php
 
-class User_model extends CI_Model {
+class Achievement_model extends CI_Model {
 
     function __construct()
     {
         parent::__construct();
     }
 	
-	function get_user() {
-		$this->db->where('uid', 1);
-		$query = $this->db->get('user');
+	function get_achievments() {
+		//$this->db->where('uid', 1);
+		$query = $this->db->get('achievements');
 		
 		return $query->result();
 	}
