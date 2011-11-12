@@ -7,7 +7,7 @@ Create Module | Attendum
 </head>
 <body>
 <div class="container">
-	<div>
+	<div style="padding-top: 30px;">
 		<h3>Create Module</h3>
 		<form action="<?php echo site_url('admin/submit_module'); ?>" method="post">
 			<table>

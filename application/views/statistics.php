@@ -17,23 +17,27 @@
 		function drawChart() {
 
 		// Create the data table.
-		//Percentage Graph
 			var data = new google.visualization.DataTable();
-			data.addColumn('number', '% of Attendance');
-			data.addRows([
-				<?php foreach($percofattenpermodule as $percofattenpermodule1):
-				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
-				"; 
+			data.addColumn('string', 'Module');
+			data.addColumn('number', '% of attendance for eaech module');
+
+				<?php 
+				$i = 0;
+				echo "data.addRows($num_numofusersforcourse);";
+				foreach($percofattenpermodule as $percofattenpermodule1):
+				echo "data.setValue($i,0,'$percofattenpermodule1->name');";
+				echo "data.setValue($i,1,$percofattenpermodule1->num);";
+				$i++;
 				endforeach; ?>
-			]);
+	
 
 			// Set chart options
-			var options = {title:'How many students per module',
-			width:800,
-			height:600, 
-			min:0,
+			var options = {'title':'% of attendance for eaech module',
+			'width':800,
+			'height':600, 
+			min:0, 
 			max:100,
-			hAxis: {title: "Module"}};
+			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}}};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
@@ -64,7 +68,7 @@
 
 <body>
 <!--Div that will hold the pie chart-->
-<div class="container">
+<class id="container">
 <div id="chart_div"></div>
 <div id="chart_div1"></div>
 </div>
