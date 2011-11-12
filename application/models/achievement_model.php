@@ -7,7 +7,7 @@ class Achievement_model extends CI_Model {
         parent::__construct();
     }
 	
-	function get_achievments() {
+	function get_achievements() {
 		//$this->db->where('uid', 1);
 		$query = $this->db->get('achievements');
 		
