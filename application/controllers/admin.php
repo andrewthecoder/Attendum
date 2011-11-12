@@ -151,7 +151,7 @@ class Admin extends CI_Controller {
 		foreach ($rows as $row) {
 			$start_date = date('l jS \of F Y h:i A', $row->start_time);
 			$validity_unix = $row->end_time - $row->start_time;
-			$validity = date('i', $validity_unix);
+			$validity = (int)date('i', $validity_unix);
 			
 			$htmlrows .= "
 			<tr>
