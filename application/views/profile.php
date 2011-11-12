@@ -28,7 +28,7 @@
 			<p>By default all of your data is hidden. That means that all of your achievements and points are hidden from other
 			users. By clicking the button below you can toggle whether your data is shared or not. If you choose to share your data
 			that means that your achievements and points can be seen by other users for comparisons.</p>
-			<p><strong>We never share your email address with another user. They must have it already to compare people.</strong></p>
+			<p><strong>We never share your email address with another user. They must have it already to compare their achievements with yours.</strong></p>
 			<?php if($this->session->userdata('opt_in')): ?>
 				<form action="<?php echo site_url('user/hide_data'); ?>" method="post" style="margin:0 auto;width:200px;">
 					<input type="submit" name="hide_my_data" value="Hide My Data" class="btn large primary">
@@ -41,7 +41,9 @@
 		</div>
 	</div>
 	<?php //ACHIEVEMENT LISTINGS GO HERE ?>
-	<?php $surl = site_url('user/comparison_chooser'); ?>
-	<a href="<?php echo $surl ?>">Compare achievements.<a/>
+	<?php
+		$surl = site_url('user/comparison_chooser');
+		echo '<a href"'+"$surl"+'">Compare achievements.<a/>';
+	?>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
