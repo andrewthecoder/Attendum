@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http://sudoteam.techfixuk.com/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,8 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '7AFE31AB27AC497F37C93AC22962D264
+EBAE318E';
 
 /*
 |--------------------------------------------------------------------------
