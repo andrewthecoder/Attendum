@@ -51,7 +51,7 @@ class Admin extends CI_Controller {
 	public function create_code() {
 		$this->load->model('module_model');
 		$this->load->helper('form');
-		$module_rows = $this->module_model->get_modules($this->session->userdata('unid'));
+		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
 				
 		foreach ($module_rows as $row) {
 			$module_refs[$row->mid] = $row->ref;
@@ -94,6 +94,19 @@ class Admin extends CI_Controller {
 			$this->load->view('code_created', $outdata);
 		} else {
 			redirect('/admin/create_module/');
+		}
+	}
+	
+	public function list_codes() {
+		foreach ($rows as $row) {
+			$htmlrows .= "
+			<tr>
+				<td><?php echo $code ?></td>
+				<td><?php echo $start_date ?></td>
+				<td><?php echo $validity ?></td>
+				<td><?php echo $module_name ?></td>
+				<td><?php echo $module_ref ?></td>
+			</tr>";
 		}
 	}
 	
