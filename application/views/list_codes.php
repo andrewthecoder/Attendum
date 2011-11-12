@@ -1,13 +1,8 @@
-<!doctype html>
-<head>
-<title>
-View Codes | Attendum
-</title>
-<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-</head>
-<body>
+<?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
-	<div style="padding-top: 30px;">
+	<?php $this->load->view('inc/header.php'); ?>
+	
+	<div>
 		<h3>View Codes</h3>
 		<table>
 			<tr>
@@ -21,5 +16,5 @@ View Codes | Attendum
 		</table>
 	</div>
 </div>
-</body>
-</html>
+
+<?php $this->load->view('inc/footer.php'); ?>
