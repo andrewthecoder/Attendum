@@ -69,6 +69,7 @@ class User extends CI_Controller {
 	public function uni_check($str) {
 		$str_bits = explode('@',$str);
 		if($this->user_model->check_uni($str_bits[1])) {
+			$this->form_validation->set_message('Email', 'Your University is not currently registered with Attendum.');
 			return true;
 		}
 		else {
