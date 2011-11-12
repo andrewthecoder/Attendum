@@ -65,8 +65,7 @@ class User extends CI_Controller {
 	}
 	
 	public function uni_check($str) {
-		$str_bits = explode('@',$str);
-		if($this->user_model->check_uni($str_bits[1])) {
+		if($this->user_model->check_uni()) {
 			return true;
 		}
 		else {
@@ -86,7 +85,7 @@ class User extends CI_Controller {
 		$this->load->model('achievement_model');
 		$data['achievements'] = $this->achievement_model->get_achievements();
 		
-		$this->load->view('comparing_achievements', $data);
+		$this->load->view('compare_achievements', $data);
 	}
 }
 
