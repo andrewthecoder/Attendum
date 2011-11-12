@@ -55,7 +55,7 @@ class User extends CI_Controller {
 				$this->session->set_userdata($sess);
 			
 				//redirect
-				//redirect('/');
+				redirect('/');
 			}
 			else {
 			}
@@ -63,6 +63,11 @@ class User extends CI_Controller {
 		else {
 			redirect('/');
 		}
+	}
+	
+	function logout() { 
+		$this->session->sess_destroy();
+		redirect('/');
 	}
 	
 	public function signup() {
