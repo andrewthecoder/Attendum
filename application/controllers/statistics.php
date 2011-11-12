@@ -17,6 +17,15 @@ class statistics extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	public function __construct() {
+		parent::__construct();
+		
+		if(!$this->session->userdata('logged_in')) {
+			redirect('/');
+		}
+	}
+	 
 	public function index()
 	{
 		$this->output->enable_profiler(TRUE);

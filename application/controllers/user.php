@@ -37,30 +37,38 @@ class User extends CI_Controller {
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 			
+			if($email != '' && $password != '') {
+			
 			//verify email/password
-			
-			if($this->user_model->check_login($email, sha1($password))) {
-				//get user details
-				$user = $this->user_model->get_user($email);
+				if($this->user_model->check_login($email, sha1($password))) {
+					//get user details
+					$user = $this->user_model->get_user($email);
+					
+					//setup session data
+					$sess = array(
+						'uid' => $user->uid,
+						'email' => $user->email,
+						'unid' => $user->unid,
+						'admin_rights' => $user->admin_rights,
+						'logged_in' => TRUE,
+						'opt_in' => $user->opt_in
+					);
+					
+					$this->session->set_userdata($sess);
 				
-				//setup session data
-				$sess = array(
-					'uid' => $user->uid,
-					'email' => $user->email,
-					'unid' => $user->unid,
-					'admin_rights' => $user->admin_rights,
-					'logged_in' => TRUE,
-					'opt_in' => $user->opt_in
-				);
-				
-				$this->session->set_userdata($sess);
-			
-				//redirect
-				redirect('/');
+					//redirect
+					redirect('/');
+				}
+				else {
+					$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
+					//$this->load->view('home');
+					redirect('/');
+				}
 			}
 			else {
 				$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
-				$this->load->view('home');
+				//$this->load->view('home');
+				redirect('/');
 			}
 		}
 		else {
@@ -147,13 +155,16 @@ class User extends CI_Controller {
 		$e1 = $this->input->post('e1');
 		$e2 = $this->input->post('e2');
 		//are the emails in the database?
+		$this->load->database('user');
+
 		$this->db->where('email', $e1);
 		$query = $this->db->get('user');
-		if($query->num_rows() < 0){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
+		if($query->num_rows() < 1){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
 		$this->db->where('email', $e2);
 		$query = $this->db->get('user');
-		if($query->num_rows() < 0){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
+		if($query->num_rows() < 1){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
 		//Are has the other user permitted people to view their achievements?
+		elseif($query->opt_in == 0){ $error = 'Either the email address is not registered or the user has *hidden* their achievements.';}
 
 		$data = array(
 			'error' => $error,
