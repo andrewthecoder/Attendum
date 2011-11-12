@@ -131,6 +131,7 @@ class User extends CI_Controller {
 	
 	public function uni_check($str) {
 		$str_bits = explode('@',$str);
+		echo print_r($str_bits);
 		if($this->user_model->check_uni($str_bits[1])) {
 			return true;
 		}
@@ -158,20 +159,25 @@ class User extends CI_Controller {
 		$e2 = $this->input->post('e2');
 		//are the emails in the database?
 		$this->load->database('user');
-		/*
-		if($this->db->where('email', $e1); $query = $this->db->get('user'); $query->num_rows() < 1)
+		$this->db->where('email', $e1);
+		$query = $this->db->get('user');
+		if($query->num_rows() < 1)
 		{
 			$error = 'Either the email address is not registered or the user has hidden their achievements.';
 		}
-		elseif($this->db->where('email', $e2); $query = $this->db->get('user'); $query->num_rows() < 1)
+		else
 		{
-			$error = 'Either the email address is not registered or the user has hidden their achievements.';
+			$this->db->where('email', $e2);
+			$query = $this->db->get('user');
+			if($query->num_rows() < 1)
+			{
+				$error = 'Either the email address is not registered or the user has hidden their achievements.';
+			}
+			elseif($query->opt_in == 0)
+			{//Are has the other user permitted people to view their achievements?
+				$error = 'Either the email address is not registered or the user has *hidden* their achievements.';
+			}
 		}
-		//Are has the other user permitted people to view their achievements?
-		elseif($this->db->where('email', $e2); $query = $this->db->get('user'); $query->opt_in == 0)
-		{
-			$error = 'Either the email address is not registered or the user has *hidden* their achievements.';
-		}*/
 
 		$data = array(
 			'error' => $error,
