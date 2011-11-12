@@ -102,15 +102,23 @@ class Admin extends CI_Controller {
 	}
 	
 	public function list_codes() {
-		foreach ($rows as $row) {
+		$this->load->model('code_model');
+		$rows = $this->code_model->query_codes("SELECT * 
+										FROM  `code` ,  `module` 
+										WHERE  `code`.`mid` =  `module`.`mid` 
+										LIMIT 0 , 30");
+	
+		print_r($codes);
+		
+/*		foreach ($rows as $row) {
 			$htmlrows .= "
 			<tr>
-				<td><?php echo $code ?></td>
-				<td><?php echo $start_date ?></td>
-				<td><?php echo $validity ?></td>
-				<td><?php echo $module_name ?></td>
-				<td><?php echo $module_ref ?></td>
-			</tr>";
+				<td>{$row['code']}</td>
+				<td>{$row['start_date']}</td>
+				<td>{$row['validity']}</td>
+				<td>{$row['module_name']}</td>
+				<td>{$row['module_ref']}</td>
+			</tr>";*/
 		}
 	}
 	
