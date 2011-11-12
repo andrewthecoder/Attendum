@@ -65,7 +65,8 @@ class User extends CI_Controller {
 	}
 	
 	public function uni_check($str) {
-		if($this->user_model->check_uni()) {
+		$str_bits = explode('@',$str);
+		if($this->user_model->check_uni($str_bits[1])) {
 			return true;
 		}
 		else {
