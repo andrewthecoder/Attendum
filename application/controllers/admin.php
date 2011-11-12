@@ -26,7 +26,7 @@ class Admin extends CI_Controller {
 	 
 	public function index()
 	{	
-		$this->load->view('home', $data);
+		$this->load->view('home');
 	}
 	
 	public function create_module() {
@@ -37,13 +37,9 @@ class Admin extends CI_Controller {
 		if($this->input->post()) {
 			$this->load->model('module_model');
 			
-<<<<<<< HEAD
 			//DO ALL PROCESSING AND PREP THE DATA ARRAY
 			
 			$this->module_model->insert_module($data);
-=======
-			
->>>>>>> f52841bdd10d5909d2efe2d070dd46340e35f352
 		}
 		else {
 			redirect('/admin');
