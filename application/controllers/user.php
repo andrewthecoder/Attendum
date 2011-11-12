@@ -95,14 +95,14 @@ class User extends CI_Controller {
 
 	public function compare_achievements()
 	{
-		$error = ''		
+		$error = '';
 
 		$this->load->model('user_model');
 		$this->load->model('user_achievement_model');
 		$this->load->model('achievement_model');
 		
-		$e1 = $this->input->post('e1')
-		$e2 = $this->input->post('e2')
+		$e1 = $this->input->post('e1');
+		$e2 = $this->input->post('e2');
 		//are the emails in the database?
 		$this->db->where('email', $e1);
 		$query = $this->db->get('user');
@@ -125,7 +125,6 @@ class User extends CI_Controller {
 		);
 		
 		$this->load->view('comparing_achievements', $data);
-		return ''
 	}
 }
 
