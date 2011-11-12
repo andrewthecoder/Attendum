@@ -8,15 +8,14 @@ Achievements Comparison
 <div id="container">
 
 <?php
+$this->load->model('user_model')
+
 $yourEmail = $e1;
-echo $users;
-echo $users->uid;
-echo $users->uid[$yourEmail];
-$yourID = $users->uid[$yourEmail];
+$yourID = $this->user_model->get_uid_using_email($yourEmail);
 $yourAchievements = array();
 
 $theirEmail = $e2;
-$theirID = $users[$theirEmail]->uid;
+$theirID = $this->user_model->get_uid_using_email($theirEmail);
 $theirAchievements = array();
 
 foreach($userachievements as $ua):
