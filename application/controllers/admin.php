@@ -24,9 +24,14 @@ class Admin extends CI_Controller {
 		$this->session->set_userdata('unid', '2');
 		//$this->output->enable_profiler(TRUE);
 		
-		if(!$this->session->userdata('logged_in')) {
+		/*if(!$this->session->userdata('logged_in')) {
 			redirect('/');
-		}
+		}*/
+	}
+	 
+	public function uni_admin()
+	{
+		$this->load->view('uni_admin');
 	}
 	 
 	public function index()
@@ -55,7 +60,7 @@ class Admin extends CI_Controller {
 	public function create_code() {
 		$this->load->model('module_model');
 		$this->load->helper('form');
-		$module_rows = $this->module_model->get_modules($this->session->userdata('unid'));
+		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
 				
 		foreach ($module_rows as $row) {
 			$module_refs[$row->mid] = $row->ref;
@@ -100,6 +105,27 @@ class Admin extends CI_Controller {
 			redirect('/admin/create_module/');
 		}
 	}
+	
+	public function list_codes() {
+		$this->load->model('code_model');
+		$rows = $this->code_model->query_codes("SELECT * 
+										FROM  `code` ,  `module` 
+										WHERE  `code`.`mid` =  `module`.`mid` 
+										LIMIT 0 , 30");
+	
+		print_r($codes);
+		
+/*		foreach ($rows as $row) {
+			$htmlrows .= "
+			<tr>
+				<td>{$row['code']}</td>
+				<td>{$row['start_date']}</td>
+				<td>{$row['validity']}</td>
+				<td>{$row['module_name']}</td>
+				<td>{$row['module_ref']}</td>
+			</tr>";
+		//}
+*/	}
 	
 }
 
