@@ -22,7 +22,7 @@
       data.addColumn('number', 'attendance');
 	  data.addRows(
 	  <?php foreach($user1 as $user):
-	  echo ",[$user->email, $user->uid]";
+	  echo " data.addRow(['$user->email', '$user->uid']";
 	  endforeach; ?>
 	  );
 
