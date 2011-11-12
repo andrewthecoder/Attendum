@@ -90,7 +90,7 @@ class User extends CI_Controller {
 		$data['users'] = $this->user_model->get_users();		
 		
 		$this->load->model('userachievement_model');
-		$data['userachievements'] = $this->Userachievement_model->get_userachievments();
+		$data['userachievements'] = $this->userachievement_model->get_userachievements();
 		
 		$this->load->model('achievement_model');
 		$data['achievements'] = $this->achievement_model->get_achievements();
