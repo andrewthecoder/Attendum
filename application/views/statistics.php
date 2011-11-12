@@ -35,7 +35,7 @@
 			var options = {'title':'% of attendance for eaech module',
 			'width':800,
 			'height':600, 
-			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}};
+			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}}};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
