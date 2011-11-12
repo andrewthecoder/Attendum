@@ -8,7 +8,20 @@ Attendum - Rewarding Your Attendance
 <body>
 <div id="container">
 <?php foreach($user1 as $user): ?>
-<p><?php echo $user->email; ?></p>
+<p>
+Uid:<?php echo $user->uid; ?>
+Email:<?php echo $user->email; ?>
+<?php $tmp = $user->admin_rights; if($tmp == 0) echo "Admin"; else echo "Not Admin" ?>
+Uni uid:<?php echo $user->unid; ?>
+Password:<?php echo $user->password; ?>
+</p>
+<?php endforeach; ?>
+<?php foreach($achievement1 as $a): ?>
+<p>
+Name:<?php echo $a->name; ?>
+Points:<?php echo $a->points; ?>
+Description:<?php echo $a->description; ?>
+</p>
 <?php endforeach; ?>
 
 <h3>Sign Up</h3>

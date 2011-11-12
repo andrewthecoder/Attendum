@@ -1,15 +1,14 @@
 <?php
 
-class User_model extends CI_Model {
+class Usercode_model extends CI_Model {
 
     function __construct()
     {
         parent::__construct();
     }
 	
-	function get_user() {
-		$this->db->where('uid', 1);
-		$query = $this->db->get('user');
+	function get_usercodes() {
+		$query = $this->db->get('usercode');
 		
 		return $query->result();
 	}
