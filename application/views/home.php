@@ -1,6 +1,7 @@
 <!doctype html>
 <head>
 <title>
+Attendum - Rewarding Your Attendance
 </title>
 </head>
 <body>
