@@ -10,6 +10,7 @@ Achievements Comparison
 <?php
 $yourEmail = $e1;
 echo $users;
+echo $users->uid;
 echo $users->uid[$yourEmail];
 $yourID = $users->uid[$yourEmail];
 $yourAchievements = array();
