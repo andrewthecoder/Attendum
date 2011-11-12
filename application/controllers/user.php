@@ -65,6 +65,11 @@ class User extends CI_Controller {
 		}
 	}
 	
+	function logout() { 
+		$this->session->sess_destroy();
+		redirect('/');
+	}
+	
 	public function signup() {
 		if($this->input->post()) {
 			$this->load->helper(array('form', 'url'));

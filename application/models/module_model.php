@@ -7,9 +7,12 @@ class Module_model extends CI_Model {
         parent::__construct();
     }
 	
-	function get_modules() {
-		$query = $this->db->get('module');
-		
+	function get_modules($uid=FALSE) {
+		if($uid) {
+			$query = $this->db->query("SELECT * FROM `module` WHERE `uid` = $uid");
+		} else {
+			$query = $this->db->get('module');
+		}
 		return $query->result();
 	}
 	
