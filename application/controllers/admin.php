@@ -132,8 +132,10 @@ class Admin extends CI_Controller {
 		$this->load->model('code_model');
 		$rows = $this->code_model->query_codes("
 			SELECT * 
-			FROM  `code`, `module` 
-			WHERE  `code`.`mid` = `module`.`mid` 
+			FROM  `code`,`module`,`user`
+			WHERE  `code`.`mid` = `module`.`mid`
+			AND `module`.`uid` = `user`.`uid` 
+			AND `user`.`uid` = {$this->session->userdata('uid')}
 			ORDER BY `code`.`start_time` DESC
 			LIMIT 0 , 30");
 	
