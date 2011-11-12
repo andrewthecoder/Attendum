@@ -24,9 +24,9 @@ class Admin extends CI_Controller {
 		$this->session->set_userdata('unid', '2');
 		//$this->output->enable_profiler(TRUE);
 		
-		if(!$this->session->userdata('logged_in')) {
+		/*if(!$this->session->userdata('logged_in')) {
 			redirect('/');
-		}
+		}*/
 	}
 	 
 	public function uni_admin()
