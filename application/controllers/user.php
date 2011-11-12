@@ -93,7 +93,7 @@ class User extends CI_Controller {
 
 			$this->form_validation->set_rules('pass', 'Password', 'trim|required|matches[passconf]|sha1');
 			$this->form_validation->set_rules('passconf', 'Confirm Password', 'trim|required|sha1');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_unique_email|callback_uni_check');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_unique_email');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -103,15 +103,27 @@ class User extends CI_Controller {
 			else
 			{
 				$str_bits = explode('@',$this->input->post('email'));
-				$data = array(
-					'email' => $this->input->post('email'),
-					'admin_rights' => 0,
-					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
-					'password' => $this->input->post('pass')
-				);
-			
-				$this->user_model->insert_user($data);
-				$this->load->view('signup_complete');
+				//echo print_r($str_bits);
+				
+				if($this->user_model->check_uni($str_bits[1])) {
+				
+					$data = array(
+						'email' => $this->input->post('email'),
+						'admin_rights' => 0,
+						'unid' => $this->user_model->get_unid_extension($str_bits[1]),
+						'password' => $this->input->post('pass')
+					);
+					
+					//echo $this->input->post('email');
+				
+					$this->user_model->insert_user($data);
+					$this->load->view('signup_complete');
+				
+				}
+				else {
+					$this->session->flashdata('uni_check_fail', 'Uni not registered');
+					redirect('/');
+				}
 			}
 
 		}
@@ -130,8 +142,8 @@ class User extends CI_Controller {
 	}
 	
 	public function uni_check($str) {
+		//echo 'STR: '.$str;
 		$str_bits = explode('@',$str);
-		echo print_r($str_bits);
 		if($this->user_model->check_uni($str_bits[1])) {
 			return true;
 		}

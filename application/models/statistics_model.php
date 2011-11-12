@@ -30,9 +30,46 @@ class Statistics_model extends CI_Model {
 									LEFT JOIN usercode AS uc ON c.cid = uc.cid
 									LEFT JOIN user AS u ON u.uid = uc.uid
 									WHERE u.unid = '.$uni_id.' 
-									GROUP BY name');
+									GROUP BY name ');
 									return $query;
 	}
+	
+	function get_toppercOfAttenPerModule($uni_id) {
+		$query = $this->db->query('SELECT 
+									m.name AS name, 
+									COUNT( DISTINCT (c.cid)) AS codes, 
+									COUNT( DISTINCT (uc.uid)) AS students,  
+									COUNT(uc.cid) AS total, 
+									(COUNT(uc.cid) * 100)  DIV (COUNT( DISTINCT (c.cid)) * COUNT( DISTINCT (uc.uid))) AS num
+									FROM code AS c
+									LEFT JOIN module AS m ON c.mid = m.mid
+									LEFT JOIN usercode AS uc ON c.cid = uc.cid
+									LEFT JOIN user AS u ON u.uid = uc.uid
+									WHERE u.unid = '.$uni_id.' 
+									GROUP BY name 
+									ORDER BY num ASC
+									LIMIT 0, 10');
+									return $query;
+	}
+	
+	function get_bottompercOfAttenPerModule($uni_id) {
+		$query = $this->db->query('SELECT 
+									m.name AS name, 
+									COUNT( DISTINCT (c.cid)) AS codes, 
+									COUNT( DISTINCT (uc.uid)) AS students,  
+									COUNT(uc.cid) AS total, 
+									(COUNT(uc.cid) * 100)  DIV (COUNT( DISTINCT (c.cid)) * COUNT( DISTINCT (uc.uid))) AS num
+									FROM code AS c
+									LEFT JOIN module AS m ON c.mid = m.mid
+									LEFT JOIN usercode AS uc ON c.cid = uc.cid
+									LEFT JOIN user AS u ON u.uid = uc.uid
+									WHERE u.unid = '.$uni_id.' 
+									GROUP BY name 
+									ORDER BY num DESC
+									LIMIT 0, 10');
+									return $query;
+	}
+	
 	
                                   
 	

@@ -116,10 +116,27 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
-			redirect('/');
+			redirect('/admin/uni_admin');
 		}
 		else {
-			redirect('/');
+			redirect('/admin/uni_admin');
+		}
+	}
+	
+	public function remove_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 0 WHERE email = '$email'");
+			
+			
+			//redirect
+			redirect('/admin/uni_admin');
+		}
+		else {
+			redirect('/admin/uni_admin');
 		}
 	}
 	
@@ -128,16 +145,26 @@ class Admin extends CI_Controller {
 		$rows = $this->code_model->query_codes("SELECT * 
 										FROM  `code` ,  `module` 
 										WHERE  `code`.`mid` =  `module`.`mid` 
+										ORDER BY `code`.`start_time`
 										LIMIT 0 , 30");
 	
+		$htmlrows = '';
 		foreach ($rows as $row) {
+			$bgcolor = 'FFB3B3';
+			if ($row->start_time > time()) {
+				$bgcolor = 'B3FFD7';
+			}
+			$start_date = date('l jS \of F Y h:i A', $row->start_time);
+			$validity_unix = $row->end_time - $row->start_time;
+			$validity = (int)date('i', $validity_unix);
+			
 			$htmlrows .= "
-			<tr>
+			<tr style='background-color: #{$bgcolor}'>
 				<td>{$row->code}</td>
-				<td>{$row->start_date}</td>
-				<td>{$row->validity}</td>
-				<td>{$row->module_name}</td>
-				<td>{$row->module_ref}</td>
+				<td>{$start_date}</td>
+				<td>{$validity} mins</td>
+				<td>{$row->name}</td>
+				<td>{$row->ref}</td>
 			</tr>";
 		}
 		

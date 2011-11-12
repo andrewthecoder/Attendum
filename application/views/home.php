@@ -30,6 +30,12 @@
 		</div>
 		<div class="span6">
 			<h3>Sign Up</h3>
+			<?php if($this->session->flashdata('uni_check_fail') != ''): ?>
+				<div class="alert-message error">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('uni_check_fail'); ?></p>
+				</div>
+			<?php endif; ?>
 			<?php echo validation_errors('<div class="alert-message error"><a class="close" href="#">×</a><p>','</p></div>'); ?>
 			<form action="<?php echo site_url('user/signup'); ?>" method="post">
 				<table>
