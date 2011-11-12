@@ -49,7 +49,8 @@ class User extends CI_Controller {
 					'email' => $user->email,
 					'unid' => $user->unid,
 					'admin_rights' => $user->admin_rights,
-					'logged_in' => TRUE
+					'logged_in' => TRUE,
+					'opt_in' => $user->opt_in
 				);
 				
 				$this->session->set_userdata($sess);
@@ -61,6 +62,7 @@ class User extends CI_Controller {
 			}
 		}
 		else {
+			$this->session->flashdata('login-failur', 'Login Failed: Email/Password Incorrect');
 			redirect('/');
 		}
 	}
