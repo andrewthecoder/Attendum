@@ -113,7 +113,7 @@ class Admin extends CI_Controller {
 										WHERE  `code`.`mid` =  `module`.`mid` 
 										LIMIT 0 , 30");
 	
-		print_r($codes);
+		print_r($rows);
 		
 /*		foreach ($rows as $row) {
 			$htmlrows .= "
