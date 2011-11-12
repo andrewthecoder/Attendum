@@ -2,7 +2,7 @@
 $cid=1;
 $start_time=1321121532;
 $end_time=1321122132;
-$lid=1;
+$lid=2;
 $seed = intval($cid+$start_time+$end_time+$lid);
 echo $seed;
 echo '<br /><br />';
