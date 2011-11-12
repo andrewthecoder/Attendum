@@ -2,7 +2,7 @@
 session_start();
 $page_title = "Home"; //This will be the page title
 include("header.ini");
-asd
-echo "you suck harder blood!";
+echo "you suck harder!";
+echo "Sudo Team";
 include("footer.ini");
 ?>
