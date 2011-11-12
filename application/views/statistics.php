@@ -22,8 +22,8 @@
 			data.addColumn('string', 'Module');
 			data.addColumn('number', 'Number Of Students');
 			data.addRows([
-				<?php foreach($percOfAttenPerModule as $percOfAttenPerModule1):
-				echo "['$percOfAttenPerModule1->name', $percOfAttenPerModule1->num],
+				<?php foreach($percofattenpermodule as $percofattenpermodule1):
+				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
 				"; 
 				endforeach; ?>
 			]);
@@ -36,11 +36,8 @@
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
-		}
-		
-		function drawChart2() {
-
-		// Create the data table.
+			
+			// Create the data table.
 			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
 			data.addColumn('number', 'Number Of Students');
@@ -59,7 +56,9 @@
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
+			
 		}
+
 	</script>
 </head>
 
