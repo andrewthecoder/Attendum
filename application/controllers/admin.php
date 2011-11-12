@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
 			$this->load->model('module_model');
 			
 			$data = $this->input->post();
-			$data['uid'] = $this->session->userdata('unid');
+			$data['uid'] = $this->session->userdata('uid');
 			
 			$this->module_model->insert_module($data);
 			$this->load->view('module_created');
@@ -102,7 +102,6 @@ class Admin extends CI_Controller {
 			//verify email/password
 			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = '$email'");
 			
-			
 			//redirect
 			$this->session->set_flashdata('add_lecturer_success','Lecturer successfully added!');
 			redirect('/admin/uni_admin');
@@ -120,7 +119,6 @@ class Admin extends CI_Controller {
 			//verify email/password
 			$this->db->query("UPDATE user SET admin_rights = 0 WHERE email = '$email'");
 			
-			
 			//redirect
 			$this->session->set_flashdata('remove_lecturer_success','Lecturer successfully removed!');
 			redirect('/admin/uni_admin');
@@ -132,11 +130,14 @@ class Admin extends CI_Controller {
 	
 	public function list_codes() {
 		$this->load->model('code_model');
-		$rows = $this->code_model->query_codes("SELECT * 
-										FROM  `code` ,  `module` 
-										WHERE  `code`.`mid` =  `module`.`mid` 
-										ORDER BY `code`.`start_time` DESC
-										LIMIT 0 , 30");
+		$rows = $this->code_model->query_codes("
+			SELECT * 
+			FROM  `code`,`module`,`user`
+			WHERE  `code`.`mid` = `module`.`mid`
+			AND `module`.`uid` = `user`.`uid` 
+			AND `user`.`uid` = {$this->session->userdata('uid')}
+			ORDER BY `code`.`start_time` DESC
+			LIMIT 0 , 30");
 	
 		$htmlrows = '';
 		foreach ($rows as $row) {
