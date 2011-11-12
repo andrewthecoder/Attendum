@@ -53,7 +53,7 @@
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div1'));
-			chart.draw(data1, options1);
+			chart1.draw(data1, options1);
 		}
 		
 	</script>
