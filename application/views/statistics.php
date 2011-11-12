@@ -10,7 +10,6 @@
 
 		// Set a callback to run when the Google Visualization API is loaded.
 		google.setOnLoadCallback(drawChart);
-		google.setOnLoadCallback(drawChart2);
 
 		// Callback that creates and populates a data table, 
 		// instantiates the pie chart, passes in the data and
@@ -18,9 +17,10 @@
 		function drawChart() {
 
 		// Create the data table.
+		//Percentage Graph
 			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
-			data.addColumn('number', 'Number Of Students');
+			data.addColumn('number', '% of Attendance');
 			data.addRows([
 				<?php foreach($percofattenpermodule as $percofattenpermodule1):
 				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
@@ -37,7 +37,6 @@
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 			
-			// Create the data table.
 			var data1 = new google.visualization.DataTable();
 			data1.addColumn('string', 'Module');
 			data1.addColumn('number', 'Number Of Students');
@@ -54,18 +53,18 @@
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
+			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div1'));
 			chart1.draw(data1, options1);
-			
 		}
-
+		
 	</script>
 </head>
 
 <body>
 <!--Div that will hold the pie chart-->
-<div id="container">
+<div class="container">
 <div id="chart_div"></div>
+<div id="chart_div1"></div>
 </div>
 </body>
 </html>
