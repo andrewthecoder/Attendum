@@ -32,7 +32,7 @@
 	
 
 			// Set chart options
-			var options = {'title':'% of attendance for eaech module',
+			var options = {'title':'% of attendance for top 10 modules',
 			'width':800,
 			'height':600, 
 			min:0, 
