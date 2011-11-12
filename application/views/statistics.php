@@ -35,6 +35,8 @@
 			var options = {'title':'% of attendance for eaech module',
 			'width':800,
 			'height':600, 
+			min:0, 
+			max:100,
 			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}}};
 
 			// Instantiate and draw our chart, passing in some options.
