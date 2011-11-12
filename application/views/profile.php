@@ -30,7 +30,7 @@
 				</form>
 			<?php else: ?>
 				<form action="<?php echo site_url('user/hide_data'); ?>" method="post" style="margin:0 auto;width:200px;">
-					<input type="submit" name="show_my_data" value="Hide My Data" class="btn large primary">
+					<input type="submit" name="show_my_data" value="Show My Data" class="btn large primary">
 				</form>
 			<?php endif; ?>
 		</div>
