@@ -14,6 +14,7 @@ Email:<?php echo $user->email; ?>
 Uni uid:<?php echo $user->unid; ?>
 Password:<?php echo $user->password; ?>
 </p>
+<?php endforeach; ?>
 <?php foreach($achievement1 as $a): ?>
 <p>
 Name:<?php echo $a->name; ?>
@@ -21,9 +22,6 @@ Points:<?php echo $a->points; ?>
 Description:<?php echo $a->description; ?>
 </p>
 <?php endforeach; ?>
-<p>
-<?php foreach($user1 as $user): ?>
-</p>
 </div>
 </body>
 </html>
