@@ -9,8 +9,11 @@ Attendum - Rewarding Your Attendance
 <div class="container">
 	<div>
 		<h3>Create Module</h3>
+<<<<<<< HEAD
 		<form action="<?php site_url('admin/submit_module') ?>" method="post">
 		</form>
+=======
+>>>>>>> f52841bdd10d5909d2efe2d070dd46340e35f352
 	</div>
 </div>
 </body>
