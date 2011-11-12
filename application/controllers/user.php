@@ -173,7 +173,7 @@ class User extends CI_Controller {
 		$this->db->where('uid', $e1id);
 		$query = $this->db->get('user');
 		$row = $query->row_array(); 
-		$e1 = $row['uid']
+		$e1 = $row['uid'];
 		if(strlen($e1) < 1): $error .= 'You must be logged in to compare your achievements.\n';
 		$e2 = $this->input->post('e2');
 
