@@ -24,6 +24,11 @@
 			</form>
 		</div>
 		<div class="span8">
+			<h3>Controlling Your Data</h3>
+			<p>By default all of your data is hidden. That means that all of your achievements and points are hidden from other
+			users. By clicking the button below you can toggle whether your data is shared or not. If you choose to share your data
+			that means that your achievements and points can be seen by other users for comparisons.</p>
+			<p><strong>We never share your email address with another user. They must have it already to compare people.</strong></p>
 			<?php if($this->session->userdata('opt_in')): ?>
 				<form action="<?php echo site_url('user/hide_data'); ?>" method="post" style="margin:0 auto;width:200px;">
 					<input type="submit" name="hide_my_data" value="Hide My Data" class="btn large primary">
