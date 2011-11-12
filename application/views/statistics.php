@@ -20,11 +20,8 @@
 		//Percentage Graph
 			var data = new google.visualization.DataTable();
 			data.addColumn('number', '% of Attendance');
-			data.addRows(1);
-				<?php 
-				$i = 0;
-				data.addRows($percofattenpermodule.length);
-				foreach($percofattenpermodule as $percofattenpermodule1):
+			data.addRows([
+				<?php foreach($percofattenpermodule as $percofattenpermodule1):
 				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
 				"; 
 				endforeach; ?>

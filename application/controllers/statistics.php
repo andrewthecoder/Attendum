@@ -29,9 +29,7 @@ class statistics extends CI_Controller {
 		
 		$data['num_numofusersforcourse'] = $query->num_rows();
 		
-		
-		
-		$data['percofattenpermodule'] = $this->statistics_model->get_percOfAttenPerModule(2)->result;
+		$data['percofattenpermodule'] = $this->statistics_model->get_percOfAttenPerModule(2)->result();
 		
 		$this->load->view('statistics', $data);
 	}
