@@ -1,7 +1,10 @@
 <?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
-	<?php echo print_r($this->session->userdata('logged_in')); ?>
+	<?php echo $this->session->userdata('logged_in'); ?>
+	<?php echo $this->session->userdata('email'); ?>
+	<?php echo $this->session->userdata('admin_rights'); ?>
+	<?php echo $this->session->userdata('unid'); ?>
 	<div class="row">
 		<div class="span10">
 			<h2>Welcome to Attendum</h2>
