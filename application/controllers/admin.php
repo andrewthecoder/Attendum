@@ -52,13 +52,16 @@ class Admin extends CI_Controller {
 		$this->load->model('module_model');
 		$this->load->helper('form');
 		$module_rows = $this->module_model->get_modules($this->session->userdata('unid'));
+		
+		print_r($module_rows);
+/*		
 		foreach ($module_rows as $row) {
 			$module_refs['mid'] = $row['ref'];
 		}
 		$data = form_dropdown('mid', $module_refs);
 
 		$this->load->view('create_code', $data);
-		
+*/		
 	}
 	
 }
