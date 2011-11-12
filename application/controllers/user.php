@@ -121,7 +121,7 @@ class User extends CI_Controller {
 			'e2' => $e2,
 			'users' => $this->user_model->get_users(),		
 			'userachievements' => $this->user_achievement_model->get_user_achievements(),
-			'achievements' => $this->achievement_model->get_achievements()
+			'achievements' => $this->achievement_model->get_achievements(),
 		);
 		
 		$this->load->view('comparing_achievements', $data);
