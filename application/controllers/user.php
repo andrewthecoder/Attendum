@@ -237,14 +237,14 @@ class User extends CI_Controller {
 		$this->db->where('uid', $e1id);
 		$query = $this->db->get('user');
 		$row = $query->row_array(); 
-		$e1 = $row['uid'];/*
+		$e1 = $row['uid'];
 		if(strlen($e1) < 1): $error .= 'You must be logged in to compare your achievements.\n';
 		$e2 = $this->input->post('e2');
 
 		//Is the email address in the database?
 		$this->db->where('email', $e2);
 		$query = $this->db->get('user');
-		$row = $query->row_array(); 
+		$row = $query->row_array();/*
 		if($query->num_rows() < 1)
 		{
 			$error .= 'Either the email address is not registered or the user has hidden their achievements.\n';
