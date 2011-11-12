@@ -38,7 +38,7 @@
 			chart.draw(data, options);
 			
 			// Create the data table.
-			var data = new google.visualization.DataTable();
+			var data1 = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
 			data.addColumn('number', 'Number Of Students');
 			data.addRows([
@@ -49,12 +49,12 @@
 			]);
 
 			// Set chart options
-			var options = {'title':'How many students per module',
+			var options1 = {'title':'How many students per module',
 			'width':800,
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 			
 		}
