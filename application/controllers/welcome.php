@@ -23,7 +23,7 @@ class Welcome extends CI_Controller {
 		
 		$data['user1'] = $this->user_model->get_user();
 		
-		$this->load->view('welcome_message', $data);
+		$this->load->view('home', $data);
 	}
 }
 
