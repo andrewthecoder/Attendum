@@ -18,11 +18,11 @@ class Admin extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	 
-	 public function __construct() {
+	public function __construct() {
 		parent::__construct();
-		
+
 		$this->output->enable_profiler(TRUE);
-	 }
+	}
 	 
 	public function index()
 	{
