@@ -67,7 +67,7 @@
 <body>
 
 <?php foreach($user1 as $user): ?>
-<p><?php $user->email; ?></p>
+<p><?php echo $user->email; ?></p>
 <?php endforeach; ?>
 
 <div id="container">
