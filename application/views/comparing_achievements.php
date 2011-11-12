@@ -82,8 +82,8 @@ if(count($yourAchievements) < 1)
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
 			endforeach;
+		}
 	}
-	endif;
 }
 else
 {
@@ -97,7 +97,6 @@ else
 		endforeach;
 	}
 }
-endif;
 
 ?>
 

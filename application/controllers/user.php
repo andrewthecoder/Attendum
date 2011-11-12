@@ -59,7 +59,7 @@ class User extends CI_Controller {
 				redirect('/');
 			}
 			else {
-				$this->session->set_flashdata('login-failure', 'Login Failed: Email/Password Incorrect');
+				$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
 				$this->load->view('home');
 			}
 		}
