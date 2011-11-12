@@ -26,7 +26,7 @@ Description:<?php echo $a->description; ?>
 	<div>
 		<h3>Sign Up</h3>
 		<?php echo validation_errors('<div class="alert-message warning"><a class="close" href="#">×</a><p>','</p></div>'); ?>
-		<form action="<?php site_url('user/signup'); ?>" method="post">
+		<form action="<?php echo site_url('user/signup'); ?>" method="post">
 			<table>
 			<tr>
 			<td>Email</td>
