@@ -57,10 +57,9 @@ class Admin extends CI_Controller {
 			$module_refs[$row->mid] = $row->ref;
 		}
 		$data = form_dropdown('mid', $module_refs);
+		$data = Array("module_dropdown" => $data);
 		
-		print_r($data);
-		
-		//$this->load->view('create_code', $data);
+		$this->load->view('create_code', $data);
 		
 	}
 	
