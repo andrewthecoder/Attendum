@@ -1,4 +1,3 @@
-<!--#include FILE="header.ini" -->
 <?php 
 session_start();
 $page_title = "Home"; //This will be the page title
