@@ -17,7 +17,7 @@ View Codes | Attendum
 				<td>Module Name</td>
 				<td>Module Reference</td>
 			</tr>
-			<?php echo $rows ?>
+			<?php echo $htmlrows ?>
 		</table>
 	</div>
 </div>

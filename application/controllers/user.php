@@ -82,22 +82,7 @@ class User extends CI_Controller {
 		redirect('/');
 	}
 	
-	public function set_lecturer(){
-		if($this->input->post()) {
-			//get email/password
-			$email = $this->input->post('email');
-			
-			//verify email/password
-			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = $email");
-			
-			
-			//redirect
-			redirect('/');
-		}
-		else {
-			redirect('/');
-		}
-	}
+	
 	
 	public function signup() {
 		if($this->input->post()) {
@@ -187,11 +172,12 @@ class User extends CI_Controller {
 		{
 			$this->db->where('email', $e2);
 			$query = $this->db->get('user');
+			$row = $query->row_array(); 
 			if($query->num_rows() < 1)
 			{
 				$error = 'Either the email address is not registered or the user has hidden their achievements.';
 			}
-			elseif($query->opt_in == 0)
+			elseif($row['opt_in'] == 0)
 			{//Are has the other user permitted people to view their achievements?
 				$error = 'Either the email address is not registered or the user has *hidden* their achievements.';
 			}

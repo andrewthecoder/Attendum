@@ -106,6 +106,40 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function set_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = '$email'");
+			
+			
+			//redirect
+			redirect('/');
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
+	public function remove_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 0 WHERE email = '$email'");
+			
+			
+			//redirect
+			redirect('/');
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
 	public function list_codes() {
 		$this->load->model('code_model');
 		$rows = $this->code_model->query_codes("SELECT * 
@@ -113,19 +147,24 @@ class Admin extends CI_Controller {
 										WHERE  `code`.`mid` =  `module`.`mid` 
 										LIMIT 0 , 30");
 	
-		print_r($rows);
-		
-/*		foreach ($rows as $row) {
+		foreach ($rows as $row) {
+			$start_date = date('l jS \of F Y h:i A', $row->start_time);
+			$validity_unix = $row->end_time - $row->start_time;
+			$validity = date('i', $validity_unix);
+			
 			$htmlrows .= "
 			<tr>
-				<td>{$row['code']}</td>
-				<td>{$row['start_date']}</td>
-				<td>{$row['validity']}</td>
-				<td>{$row['module_name']}</td>
-				<td>{$row['module_ref']}</td>
+				<td>{$row->code}</td>
+				<td>{$start_date}</td>
+				<td>{$validity}</td>
+				<td>{$row->name}</td>
+				<td>{$row->ref}</td>
 			</tr>";
-		//}
-*/	}
+		}
+		
+		$outdata = Array('htmlrows' => $htmlrows);
+		$this->load->view('list_codes', $outdata);
+	}
 	
 }
 
