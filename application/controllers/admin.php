@@ -113,19 +113,20 @@ class Admin extends CI_Controller {
 										WHERE  `code`.`mid` =  `module`.`mid` 
 										LIMIT 0 , 30");
 	
-		print_r($rows);
-		
-/*		foreach ($rows as $row) {
+		foreach ($rows as $row) {
 			$htmlrows .= "
 			<tr>
-				<td>{$row['code']}</td>
-				<td>{$row['start_date']}</td>
-				<td>{$row['validity']}</td>
-				<td>{$row['module_name']}</td>
-				<td>{$row['module_ref']}</td>
+				<td>{$row->code}</td>
+				<td>{$row->start_date}</td>
+				<td>{$row->validity}</td>
+				<td>{$row->module_name}</td>
+				<td>{$row->module_ref}</td>
 			</tr>";
-		//}
-*/	}
+		}
+		
+		$outdata = Array('htmlrows' => $htmlrows);
+		$this->load->view('list_codes', $outdata);
+	}
 	
 }
 
