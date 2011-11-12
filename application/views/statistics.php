@@ -20,10 +20,9 @@
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Lecture');
       data.addColumn('number', 'attendance');
-      data.addRows([
-        ['lecture name 1', 3],
-        ['lecture name 2', 1],
-      ]);
+	  foreach($user1 as $user): 
+	  data.addRow([$user->email, $user->uid]);
+	  endforeach;
 
       // Set chart options
       var options = {'title':'how many people attend each lecture theater',
