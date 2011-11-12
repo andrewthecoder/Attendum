@@ -27,6 +27,7 @@
 				foreach($percofattenpermodule as $percofattenpermodule1):
 				echo "data.setValue($i,0,'$percofattenpermodule1->name');";
 				echo "data.setValue($i,1,$percofattenpermodule1->num);";
+				$i++;
 				endforeach; ?>
 	
 
