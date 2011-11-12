@@ -148,13 +148,17 @@ class Admin extends CI_Controller {
 										LIMIT 0 , 30");
 	
 		foreach ($rows as $row) {
+			$start_date = date('l jS \of F Y h:i A', $row->start_time);
+			$validity_unix = $row->end_time - $row->start_time;
+			$validity = date('i', $validity_unix);
+			
 			$htmlrows .= "
 			<tr>
 				<td>{$row->code}</td>
-				<td>{$row->start_date}</td>
-				<td>{$row->validity}</td>
-				<td>{$row->module_name}</td>
-				<td>{$row->module_ref}</td>
+				<td>{$start_date}</td>
+				<td>{$validity}</td>
+				<td>{$row->name}</td>
+				<td>{$row->ref}</td>
 			</tr>";
 		}
 		
