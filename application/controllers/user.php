@@ -78,10 +78,10 @@ class User extends CI_Controller {
 		
 	}
 	
-	public function compare_chooser()
+	public function comparison_chooser()
 	{
 		$this->load->view('compaison_chooser', $data);
-		}
+	}
 	
 	public function compare_achievements()
 	{

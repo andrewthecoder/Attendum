@@ -14,3 +14,4 @@ Achievements Comparison
 <input type="text" name="e2">
 <input type="submit" value="Go">
 </form>
+</body>
