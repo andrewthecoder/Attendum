@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class statistics extends CI_Controller {
+class Site extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,13 +19,11 @@ class statistics extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->output->enable_profiler(TRUE);
+		$this->load->model('user_model');
 		
-		$this->load->model('statistics_model');
+		$data['user1'] = $this->user_model->get_users();
 		
-		$data['numofusersforcourse'] = $this->statistics_model->get_numOfStudentsPerCourse(1);
-		
-		$this->load->view('statistics', $data);
+		$this->load->view('home', $data);
 	}
 }
 
