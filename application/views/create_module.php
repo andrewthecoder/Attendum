@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
 <title>
-Attendum - Rewarding Your Attendance
+Attendum - Rewarding Your Attendance | Create Module
 </title>
 <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 </head>
@@ -9,11 +9,22 @@ Attendum - Rewarding Your Attendance
 <div class="container">
 	<div>
 		<h3>Create Module</h3>
-<<<<<<< HEAD
-		<form action="<?php site_url('admin/submit_module') ?>" method="post">
+		<form action="<?php echo site_url('admin/submit_module'); ?>" method="post">
+			<table>
+				<tr>
+					<td><label for="name">Module Name</label></td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td><label for="ref">Module Reference</label></td>
+					<td><input type="text" name="ref"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Submit"></td>
+					<td></td>
+				</tr>
+			</table>
 		</form>
-=======
->>>>>>> f52841bdd10d5909d2efe2d070dd46340e35f352
 	</div>
 </div>
 </body>
