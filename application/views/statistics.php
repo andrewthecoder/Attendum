@@ -27,10 +27,7 @@
         ['Zucchini', 1],
         ['Pepperoni', 2]
       ]);
-	   <?php foreach($user1 as $user):
-	  echo "data.addRow(['$user->email', '$user->uid'];
-	  ";
-	  endforeach; ?>
+	  
 
       // Set chart options
       var options = {'title':'How Much Pizza I Ate Last Night',
