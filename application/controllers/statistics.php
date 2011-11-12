@@ -23,7 +23,7 @@ class statistics extends CI_Controller {
 		
 		$this->load->model('statistics_model');
 		
-		$data['numofusersforcourse'] = $this->user_model->get_numOfStudentsPerCourse(1);
+		$data['numofusersforcourse'] = $this->statistics_model->get_numOfStudentsPerCourse(1);
 		
 		$this->load->view('statistics', $data);
 	}

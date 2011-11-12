@@ -21,8 +21,8 @@
 			data.addColumn('string', 'Module');
 			data.addColumn('number', 'Number Of Students');
 			data.addRows([
-				<?php foreach($numofusersforcourse1 as $numofusersforcourse):
-				echo "['$numofusersforcourse->name', $numofusersforcourse->num],
+				<?php foreach($numofusersforcourse as $numofusersforcourse1):
+				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
 				"; 
 				endforeach; ?>
 			]);
