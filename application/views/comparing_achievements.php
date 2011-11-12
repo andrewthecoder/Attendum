@@ -40,9 +40,7 @@ foreach($yourAchievements as $a):
 			unset($theirAchievements[$b]);
 	endforeach;
 endforeach;
-?>
-
-<?php 
+ 
 if(count($commonAchievements) > 0)
 {
 echo "<p>Achievements you have in common</p>";
@@ -51,9 +49,7 @@ foreach($commonAchievements as $ca):
 	echo $achievements[$ca]->description;
 endforeach;
 }
-?>
 
-<?php 
 if(count($yourAchievements) > 0)
 {
 echo "<p>Achievements you have that they don't</p>";
@@ -62,9 +58,7 @@ foreach($yourAchievements as $ca):
 	echo $achievements[$ca]->description;
 endforeach;
 }
-?>
 
-<?php
 if(count($theirAchievements) > 0)
 {
 echo "<p>Achievements they have that you don't</p>";
@@ -73,6 +67,7 @@ foreach($theirAchievements as $ca):
 	echo $achievements[$ca]->description;
 endforeach;
 }
+
 ?>
 
 </div>
