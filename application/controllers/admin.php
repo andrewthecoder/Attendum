@@ -147,6 +147,7 @@ class Admin extends CI_Controller {
 										WHERE  `code`.`mid` =  `module`.`mid` 
 										LIMIT 0 , 30");
 	
+		$htmlrows = '';
 		foreach ($rows as $row) {
 			$start_date = date('l jS \of F Y h:i A', $row->start_time);
 			$validity_unix = $row->end_time - $row->start_time;
