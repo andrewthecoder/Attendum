@@ -29,6 +29,11 @@ class Admin extends CI_Controller {
 		}
 	}
 	 
+	public function uni_admin()
+	{
+		$this->load->view('uni_admin');
+	}
+	 
 	public function index()
 	{	
 		$this->load->view('home');
