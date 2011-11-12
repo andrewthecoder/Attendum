@@ -124,7 +124,7 @@ class Admin extends CI_Controller {
 				<td>{$row['module_name']}</td>
 				<td>{$row['module_ref']}</td>
 			</tr>";
-		}
+		//}
 */	}
 	
 }
