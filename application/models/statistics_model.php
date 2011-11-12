@@ -18,5 +18,19 @@ class Statistics_model extends CI_Model {
 		return $query->result();
 	}
 	
+		
+	function get_percOfAttenPerModule() {
+		$query = $this->db->query('SELECT m.name AS name, COUNT( DISTINCT (c.cid))  * COUNT( DISTINCT (uc.uid))  DIV COUNT(uc.cid) AS num
+                                    FROM code AS c
+
+									LEFT JOIN module AS m ON c.mid = m.mid
+									LEFT JOIN usercode AS uc ON c.cid = uc.cid
+									LEFT JOIN user AS u ON u.uid = uc.uid);
+									return $query->result();');
+		return $query->result();
+	}
+	
+                                  
+	
 	
 }
