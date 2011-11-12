@@ -70,6 +70,26 @@ class User extends CI_Controller {
 		redirect('/');
 	}
 	
+	public function set_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = $email");
+			
+			
+				//redirect
+				redirect('/');
+			}
+			else {
+			}
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
 	public function signup() {
 		if($this->input->post()) {
 			$this->load->helper(array('form', 'url'));
