@@ -3,6 +3,8 @@
 	<?php $this->load->view('inc/header.php'); ?>
 	<div class="row">
 		<div class="span10">
+		<h2>Welcome to Attendum</h2>
+		<p>Attendum is a new way to reward students for engaging with their course.</p>
 		</div>
 		<div class="span6">
 			<h3>Sign Up</h3>
