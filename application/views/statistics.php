@@ -29,9 +29,11 @@
 			]);
 
 			// Set chart options
-			var options = {'title':'How many students per module',
-			'width':800,
-			'height':600, 
+			var options = {title:'How many students per module',
+			width:800,
+			height:600, 
+			min:0,
+			max:100,
 			hAxis: {title: "Module"}};
 
 			// Instantiate and draw our chart, passing in some options.
