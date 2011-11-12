@@ -164,7 +164,7 @@ class User extends CI_Controller {
 		$query = $this->db->get('user');
 		if($query->num_rows() < 1){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
 		//Are has the other user permitted people to view their achievements?
-		elseif($query->opt_in == 0){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
+		elseif($query->opt_in == 0){ $error = 'Either the email address is not registered or the user has *hidden* their achievements.';}
 
 		$data = array(
 			'error' => $error,
