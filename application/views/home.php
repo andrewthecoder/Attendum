@@ -1,20 +1,26 @@
 <?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
-	<?php echo print_r($this->session->userdata('logged_in')); ?>
+	<?php echo 'LOGGEDIN: '.$this->session->userdata('logged_in'); ?>
+	<br>
+	<?php echo 'EMAIL: '.$this->session->userdata('email'); ?>
+	<br>
+	<?php echo 'ADMIN_RIGHTS: '.$this->session->userdata('admin_rights'); ?>
+	<br>
+	<?php echo 'UNID: '.$this->session->userdata('unid'); ?>
 	<div class="row">
 		<div class="span10">
 			<h2>Welcome to Attendum</h2>
 			<p>Attendum is a new way to reward students for engaging with their course.</p>
 			<div id="login" class="span6">
 				<h3>Login</h3>
-				<form action="<?php echo site_url('user/login'); ?> method="post">
+				<form action="<?php echo site_url('user/login'); ?>" method="post">
 					<table>
 					<tr>
 					<td><label for="username">Username</label></td><td><input type="text" name="username"></td>
 					</tr>
 					<tr>
-					<td><label for="password">Password</label></td><td><input type="text" name="password"></td>
+					<td><label for="password">Password</label></td><td><input type="password" name="password"></td>
 					</tr>
 					<tr>
 					<td></td><td><input type="submit" name="login" class="btn primary" value="Login"></td>
