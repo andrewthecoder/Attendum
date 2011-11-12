@@ -4,7 +4,7 @@
 	<h2>Your Profile</h2>
 	<h4><strong>Email: </strong><?php echo $this->session->userdata('email'); ?></h4>
 	<div class="row">
-		<div class="span6">
+		<div class="span8">
 			<h3>Change Password</h3>
 			<form action="<?php echo site_url('user/change_pass'); ?>" method="post">
 				<table>
@@ -23,13 +23,13 @@
 				</table>
 			</form>
 		</div>
-		<div class="span6">
-			<?php if($this->session->userdata('opt_in')): ?>
-				<form action="<?php echo site_url('user/show_data'); ?>" method="post">
+		<div class="span8">
+			<?php if(!$this->session->userdata('opt_in')): ?>
+				<form action="<?php echo site_url('user/show_data'); ?>" method="post" style="margin:0 auto;width:200px;">
 					<input type="submit" name="hide_my_data" value="Hide My Data" class="btn large primary">
 				</form>
 			<?php else: ?>
-				<form action="<?php echo site_url('user/hide_data'); ?>" method="post">
+				<form action="<?php echo site_url('user/hide_data'); ?>" method="post" style="margin:0 auto;width:200px;">
 					<input type="submit" name="show_my_data" value="Hide My Data" class="btn large primary">
 				</form>
 			<?php endif; ?>
