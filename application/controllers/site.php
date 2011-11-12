@@ -21,7 +21,7 @@ class Site extends CI_Controller {
 	{
 		$this->load->model('user_model');
 		
-		$data['user1'] = $this->user_model->get_user();
+		$data['user1'] = $this->user_model->get_users();
 		
 		$this->load->view('home', $data);
 	}
