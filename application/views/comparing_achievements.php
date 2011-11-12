@@ -8,7 +8,7 @@ Achievements Comparison
 <div id="container">
 
 <?php
-if(strln($error) > 0){echo $error;}
+if(strlen($error) > 0){echo $error;}
 
 $this->load->model('user_model');
 
