@@ -68,7 +68,6 @@ class User extends CI_Controller {
 	
 	public function uni_check($str) {
 		$str_bits = explode('@',$str);
-		echo print_r($str_bits).'COMPARISON:'.($str == 'uea.ac.uk');
 		if($this->user_model->check_uni($str_bits[1])) {
 			return true;
 		}

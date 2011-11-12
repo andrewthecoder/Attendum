@@ -6,12 +6,12 @@ Achievements Comparison
 </head>
 <body>
 <div id="container">
-
-<form action="<?php echo site_url('user/compare_achievements');?>" method="POST">
+<form action="<?php echo site_url('user/compare_achievements');?>" method="post">
 <p>Your email address</p>
 <input type="text" name="e1">
 <p>Someone else's email address</p>
 <input type="text" name="e2">
 <input type="submit" value="Go">
+</div>
 </form>
 </body>
