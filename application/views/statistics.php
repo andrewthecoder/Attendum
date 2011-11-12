@@ -40,7 +40,7 @@
 			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}}};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 			
 			var data1 = new google.visualization.DataTable();
@@ -59,7 +59,7 @@
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div1'));
+			var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
 			chart1.draw(data1, options1);
 		}
 		
