@@ -8,7 +8,7 @@ Achievements Comparison
 <div id="container">
 
 <?php
-echo $error
+echo $error;
 
 $this->load->model('user_model');
 
