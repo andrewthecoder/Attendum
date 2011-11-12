@@ -18,7 +18,7 @@
 
 		// Create the data table.
 		//Percentage Graph
-			var data = new google.visualization.ColumnChart();
+			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
 			data.addColumn('number', '% of Attendance');
 			data.addRows([
@@ -30,17 +30,14 @@
 
 			// Set chart options
 			var options = {'title':'How many students per module',
-				'width':800,
-				'height':600, 
-				'max':100,
-				'min':0
-			};
+			'width':800,
+			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 			
-			var data1 = new google.visualization.ColumnChart();
+			var data1 = new google.visualization.DataTable();
 			data1.addColumn('string', 'Module');
 			data1.addColumn('number', 'Number Of Students');
 			data1.addRows([
