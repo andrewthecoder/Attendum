@@ -16,7 +16,7 @@ code
 lecture
 -lid
 -name
--code
+-module_ref
 -unid
 
 
@@ -37,4 +37,8 @@ user
 usercode
 -uid
 -cid
+
+userlecture
+-uid
+-lid
 
