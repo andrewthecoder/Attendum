@@ -3,7 +3,7 @@
 	<?php $this->load->view('inc/header.php'); ?>
 	<div class="row">
 		<h2>About Us</h2>
-		</h3>Attendum</h3>
+		<h3>Attendum</h3>
 		<p>Attendum is in two main sections.</p>
 		<p>The first is a fun game for students to gain achievements and even prizes for attending lectures. They can track their progress 
 			and compare with their friends and other classmates. </p>
