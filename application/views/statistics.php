@@ -10,11 +10,35 @@
 
 		// Set a callback to run when the Google Visualization API is loaded.
 		google.setOnLoadCallback(drawChart);
+		google.setOnLoadCallback(drawChart2);
 
 		// Callback that creates and populates a data table, 
 		// instantiates the pie chart, passes in the data and
 		// draws it.
 		function drawChart() {
+
+		// Create the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Module');
+			data.addColumn('number', 'Number Of Students');
+			data.addRows([
+				<?php foreach($percOfAttenPerModule as $percOfAttenPerModule1):
+				echo "['$percOfAttenPerModule1->name', $percOfAttenPerModule1->num],
+				"; 
+				endforeach; ?>
+			]);
+
+			// Set chart options
+			var options = {'title':'How many students per module',
+			'width':800,
+			'height':600};
+
+			// Instantiate and draw our chart, passing in some options.
+			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+		
+		function drawChart2() {
 
 		// Create the data table.
 			var data = new google.visualization.DataTable();
@@ -29,8 +53,8 @@
 
 			// Set chart options
 			var options = {'title':'How many students per module',
-			'width':400,
-			'height':300};
+			'width':800,
+			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));

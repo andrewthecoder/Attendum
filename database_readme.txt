@@ -10,13 +10,13 @@ code
 -start_time
 -end_time
 -code
--lid
+-mid
 
 
-lecture
--lid
+module
+-mid
 -name
--module_ref
+-ref
 -unid
 
 
@@ -38,7 +38,5 @@ usercode
 -uid
 -cid
 
-userlecture
--uid
--lid
+
 
