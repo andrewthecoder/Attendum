@@ -21,7 +21,7 @@ class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 	}
 	 
 	public function index()
@@ -35,15 +35,15 @@ class Admin extends CI_Controller {
 	
 	public function submit_module() {
 		if($this->input->post()) {
-			$data = $this->input->post();
-			$data[uid] = 3;
-			
 			$this->load->model('module_model');
+			
+			$data = $this->input->post();
+			$data['uid'] = $this->session->userdata('unid');
+			
 			$this->module_model->insert_module($data);
 			$this->load->view('module_created');
-		}
-		else {
-			redirect('/admin');
+		} else {
+			redirect('/admin/create_module/');
 		}
 	}
 	
