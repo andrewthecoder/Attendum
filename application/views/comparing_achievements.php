@@ -34,8 +34,8 @@ foreach($yourAchievements as $a):
 	foreach($theirAchievements as $b):
 		if($a == $b)
 			array_push($commonAchievements, $a);
-			array_pull($yourAchievements, $a);
-			array_pull($theirAchievements, $b);
+			unset($yourAchievements[$a]);
+			unset($theirAchievements[$b]);
 	endforeach;
 endforeach;
 ?>
