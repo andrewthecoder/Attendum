@@ -12,6 +12,7 @@ Achievements Comparison
 <p>Someone else's email address</p>
 <input type="text" name="e2">
 <input type="submit" value="Go">
-</div>
 </form>
+</div>
 </body>
+</html>
