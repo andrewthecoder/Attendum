@@ -63,6 +63,21 @@ class Admin extends CI_Controller {
 		
 	}
 	
+	public function submit_code() {
+		if($this->input->post()) {
+			$this->load->model('module_model');
+			$this->load->model('code_model');
+			
+			$indata = $this->input->post();
+			print_r($indata);
+			
+//			$this->module_model->insert_module($outdata);
+//			$this->load->view('code_created', $outdata);
+		} else {
+			redirect('/admin/create_module/');
+		}
+	}
+	
 }
 
 /* End of file welcome.php */
