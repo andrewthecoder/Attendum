@@ -17,9 +17,10 @@
 		function drawChart() {
 
 		// Create the data table.
+		//Percentage Graph
 			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
-			data.addColumn('number', 'Number Of Students');
+			data.addColumn('number', '% of Attendance');
 			data.addRows([
 				<?php foreach($percofattenpermodule as $percofattenpermodule1):
 				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
@@ -61,7 +62,7 @@
 
 <body>
 <!--Div that will hold the pie chart-->
-<div id="container">
+<div class="container">
 <div id="chart_div"></div>
 <div id="chart_div1"></div>
 </div>
