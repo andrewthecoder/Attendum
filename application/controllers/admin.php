@@ -36,7 +36,9 @@ class Admin extends CI_Controller {
 	public function submit_module() {
 		if($this->input->post()) {
 			$this->load->model('module_model');
-			$this->module_model->insert_module($this->input->post());
+			$data = $this->input->post();
+			print_r($data);
+//			$this->module_model->insert_module();
 		}
 		else {
 			redirect('/admin');

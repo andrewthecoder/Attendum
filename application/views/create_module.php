@@ -13,14 +13,14 @@ Create Module | Attendum
 			<table>
 				<tr>
 					<td><label for="name">Module Name</label></td>
-					<td><input type="text" name="name"></td>
+					<td><input type="text" name="name" /></td>
 				</tr>
 				<tr>
 					<td><label for="ref">Module Reference</label></td>
-					<td><input type="text" name="ref"></td>
+					<td><input type="text" name="ref" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" name="submit" value="Submit"></td>
+					<td><input type="submit" value="Submit" /></td>
 					<td></td>
 				</tr>
 			</table>
