@@ -46,7 +46,7 @@
 						<td><input type="text" name="validity" id="validity" /></td>
 					</tr>
 					<tr>
-						<td><input type="submit" value="Submit" /></td>
+						<td><input type="submit" value="Submit" class="btn primary" /></td>
 						<td></td>
 					</tr>
 				</table>
