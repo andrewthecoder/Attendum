@@ -3,6 +3,11 @@
 	<head>
 	<!--Load the AJAX API-->
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+</head>
+
+<body>
+<!--Div that will hold the pie chart-->
 	<script type="text/javascript">
 
 		// Load the Visualization API and the piechart package.
@@ -64,11 +69,6 @@
 		}
 		
 	</script>
-</head>
-
-<body>
-<!--Div that will hold the pie chart-->
-
 <div class="container">
 <div id="chart_div"></div>
 <div id="chart_div1"></div>
