@@ -9,6 +9,7 @@ Module Created | Attendum
 	<div class="container" style="padding-top: 30px;">
 	<h1 style="color:green;">Module Created!</h1>
 	<p>...Clever boy.</p>
+	<a href="<?php echo site_url('admin/'); ?>">Back to Admin</a>
 	</div>
 </body>
 </html>
