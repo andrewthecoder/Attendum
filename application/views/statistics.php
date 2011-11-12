@@ -39,9 +39,9 @@
 			
 			// Create the data table.
 			var data1 = new google.visualization.DataTable();
-			data.addColumn('string', 'Module');
-			data.addColumn('number', 'Number Of Students');
-			data.addRows([
+			data1.addColumn('string', 'Module');
+			data1.addColumn('number', 'Number Of Students');
+			data1.addRows([
 				<?php foreach($numofusersforcourse as $numofusersforcourse1):
 				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
 				"; 
@@ -55,7 +55,7 @@
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
+			chart1.draw(data1, options1);
 			
 		}
 
