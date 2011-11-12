@@ -12,18 +12,18 @@
 		$(function() {
 			$( "#validfrom" ).datetimepicker({ 
 				dateFormat: 'dd/mm/yy',
-				separator: ' @ '
+				separator: ' @ ',
+				stepMinute: 5
 			});
 			$( "#validity" ).timepicker({
 				showHour: false,
-				timeFormat: 'mm',
+				showButtonPanel: false,
+				timeFormat: 'm',
 				stepMinute: 5,
 				minuteMin: 5,
-				minuteMax: 120,
+				minuteMax: 60,
 				timeOnlyTitle: "Choose Code Validity",
-				minuteText: "Minutes",
-				currentText: "",
-				minuteGrid: 5
+				minuteText: "Minutes"
 			});
 		});
 	</script>
