@@ -93,7 +93,7 @@ class User extends CI_Controller {
 
 			$this->form_validation->set_rules('pass', 'Password', 'trim|required|matches[passconf]|sha1');
 			$this->form_validation->set_rules('passconf', 'Confirm Password', 'trim|required|sha1');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_unique_email|callback_uni_check');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_unique_email');
 
 			if ($this->form_validation->run() == FALSE)
 			{
