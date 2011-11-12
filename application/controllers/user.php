@@ -95,7 +95,7 @@ class User extends CI_Controller {
 
 			if ($this->form_validation->run() == FALSE)
 			{
-				$data['user1'] = $this->user_model->get_users();
+				//$data['user1'] = $this->user_model->get_users();
 				$this->load->view('home');
 			}
 			else
