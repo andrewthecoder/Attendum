@@ -79,7 +79,7 @@ class User_model extends CI_Model {
 		$this->db->where('password', $pass);
 		$query = $this->db->get('user');
 		
-		if($query->num_rows() > 0)) {
+		if($query->num_rows() > 0) {
 			return true;
 		}
 		else {
