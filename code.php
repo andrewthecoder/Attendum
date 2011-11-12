@@ -1,8 +1,9 @@
 <?php
+$unid = 2;
 $chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWZYZ';
-$string = 'LEC';
+mt_srand($unid);
 for ($p = 0; $p < 6; $p++) {
-	$string .= $chars[srand(0, 35)];
+	$string .= $chars[mt_rand(0, 35)];
 }
 echo $string;
 ?>
