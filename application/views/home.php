@@ -1,7 +1,7 @@
 <?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
-	<?php echo print_r($this->session->userdata('ip_address')); ?>
+	<?php echo print_r($this->session->userdata('logged_in')); ?>
 	<div class="row">
 		<div class="span10">
 			<h2>Welcome to Attendum</h2>
