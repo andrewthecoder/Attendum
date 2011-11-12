@@ -18,9 +18,10 @@
 
 		// Create the data table.
 		//Percentage Graph
-			var data = new google.visualization.DataTable();
-			data.addColumn('string', 'Module');
+			var data = new google.visualization.DataTable();			
 			data.addColumn('number', '% of Attendance');
+			data.addColumn('string', 'Module');
+
 			data.addRows([
 				<?php foreach($percofattenpermodule as $percofattenpermodule1):
 				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
