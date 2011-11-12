@@ -21,9 +21,11 @@ $theirID = $this->user_model->get_uid_using_email($theirEmail);
 $theirAchievements = array();
 
 //if(count($userachievements) > 0){
-foreach($userachievements as $ua):
-	if($ua->uid == $theirID) array_push($theirAchievements, $ua->aid);
-	if($ua->uid == $yourID) array_push($yourAchievements, $ua->aid);
+$this->load->database('userachievementmodule');
+$query = $this->db->query('SELECT * FROM userachievementmodule');
+foreach($query->result() as $row):
+	if($row->uid == $theirID) array_push($theirAchievements, $row->aid);
+	if($row->uid == $yourID) array_push($yourAchievements, $row->aid);
 endforeach;
 //}
 
@@ -38,9 +40,7 @@ foreach($yourAchievements as $a):
 			unset($theirAchievements[$b]);
 	endforeach;
 endforeach;
-?>
-
-<?php 
+ 
 if(count($commonAchievements) > 0)
 {
 echo "<p>Achievements you have in common</p>";
@@ -49,9 +49,7 @@ foreach($commonAchievements as $ca):
 	echo $achievements[$ca]->description;
 endforeach;
 }
-?>
 
-<?php 
 if(count($yourAchievements) > 0)
 {
 echo "<p>Achievements you have that they don't</p>";
@@ -60,9 +58,7 @@ foreach($yourAchievements as $ca):
 	echo $achievements[$ca]->description;
 endforeach;
 }
-?>
 
-<?php
 if(count($theirAchievements) > 0)
 {
 echo "<p>Achievements they have that you don't</p>";
@@ -71,6 +67,7 @@ foreach($theirAchievements as $ca):
 	echo $achievements[$ca]->description;
 endforeach;
 }
+
 ?>
 
 </div>

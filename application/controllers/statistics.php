@@ -34,6 +34,3 @@ class statistics extends CI_Controller {
 		$this->load->view('statistics', $data);
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
