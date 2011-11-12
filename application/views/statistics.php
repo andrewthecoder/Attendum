@@ -19,16 +19,19 @@
 		// Create the data table.
 			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
-			data.addColumn('number', 'Number Of Students');
-			data.addRows([
-				<?php foreach($percofattenpermodule as $percofattenpermodule1):
-				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
-				"; 
+			data.addColumn('number', '% of attendance for eaech module');
+
+				<?php 
+				$i = 0;
+				echo "data.addRows($num_numofusersforcourse);";
+				foreach($percofattenpermodule as $percofattenpermodule1):
+				echo "data.setValue($i,0,'$percofattenpermodule1->name');";
+				echo "data.setValue($i,1,$percofattenpermodule1->num);");
 				endforeach; ?>
-			]);
+	
 
 			// Set chart options
-			var options = {'title':'How many students per module',
+			var options = {'title':'% of attendance for eaech module',
 			'width':800,
 			'height':600};
 
