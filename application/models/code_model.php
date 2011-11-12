@@ -12,4 +12,8 @@ class Code_model extends CI_Model {
 		
 		return $query->result();
 	}
+	
+	function insert_code($data) {
+		return $this->db->insert('code', $data);
+	}
 }
