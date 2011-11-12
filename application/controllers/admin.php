@@ -35,8 +35,10 @@ class Admin extends CI_Controller {
 	
 	public function submit_module() {
 		if($this->input->post()) {
-			$this->load->model('module_model');
 			$data = $this->input->post();
+			$data[uid] = 3;
+			
+			$this->load->model('module_model');
 			$this->module_model->insert_module($data);
 			$this->load->view('module_created');
 		}
