@@ -14,7 +14,7 @@
 			<p>Attendum is a new way to reward students for engaging with their course.</p>
 			<div id="login" class="span6">
 				<h3>Login</h3>
-				<form action="<?php echo site_url('user/login'); ?> method="post">
+				<form action="<?php echo site_url('user/login'); ?>" method="post">
 					<table>
 					<tr>
 					<td><label for="username">Username</label></td><td><input type="text" name="username"></td>
