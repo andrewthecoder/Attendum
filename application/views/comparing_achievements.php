@@ -8,7 +8,7 @@ Achievements Comparison
 <div id="container">
 
 <?php
-$this->load->model('user_model')
+$this->load->model('user_model');
 
 $yourEmail = $e1;
 $yourID = $this->user_model->get_uid_using_email($yourEmail);
