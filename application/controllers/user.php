@@ -147,6 +147,7 @@ class User extends CI_Controller {
 		$e1 = $this->input->post('e1');
 		$e2 = $this->input->post('e2');
 		//are the emails in the database?
+		$this->load->database('user');
 		$this->db->where('email', $e1);
 		$query = $this->db->get('user');
 		if($query->num_rows() < 0){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
