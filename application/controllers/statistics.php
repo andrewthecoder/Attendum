@@ -38,6 +38,10 @@ class statistics extends CI_Controller {
 		
 		$data['num_numofusersforcourse'] = $query->num_rows();
 		
+		$data['topnumofusersforcourse'] = $this->statistics_model->get_topnumOfStudentsPerCourse($this->session->userdata('unid'))->result();
+		
+		$data['bottomnumofusersforcourse'] = $this->statistics_model->get_bottomnumOfStudentsPerCourse($this->session->userdata('unid'))->result();
+		
 		$data['toppercofattenpermodule'] = $this->statistics_model->get_toppercOfAttenPerModule($this->session->userdata('unid'))->result();
 		
 		$data['bottompercofattenpermodule'] = $this->statistics_model->get_bottompercOfAttenPerModule($this->session->userdata('unid'))->result();

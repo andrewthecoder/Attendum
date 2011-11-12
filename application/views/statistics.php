@@ -73,26 +73,52 @@
 			data1.addColumn('string', 'Module');
 			data1.addColumn('number', 'Number Of Students');
 			data1.addRows([
-				<?php foreach($numofusersforcourse as $numofusersforcourse1):
+				<?php foreach($topnumofusersforcourse as $numofusersforcourse1):
 				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
 				"; 
 				endforeach; ?>
 			]);
 
 			// Set chart options
-			var options1 = {'title':'How many students per module',
+			var options1 = {'title':'How many students per top 10 modules',
 			'width':800,
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
 			var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
 			chart1.draw(data1, options1);
+			
+
+			// Instantiate and draw our chart, passing in some options.
+			var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+			chart3.draw(data1, options1);
+			
+			var data3 = new google.visualization.DataTable();
+			data3.addColumn('string', 'Module');
+			data3.addColumn('number', 'Number Of Students');
+			data3.addRows([
+				<?php foreach($bottomnumofusersforcourse as $numofusersforcourse1):
+				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
+				"; 
+				endforeach; ?>
+			]);
+
+			// Set chart options
+			var options3 = {'title':'How many students per bottom 10 modules',
+			'width':800,
+			'height':600};
+
+			// Instantiate and draw our chart, passing in some options.
+			var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div3'));
+			chart3.draw(data3, options3);
+			
 		}
 		
 	</script>
 <div id="chart_div"></div>
 <div id="chart_div2"></div>
 <div id="chart_div1"></div>
+<div id="chart_div3"></div>
 </div>
 
 <?php $this->load->view('inc/footer.php'); ?>

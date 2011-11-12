@@ -13,7 +13,36 @@ class Statistics_model extends CI_Model {
 									LEFT JOIN code AS c ON m.mid = c.mid
 									LEFT JOIN usercode AS uc ON uc.cid = c.cid
 									LEFT JOIN user AS u ON u.uid = uc.uid
-									WHERE u.unid = '.$uni_id.' GROUP BY name');
+									WHERE u.unid = '.$uni_id.' 
+									GROUP BY name');
+		return $query;
+	}
+	
+	function get_topnumOfStudentsPerCourse($uni_id) {
+		$query = $this->db->query('SELECT COUNT( DISTINCT (u.uid)) AS num, m.name AS name
+									FROM module AS m
+									LEFT JOIN code AS c ON m.mid = c.mid
+									LEFT JOIN usercode AS uc ON uc.cid = c.cid
+									LEFT JOIN user AS u ON u.uid = uc.uid
+									WHERE u.unid = '.$uni_id.' 
+									GROUP BY name
+									ORDER BY num ASC
+									LIMIT 0, 10
+									');
+		return $query;
+	}
+	
+		function get_bottomnumOfStudentsPerCourse($uni_id) {
+		$query = $this->db->query('SELECT COUNT( DISTINCT (u.uid)) AS num, m.name AS name
+									FROM module AS m
+									LEFT JOIN code AS c ON m.mid = c.mid
+									LEFT JOIN usercode AS uc ON uc.cid = c.cid
+									LEFT JOIN user AS u ON u.uid = uc.uid
+									WHERE u.unid = '.$uni_id.' 
+									GROUP BY name
+									ORDER BY num DESC
+									LIMIT 0, 10
+									');
 		return $query;
 	}
 	
