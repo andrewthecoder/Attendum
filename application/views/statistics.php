@@ -18,17 +18,17 @@
 
 		// Create the data table.
 			var data = new google.visualization.DataTable();
-			data.addColumn('string', 'Topping');
-			data.addColumn('number', 'Slices');
+			data.addColumn('string', 'Module');
+			data.addColumn('number', 'Number Of Students');
 			data.addRows([
-				<?php foreach($numofusersforcourse1 as $numofusersforcourse):
-				echo "['$numofusersforcourse->name', $numofusersforcourse->num],
+				<?php foreach($numofusersforcourse as $numofusersforcourse1):
+				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
 				"; 
 				endforeach; ?>
 			]);
 
 			// Set chart options
-			var options = {'title':'How Much Pizza I Ate Last Night',
+			var options = {'title':'How many students per module',
 			'width':400,
 			'height':300};
 
