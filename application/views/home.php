@@ -20,7 +20,7 @@
 					<td><label for="username">Username</label></td><td><input type="text" name="username"></td>
 					</tr>
 					<tr>
-					<td><label for="password">Password</label></td><td><input type="text" name="password"></td>
+					<td><label for="password">Password</label></td><td><input type="password" name="password"></td>
 					</tr>
 					<tr>
 					<td></td><td><input type="submit" name="login" class="btn primary" value="Login"></td>
