@@ -124,6 +124,8 @@ class User extends CI_Controller {
 					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
 					'password' => $this->input->post('pass')
 				);
+				
+				echo $this->input->post('email');
 			
 				$this->user_model->insert_user($data);
 				$this->load->view('signup_complete');
@@ -145,6 +147,7 @@ class User extends CI_Controller {
 	}
 	
 	public function uni_check($str) {
+		echo print_r($str);
 		$str_bits = explode('@',$str);
 		echo print_r($str_bits);
 		if($this->user_model->check_uni($str_bits[1])) {
