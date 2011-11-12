@@ -118,6 +118,7 @@
 <div id="chart_div"></div>
 <div id="chart_div2"></div>
 <div id="chart_div1"></div>
+<div id="chart_div3"></div>
 </div>
 
 <?php $this->load->view('inc/footer.php'); ?>
