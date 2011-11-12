@@ -56,6 +56,37 @@ class User_model extends CI_Model {
 		}
 	}
 	
+	function change_pass($uid, $new_pass) {
+		$this->db->where('uid', $uid);
+		$this->db->set('password', $new_pass);
+		$this->db->update('user');
+	}
+	
+	function show_data($uid) {
+		$this->db->where('uid', $uid);
+		$this->db->set('opt_in', 1);
+		$this->db->update('user');
+	}
+	
+	function hide_data($uid) {
+		$this->db->where('uid', $uid);
+		$this->db->set('opt_in', 0);
+		$this->db->update('user');
+	}
+	
+	function check_curr_pass($uid, $pass) {
+		$this->db->where('uid', $uid);
+		$this->db->where('password', $pass);
+		$query = $this->db->get('user');
+		
+		if($query->num_rows() > 0)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	function check_uni($str) {
 		$this->db->where('email_extension', $str);
 		$query = $this->db->get('uni');
