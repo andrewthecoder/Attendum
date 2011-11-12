@@ -112,16 +112,13 @@ class User extends CI_Controller {
 		if($query->num_rows() < 0): $error = 'Either the email address is not registered or the user has hidden their achievements.';
 		//Are has the other user permitted people to view their achievements?
 
-		//TODO
-
-
 		$data = array(
 			'error' => $error,
 			'e1' => $e1,
 			'e2' => $e2,
 			'users' => $this->user_model->get_users(),		
 			'userachievements' => $this->user_achievement_model->get_user_achievements(),
-			'achievements' => $this->achievement_model->get_achievements(),
+			'achievements' => $this->achievement_model->get_achievements()
 		);
 		
 		$this->load->view('comparing_achievements', $data);
