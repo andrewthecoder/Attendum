@@ -74,15 +74,16 @@ if(count($yourAchievements) < 1)
 	}
 	else
 	{
-	echo 'They have no achievements.';
-	if(count($yourAchievements) < 1)
-	{
-		echo 'Your achievements are:';
-		foreach($yourAchievements as $ca):
-			echo $achievements[$ca]->name;
-			echo $achievements[$ca]->description;
-		endforeach;
+		echo 'They have no achievements.';
+		if(count($yourAchievements) < 1)
+		{
+			echo 'Your achievements are:';
+			foreach($yourAchievements as $ca):
+				echo $achievements[$ca]->name;
+				echo $achievements[$ca]->description;
+			endforeach;
 	}
+	endif;
 }
 else
 {
@@ -96,6 +97,7 @@ else
 		endforeach;
 	}
 }
+endif;
 
 ?>
 
