@@ -17,6 +17,19 @@ class User_model extends CI_Model {
 		$this->db->insert('user', $data);
 	}
 	
+	function check_unique_email($email) {
+		$this->db->select('uid');
+		$this->db->where('email', $email);
+		$query = $this->db->get('user');
+		
+		if($query->num_rows() > 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
 	function check_uni($str) {
 		$this->db->where('email_extension', $str);
 		$query = $this->db->get('uni');

@@ -40,7 +40,7 @@ class User extends CI_Controller {
 
 			$this->form_validation->set_rules('pass', 'Password', 'trim|required|matches[passconf]|sha1');
 			$this->form_validation->set_rules('passconf', 'Confirm Password', 'trim|required|sha1');
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_uni_check');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_unique_email|callback_uni_check');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -64,6 +64,15 @@ class User extends CI_Controller {
 		}
 		else {
 			redirect('/');
+		}
+	}
+	
+	public function unique_email($str) { 
+		if($this->user_model->check_unique_email($str)) {
+		}
+		else {
+			$this->form_validation->set_message('unique_email', 'That email address is already registered.');
+			return false;
 		}
 	}
 	
