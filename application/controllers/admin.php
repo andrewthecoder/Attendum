@@ -73,6 +73,7 @@ class Admin extends CI_Controller {
 			
 			$chars = '23456789ABCDEFGHJKMNPQRSTUVWZYZ';
 			mt_srand( intval( $mid+$validfrom_unix+$validtill_unix ) );
+			$code = '';
 			for ($p = 0; $p < 6; $p++) {
 				$code .= $chars[mt_rand(0, 30)];
 			}
