@@ -21,14 +21,14 @@
       data.addColumn('string', 'Topping');
       data.addColumn('number', 'Slices');
       data.addRows([
-        ['Mushrooms', 3],
-        ['Onions', 1],
-        ['Olives', 1], 
-        ['Zucchini', 1],
+        <?php foreach($user1 as $user):
+	  echo "['$user->email', $user->uid],;
+	  "; 
+	  endforeach; ?>
         ['Pepperoni', 2]
       ]);
 	  
-
+	 
       // Set chart options
       var options = {'title':'How Much Pizza I Ate Last Night',
                      'width':400,
