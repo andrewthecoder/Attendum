@@ -1,8 +1,8 @@
-<!doctype html>
-<html>
-	<head>
-	<!--Load the AJAX API-->
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<?php $this->load->view('inc/meta.php'); ?>
+<div class="container">
+	<?php $this->load->view('inc/header.php'); ?>
+<!--Div that will hold the pie chart-->	
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 
 		// Load the Visualization API and the piechart package.
@@ -40,7 +40,7 @@
 			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}}};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 			
 			var data1 = new google.visualization.DataTable();
@@ -59,18 +59,13 @@
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div1'));
+			var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
 			chart1.draw(data1, options1);
 		}
 		
 	</script>
-</head>
-
-<body>
-<!--Div that will hold the pie chart-->
-<class id="container">
 <div id="chart_div"></div>
 <div id="chart_div1"></div>
 </div>
-</body>
-</html>
+
+<?php $this->load->view('inc/footer.php'); ?>
