@@ -29,6 +29,11 @@ class Site extends CI_Controller {
 		
 		$this->load->view('home', $data);
 	}
+	
+	public function about()
+	{
+		$this->load->view('about');
+	}
 }
 
 /* End of file welcome.php */
