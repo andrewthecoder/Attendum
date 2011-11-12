@@ -17,7 +17,7 @@
 				<form action="<?php echo site_url('user/login'); ?>" method="post">
 					<table>
 					<tr>
-					<td><label for="username">Username</label></td><td><input type="text" name="username"></td>
+					<td><label for="username">Email</label></td><td><input type="text" name="email"></td>
 					</tr>
 					<tr>
 					<td><label for="password">Password</label></td><td><input type="password" name="password"></td>
