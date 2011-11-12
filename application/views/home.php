@@ -1,10 +1,13 @@
 <?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
-	<?php echo $this->session->userdata('logged_in'); ?>
-	<?php echo $this->session->userdata('email'); ?>
-	<?php echo $this->session->userdata('admin_rights'); ?>
-	<?php echo $this->session->userdata('unid'); ?>
+	<?php echo 'LOGGEDIN: '.$this->session->userdata('logged_in'); ?>
+	<br>
+	<?php echo 'EMAIL: '.$this->session->userdata('email'); ?>
+	<br>
+	<?php echo 'ADMIN_RIGHTS: '.$this->session->userdata('admin_rights'); ?>
+	<br>
+	<?php echo 'UNID: '.$this->session->userdata('unid'); ?>
 	<div class="row">
 		<div class="span10">
 			<h2>Welcome to Attendum</h2>
