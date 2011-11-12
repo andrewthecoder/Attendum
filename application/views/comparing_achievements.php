@@ -8,12 +8,12 @@ Achievements Comparison
 <div id="container">
 
 <?php
-$yourEmail = $data['e1'];
-$yourID = $users[yourEmail]->uid;
+$yourEmail = $e1;
+$yourID = $users[$yourEmail]->uid;
 $yourAchievements = array();
 
-$theirEmail = $data['e2'];
-$theirID = $users[theirEmail]->uid;
+$theirEmail = $e2;
+$theirID = $users[$theirEmail]->uid;
 $theirAchievements = array();
 
 foreach($userachievements as $ua):
@@ -55,8 +55,6 @@ foreach($theirAchievements as $ca):
 	echo $achievements[$ca]->name;
 	echo $achievements[$ca]->description;
 endforeach;
-?>
-
 ?>
 
 </div>
