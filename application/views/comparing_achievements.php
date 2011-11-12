@@ -8,11 +8,11 @@ Achievements Comparison
 <div id="container">
 
 <?php
-$yourEmail = $_POST['e1'];
+$yourEmail = $data['e1'];
 $yourID = $users[yourEmail]->uid;
 $yourAchievements = array();
 
-$theirEmail = $_POST['e2'];
+$theirEmail = $data['e2'];
 $theirID = $users[theirEmail]->uid;
 $theirAchievements = array();
 
