@@ -8,7 +8,6 @@ class Achievement_model extends CI_Model {
     }
 	
 	function get_achievements() {
-		//$this->db->where('uid', 1);
 		$query = $this->db->get('achievement');
 		
 		return $query->result();
