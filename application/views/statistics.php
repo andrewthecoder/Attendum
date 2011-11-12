@@ -1,13 +1,8 @@
-<!doctype html>
-<html>
-	<head>
-	<!--Load the AJAX API-->
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-</head>
-
-<body>
-<!--Div that will hold the pie chart-->
+<?php $this->load->view('inc/meta.php'); ?>
+<div class="container">
+	<?php $this->load->view('inc/header.php'); ?>
+<!--Div that will hold the pie chart-->	
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 
 		// Load the Visualization API and the piechart package.
@@ -69,9 +64,8 @@
 		}
 		
 	</script>
-<div class="container">
 <div id="chart_div"></div>
 <div id="chart_div1"></div>
 </div>
-</body>
-</html>
+
+<?php $this->load->view('inc/footer.php'); ?>
