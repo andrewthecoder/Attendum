@@ -21,9 +21,10 @@ $theirID = $this->user_model->get_uid_using_email($theirEmail);
 $theirAchievements = array();
 
 //if(count($userachievements) > 0){
-foreach($userachievements as $ua):
-	if($ua->uid == $theirID) array_push($theirAchievements, $ua->aid);
-	if($ua->uid == $yourID) array_push($yourAchievements, $ua->aid);
+$query = $userachievements->db->query()
+foreach($query->result() as $row):
+	if($row->uid == $theirID) array_push($theirAchievements, $row->aid);
+	if($row->uid == $yourID) array_push($yourAchievements, $row->aid);
 endforeach;
 //}
 
