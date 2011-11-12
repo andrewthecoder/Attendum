@@ -124,8 +124,8 @@ class User extends CI_Controller {
 				}
 				else {
 					$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
-					//$this->load->view('home');
-					redirect('/');
+					$this->load->view('profile');
+					//redirect('/');
 				}
 			}
 			else {
