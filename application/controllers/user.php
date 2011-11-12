@@ -49,7 +49,7 @@ class User extends CI_Controller {
 			}
 			else
 			{
-				$str_bits = explode('@',$str);
+				$str_bits = explode('@',$this->input->post('email');
 				$data = array(
 					'email' => $this->input->post('email'),
 					'admin_rights' => 0,
