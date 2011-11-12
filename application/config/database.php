@@ -48,7 +48,7 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'sudo_team_attendu';
+$db['default']['username'] = 'sudoteam_attendu';
 $db['default']['password'] = 'teamsudo';
 $db['default']['database'] = 'sudoteam_attendum';
 $db['default']['dbdriver'] = 'mysql';
