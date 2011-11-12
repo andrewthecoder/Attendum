@@ -8,7 +8,7 @@ Achievements Comparison
 <div id="container">
 
 <?php
-if(strln($error) > 0){echo $error;}
+if(strlen($error) > 0){echo $error;}
 
 $this->load->model('user_model');
 
@@ -43,7 +43,7 @@ endforeach;
 <?php 
 if(count($commonAchievements) > 0)
 {
-echo "<p>Achievements you have in common</p>"
+echo "<p>Achievements you have in common</p>";
 foreach($commonAchievements as $ca):
 	echo $achievements[$ca]->name;
 	echo $achievements[$ca]->description;
@@ -54,7 +54,7 @@ endforeach;
 <?php 
 if(count($yourAchievements) > 0)
 {
-echo "<p>Achievements you have that they don't</p>"
+echo "<p>Achievements you have that they don't</p>";
 foreach($yourAchievements as $ca):
 	echo $achievements[$ca]->name;
 	echo $achievements[$ca]->description;
@@ -65,7 +65,7 @@ endforeach;
 <?php
 if(count($theirAchievements) > 0)
 {
-echo "<p>Achievements they have that you don't</p>"
+echo "<p>Achievements they have that you don't</p>";
 foreach($theirAchievements as $ca):
 	echo $achievements[$ca]->name;
 	echo $achievements[$ca]->description;
