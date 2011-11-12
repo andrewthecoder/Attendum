@@ -112,7 +112,24 @@ class Admin extends CI_Controller {
 			$email = $this->input->post('email');
 			
 			//verify email/password
-			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = $email");
+			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = '$email'");
+			
+			
+			//redirect
+			redirect('/');
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
+	public function remove_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 0 WHERE email = '$email'");
 			
 			
 			//redirect
