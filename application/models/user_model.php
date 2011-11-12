@@ -30,9 +30,9 @@ class User_model extends CI_Model {
 	}
 	
 	function get_unid_extension($ext) {
-		$this->select('unid');
-		$this->where('email_extension', $ext);
-		$query = $this->get('uni');
+		$this->db->select('unid');
+		$this->db->where('email_extension', $ext);
+		$query = $this->db->get('uni');
 		
 		$row = $query->row();
 		
