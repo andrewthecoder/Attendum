@@ -21,8 +21,8 @@
 			data.addColumn('string', 'Topping');
 			data.addColumn('number', 'Slices');
 			data.addRows([
-				<?php foreach($user1 as $user):
-				echo "['$user->email', $user->uid],
+				<?php foreach($numofusersforcourse1 as $numofusersforcourse):
+				echo "['$numofusersforcourse->name', $numofusersforcourse->num],
 				"; 
 				endforeach; ?>
 			]);
