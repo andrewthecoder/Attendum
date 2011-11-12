@@ -75,6 +75,7 @@ class User extends CI_Controller {
 	public function show_data() {
 		if($this->input->post()) {
 			$this->user_model->show_data($this->session->userdata('uid'));
+			$this->session->set_userdata('opt_in', 1);
 			$this->session->set_flashdata('show_data_success','You are now sharing your data');
 			redirect('/user/profile');
 		}
@@ -86,6 +87,7 @@ class User extends CI_Controller {
 	public function hide_data() {
 		if($this->input->post()) {
 			$this->user_model->hide_data($this->session->userdata('uid'));
+			$this->session->set_userdata('opt_in', 0);
 			$this->session->set_flashdata('hide_data_success','You are now hiding your data');
 			redirect('/user/profile');
 		}
