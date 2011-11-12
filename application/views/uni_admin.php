@@ -5,7 +5,7 @@
 		<div class="span10">
 			<div id="login" class="span6">
 				<h3>Add Lecturer</h3>
-				<form action="<?php echo site_url('user/set_lecturer'); ?>" method="post">
+				<form action="<?php echo site_url('admin/set_lecturer'); ?>" method="post">
 					<table>
 					<tr>
 					<td><label for="username">Email</label></td><td><input type="text" name="email"></td>

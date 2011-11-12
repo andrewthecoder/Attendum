@@ -82,22 +82,7 @@ class User extends CI_Controller {
 		redirect('/');
 	}
 	
-	public function set_lecturer(){
-		if($this->input->post()) {
-			//get email/password
-			$email = $this->input->post('email');
-			
-			//verify email/password
-			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = $email");
-			
-			
-			//redirect
-			redirect('/');
-		}
-		else {
-			redirect('/');
-		}
-	}
+	
 	
 	public function signup() {
 		if($this->input->post()) {
@@ -146,6 +131,7 @@ class User extends CI_Controller {
 	
 	public function uni_check($str) {
 		$str_bits = explode('@',$str);
+		echo print_r($str_bits);
 		if($this->user_model->check_uni($str_bits[1])) {
 			return true;
 		}
