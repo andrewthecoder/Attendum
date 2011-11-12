@@ -17,6 +17,63 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	 
+	 public function __construct() {
+		parent::__construct();
+		
+		$this->load->model('user_model');
+	 }
+	 
+	public function index()
+	{
+		redirect('/');
+	}
+	
+	public function signup() {
+		if($this->input->post()) {
+			$this->load->helper(array('form', 'url'));
+
+			$this->load->library('form_validation');
+			//$this->load->model('user_model');
+
+			$this->form_validation->set_rules('pass', 'Password', 'trim|required|matches[passconf]|sha1');
+			$this->form_validation->set_rules('passconf', 'Confirm Password', 'trim|required|sha1');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|callback_uni_check');
+
+			if ($this->form_validation->run() == FALSE)
+			{
+				$data['user1'] = $this->user_model->get_users();
+				$this->load->view('home');
+			}
+			else
+			{
+				$data = array(
+					'email' => $this->input->post('email'),
+					'admin_rights' => 0,
+					'unid' => $this->user_model->get_unid_extension(),
+					'password' => $this->input->post('password')
+				);				
+			
+				$this->user_model->insert_user($data);
+				$this->load->view('signup_complete');
+			}
+
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
+	public function uni_check($str) {
+		if($this->user_model->check_uni()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+	
 	public function compare_achievements()
 	{
 		$this->load->model('user_model');
