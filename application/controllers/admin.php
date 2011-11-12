@@ -21,6 +21,7 @@ class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
+		$this->session->set_userdata('unid', '2');
 		//$this->output->enable_profiler(TRUE);
 	}
 	 
@@ -49,9 +50,14 @@ class Admin extends CI_Controller {
 	
 	public function create_code() {
 		$this->load->model('module_model');
-		$data = $this->module_model->get_modules();
-		print_r($data);
-		//$this->load->view('create_code', $data);
+		$this->load->helper('form');
+		$module_rows = $this->module_model->get_modules($this->session->userdata('unid'));
+		foreach ($module_rows as $row) {
+			$module_refs['mid'] = $row['ref'];
+		}
+		$data = form_dropdown('mid', $module_refs);
+
+		$this->load->view('create_code', $data);
 		
 	}
 	
