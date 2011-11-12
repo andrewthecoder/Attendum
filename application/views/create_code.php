@@ -9,7 +9,7 @@ Create Code | Attendum
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script>
 	$(function() {
-		$( "#date" ).datepicker();
+		$( "#date" ).datepicker( $.datepicker.regional[ "en-GB" ] );
 	});
 </script>
 </head>
