@@ -31,6 +31,8 @@
 	<?php $this->load->view('inc/header.php'); ?>
 		<div style="padding-top: 30px;">
 			<h3>Create Code</h3>
+			
+			<?php if(isset($no_modules) == FALSE): ?>
 			<form action="<?php echo site_url('admin/submit_code'); ?>" method="post">
 				<table>
 					<tr>
@@ -51,6 +53,12 @@
 					</tr>
 				</table>
 			</form>
+			<?php else: ?>
+				<div class="alert-message error">
+				  <a class="close" href="#">×</a>
+				  <p>No Modules</p>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 <?php $this->load->view('inc/footer.php'); ?>

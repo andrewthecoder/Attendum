@@ -45,14 +45,18 @@ class Admin extends CI_Controller {
 		$this->load->model('module_model');
 		$this->load->helper('form');
 		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
-				
-		foreach ($module_rows as $row) {
-			$module_refs[$row->mid] = $row->ref;
+		if($module_rows) {		
+			foreach ($module_rows as $row) {
+				$module_refs[$row->mid] = $row->ref;
+			}
+			$data = form_dropdown('mid', $module_refs);
+			$data = Array("module_dropdown" => $data);
+			$this->load->view('create_code', $data);
+		} else {
+			$data['no_modules'] = true;
+			$this->load->view('create_code', $data);
 		}
-		$data = form_dropdown('mid', $module_refs);
-		$data = Array("module_dropdown" => $data);
 		
-		$this->load->view('create_code', $data);
 		
 	}
 	
