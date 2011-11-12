@@ -116,10 +116,10 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
-			redirect('/');
+			redirect('/admin/uni_admin');
 		}
 		else {
-			redirect('/');
+			redirect('/admin/uni_admin');
 		}
 	}
 	
@@ -133,10 +133,10 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
-			redirect('/');
+			redirect('/admin/uni_admin');
 		}
 		else {
-			redirect('/');
+			redirect('/admin/uni_admin');
 		}
 	}
 	
