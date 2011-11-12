@@ -106,10 +106,10 @@ class User extends CI_Controller {
 		//are the emails in the database?
 		$this->db->where('email', $e1);
 		$query = $this->db->get('user');
-		if($query->num_rows() < 0): $errror = 'Either the email address is not registered or the user has hidden their achievements.';
+		if($query->num_rows() < 0){ $errror = 'Either the email address is not registered or the user has hidden their achievements.';}
 		$this->db->where('email', $e2);
 		$query = $this->db->get('user');
-		if($query->num_rows() < 0): $error = 'Either the email address is not registered or the user has hidden their achievements.';
+		if($query->num_rows() < 0){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
 		//Are has the other user permitted people to view their achievements?
 
 		$data = array(
