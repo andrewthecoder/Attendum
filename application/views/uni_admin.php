@@ -5,6 +5,12 @@
 		<div class="span10">
 			<div id="login" class="span6">
 				<h3>Add Lecturer</h3>
+				<?php if($this->session->flashdata('add_lecturer_success') != ''): ?>
+				<div class="alert-message success">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('add_lecturer_success'); ?></p>
+				</div>
+				<?php endif; ?>
 				<form action="<?php echo site_url('admin/set_lecturer'); ?>" method="post">
 					<table>
 					<tr>
@@ -20,6 +26,12 @@
 		<div class="span10">
 			<div class="span6">
 				<h3>Remove Lecturer</h3>
+				<?php if($this->session->flashdata('remove_lecturer_success') != ''): ?>
+				<div class="alert-message success">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('remove_lecturer_success'); ?></p>
+				</div>
+				<?php endif; ?>
 				<form action="<?php echo site_url('admin/remove_lecturer'); ?>" method="post">
 					<table>
 					<tr>

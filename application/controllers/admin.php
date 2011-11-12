@@ -100,6 +100,7 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
+			$this->session->set_flashdata('add_lecturer_success','Lecturer successfully added!');
 			redirect('/admin/uni_admin');
 		}
 		else {
@@ -117,6 +118,7 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
+			$this->session->set_flashdata('remove_lecturer_success','Lecturer successfully removed!');
 			redirect('/admin/uni_admin');
 		}
 		else {
