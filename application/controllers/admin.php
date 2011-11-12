@@ -54,10 +54,8 @@ class Admin extends CI_Controller {
 		$module_rows = $this->module_model->get_modules($this->session->userdata('unid'));
 				
 		foreach ($module_rows as $row) {
-			$module_refs['mid'] = $row->ref;
+			$module_refs[$row->mid] = $row->ref;
 		}
-		print_r($module_refs);
-		
 		$data = form_dropdown('mid', $module_refs);
 		
 		print_r($data);
