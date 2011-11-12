@@ -17,6 +17,32 @@ class User_model extends CI_Model {
 		$this->db->insert('user', $data);
 	}
 	
+	function check_login($email, $password) {
+		$this->db->select('uid');
+		$this->db->where('email', $email);
+		$this->db->where('password', $password);
+		$query = $this->db->get('user');
+		
+		if($query->num_rows() == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function get_user($email) {
+		$this->db->where('email', $email);
+		$query = $this->db->get('user');
+		
+		if($query->num_rows() > 0) {
+			return $query->row();
+		}
+		else {
+			return null;
+		}
+	}
+	
 	function check_unique_email($email) {
 		$this->db->select('uid');
 		$this->db->where('email', $email);
