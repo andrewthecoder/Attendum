@@ -8,6 +8,8 @@ Achievements Comparison
 <div id="container">
 
 <?php
+echo $error
+
 $this->load->model('user_model');
 
 $yourEmail = $e1;

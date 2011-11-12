@@ -86,19 +86,37 @@ class User extends CI_Controller {
 
 	public function compare_achievements()
 	{
+		$error = ''		
+
 		$this->load->model('user_model');
 		$this->load->model('user_achievement_model');
 		$this->load->model('achievement_model');
+		
+		$e1 = $this->input->post('e1')
+		$e2 = $this->input->post('e2')
+		//are the emails in the database?
+		$this->db->where('email', $e1);
+		$query = $this->db->get('user');
+		if($query->num_rows() < 0): $errror = 'Either the email address is not registered or the user has hidden their achievements.';
+		$this->db->where('email', $e2);
+		$query = $this->db->get('user');
+		if($query->num_rows() < 0): $error = 'Either the email address is not registered or the user has hidden their achievements.';
+		//Are has the other user permitted people to view their achievements?
+
+		//TODO
+
 
 		$data = array(
-			'e1' => $this->input->post('e1'),
-			'e2' => $this->input->post('e2'),
+			'error' => $error
+			'e1' => $e1,
+			'e2' => $e2,
 			'users' => $this->user_model->get_users(),		
 			'userachievements' => $this->user_achievement_model->get_user_achievements(),
 			'achievements' => $this->achievement_model->get_achievements()
 		);
 		
 		$this->load->view('comparing_achievements', $data);
+		return ''
 	}
 }
 
