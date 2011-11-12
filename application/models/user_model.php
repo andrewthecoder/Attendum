@@ -7,8 +7,7 @@ class User_model extends CI_Model {
         parent::__construct();
     }
 	
-	function get_user() {
-		$this->db->where('uid', 1);
+	function get_users() {
 		$query = $this->db->get('user');
 		
 		return $query->result();
