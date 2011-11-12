@@ -54,7 +54,7 @@ class User extends CI_Controller {
 					'email' => $this->input->post('email'),
 					'admin_rights' => 0,
 					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
-					'password' => $this->input->post('password')
+					'password' => $this->input->post('pass')
 				);
 				
 				echo print_r($data);
