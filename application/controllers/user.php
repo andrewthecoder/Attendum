@@ -55,7 +55,9 @@ class User extends CI_Controller {
 					'admin_rights' => 0,
 					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
 					'password' => $this->input->post('password')
-				);				
+				);
+
+				echo $data['password'];
 			
 				$this->user_model->insert_user($data);
 				$this->load->view('signup_complete');
