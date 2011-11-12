@@ -54,8 +54,8 @@ class User extends CI_Controller {
 					'email' => $this->input->post('email'),
 					'admin_rights' => 0,
 					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
-					'password' => $this->input->post('password')
-				);				
+					'password' => $this->input->post('pass')
+				);
 			
 				$this->user_model->insert_user($data);
 				$this->load->view('signup_complete');
@@ -79,13 +79,18 @@ class User extends CI_Controller {
 		
 	}
 	
+	public function comparison_chooser()
+	{
+		$this->load->view('comparison_chooser');
+	}
+
 	public function compare_achievements()
 	{
 		$this->load->model('user_model');
 		$data['users'] = $this->user_model->get_users();		
 		
 		$this->load->model('userachievement_model');
-		$data['userachievements'] = $this->userachievement_model->get_userachievments();
+		$data['userachievements'] = $this->userachievement_model->get_userachievements();
 		
 		$this->load->model('achievement_model');
 		$data['achievements'] = $this->achievement_model->get_achievements();
