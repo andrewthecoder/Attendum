@@ -14,6 +14,6 @@ class Module_model extends CI_Model {
 	}
 	
 	function insert_module($data) {
-		$this->db->insert($data);
+		return $this->db->insert($data);
 	}
 }
