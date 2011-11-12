@@ -8,11 +8,11 @@ Who to compare?
 <div id="container">
 
 <?php
-$yourEmail;
+$yourEmail = $_POST['e1'];
 $yourID = $users[yourEmail]->uid;
 $yourAchievements = array();
 
-$theirEmail;
+$theirEmail = $_POST['e2'];
 $theirID = $users[theirEmail]->uid;
 $theirAchievements = array();
 

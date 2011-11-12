@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
 <title>
-Who to compare?
+Achievements Comparison
 </title>
 </head>
 <body>

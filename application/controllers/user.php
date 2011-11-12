@@ -79,8 +79,17 @@ class User extends CI_Controller {
 		
 	}
 	
+	public function comparison_chooser()
+	{
+		$this->load->view('comparison_chooser');
+	}
+	
 	public function compare_achievements()
 	{
+		
+		$data['e1'] = $this->input->post('e1');
+		$data['e2'] = $this->input->post('e2');
+		
 		$this->load->model('user_model');
 		$data['users'] = $this->user_model->get_users();		
 		
