@@ -36,7 +36,7 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	$this->load->module('adm')
+	$this->load->module('adm');
 
 	if(count($yourAchievements) < 1)
 	{
