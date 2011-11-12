@@ -22,9 +22,9 @@ class statistics extends CI_Controller {
 	
 		$this->output->enable_profiler(TRUE);
 		
-		$this->load->model('user_model');
+		$this->load->model('statistics_model');
 		
-		$data['user1'] = $this->user_model->get_users();
+		$data['numofusersforcourse'] = $this->user_model->get_numOfStudentsPerCourse();
 		
 		$this->load->view('statistics', $data);
 	}
