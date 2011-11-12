@@ -56,7 +56,7 @@ class Admin extends CI_Controller {
 		print_r($module_rows);
 		
 		foreach ($module_rows as $row) {
-			$module_refs['mid'] = $row->'ref';
+			$module_refs['mid'] = $row->ref;
 		}
 		$data = form_dropdown('mid', $module_refs);
 
