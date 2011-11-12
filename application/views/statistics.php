@@ -10,7 +10,6 @@
 
 		// Set a callback to run when the Google Visualization API is loaded.
 		google.setOnLoadCallback(drawChart);
-		google.setOnLoadCallback(drawChart2);
 
 		// Callback that creates and populates a data table, 
 		// instantiates the pie chart, passes in the data and
@@ -22,8 +21,8 @@
 			data.addColumn('string', 'Module');
 			data.addColumn('number', 'Number Of Students');
 			data.addRows([
-				<?php foreach($percofattenpermodule as $percofattenpermodule1):
-				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
+				<?php foreach($percOfAttenPerModule as $percOfAttenPerModule1):
+				echo "['$percOfAttenPerModule1->name', $percOfAttenPerModule1->num],
 				"; 
 				endforeach; ?>
 			]);
@@ -36,12 +35,24 @@
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
-			
-			// Create the data table.
-			var data1 = new google.visualization.DataTable();
-			data1.addColumn('string', 'Module');
-			data1.addColumn('number', 'Number Of Students');
-			data1.addRows([
+		}
+		
+	
+	</script>
+	<script type="text/javascript">
+
+		// Load the Visualization API and the piechart package.
+		google.load('visualization', '1.0', {'packages':['corechart']});
+
+		// Set a callback to run when the Google Visualization API is loaded.
+		google.setOnLoadCallback(drawChart);
+	function drawChart() {
+
+		// Create the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('string', 'Module');
+			data.addColumn('number', 'Number Of Students');
+			data.addRows([
 				<?php foreach($numofusersforcourse as $numofusersforcourse1):
 				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
 				"; 
@@ -49,17 +60,15 @@
 			]);
 
 			// Set chart options
-			var options1 = {'title':'How many students per module',
+			var options = {'title':'How many students per module',
 			'width':800,
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
-			chart1.draw(data1, options1);
-			
+			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
 		}
-
-	</script>
+		</script>
 </head>
 
 <body>
