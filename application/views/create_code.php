@@ -20,8 +20,10 @@
 				stepMinute: 5,
 				minuteMin: 5,
 				minuteMax: 120,
-				timeOnlyTitle: "Choose how long code is valid",
-				minuteText: "Minutes"
+				timeOnlyTitle: "Choose Code Validity",
+				minuteText: "Minutes",
+				currentText: "",
+				minuteGrid: 5
 			});
 		});
 	</script>
