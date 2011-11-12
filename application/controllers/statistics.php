@@ -19,12 +19,11 @@ class statistics extends CI_Controller {
 	 */
 	public function index()
 	{
-	
 		$this->output->enable_profiler(TRUE);
 		
 		$this->load->model('statistics_model');
 		
-		$data['numofusersforcourse'] = $this->user_model->get_numOfStudentsPerCourse();
+		$data['numofusersforcourse'] = $this->statistics_model->get_numOfStudentsPerCourse(1);
 		
 		$this->load->view('statistics', $data);
 	}
