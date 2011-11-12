@@ -19,6 +19,9 @@ class statistics extends CI_Controller {
 	 */
 	public function index()
 	{
+	
+		$this->output->enable_profiler(TRUE);
+		
 		$this->load->model('user_model');
 		
 		$data['user1'] = $this->user_model->get_users();
