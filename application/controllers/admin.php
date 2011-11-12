@@ -48,8 +48,10 @@ class Admin extends CI_Controller {
 	}
 	
 	public function create_code() {
-		$module_dropdown = "poo";
-		$this->load->view('create_code');
+		$data = Array(
+			"module_dropdown" => "poo"
+		);
+		$this->load->view('create_code', $data);
 		
 	}
 	
