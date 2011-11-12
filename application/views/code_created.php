@@ -1,12 +1,7 @@
-<!doctype html>
-<head>
-<title>
-Code Created | Attendum
-</title>
-<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-</head>
-<body>
-	<div class="container" style="padding-top: 30px;">
+<?php $this->load->view('inc/meta.php'); ?>
+<div class="container">
+	<?php $this->load->view('inc/header.php'); ?>
+
 	<h1 style="color:green;">Code Created!</h1>
 	<p>Code: <?php echo $code ?></p>
 	<p>Valid From: <?php echo $startdate ?></p>
@@ -14,5 +9,5 @@ Code Created | Attendum
 	<p>...Clever boy.</p>
 	<a href="<?php echo site_url('admin/'); ?>">Back to Admin</a>
 	</div>
-</body>
-</html>
+
+<?php $this->load->view('inc/footer.php'); ?>

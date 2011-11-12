@@ -1,13 +1,8 @@
-<!doctype html>
-<head>
-<title>
-Create Module | Attendum
-</title>
-<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-</head>
-<body>
+<?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
-	<div style="padding-top: 30px;">
+	<?php $this->load->view('inc/header.php'); ?>
+	
+	<div>
 		<h3>Create Module</h3>
 		<form action="<?php echo site_url('admin/submit_module'); ?>" method="post">
 			<table>
@@ -27,5 +22,5 @@ Create Module | Attendum
 		</form>
 	</div>
 </div>
-</body>
-</html>
+
+<?php $this->load->view('inc/footer.php'); ?>
