@@ -2,7 +2,7 @@
 <html>
   <head>
     <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
     
       // Load the Visualization API and the piechart package.
@@ -18,16 +18,21 @@
 
       // Create the data table.
       var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Lecture');
-      data.addColumn('number', 'attendance');
-	  foreach($user1 as $user): 
-	  data.addRow([$user->email, $user->uid]);
-	  endforeach;
-
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        <?php foreach($user1 as $user):
+	  echo "['$user->email', $user->uid],
+	  "; 
+	  endforeach; ?>
+        ['Pepperoni', 2]
+      ]);
+	  
+	 
       // Set chart options
-      var options = {'title':'how many people attend each lecture theater',
-                     'width':800,
-                     'height':600};
+      var options = {'title':'How Much Pizza I Ate Last Night',
+                     'width':400,
+                     'height':300};
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
