@@ -23,6 +23,10 @@ class Admin extends CI_Controller {
 
 		$this->session->set_userdata('unid', '2');
 		//$this->output->enable_profiler(TRUE);
+		
+		if(!$this->session->userdata('logged_in')) {
+			redirect('/');
+		}
 	}
 	 
 	public function index()
@@ -65,14 +69,33 @@ class Admin extends CI_Controller {
 	
 	public function submit_code() {
 		if($this->input->post()) {
-			$this->load->model('module_model');
-			$this->load->model('code_model');
-			
 			$indata = $this->input->post();
-			print_r($indata);
+			$mid = $indata['mid'];
+			$validity_minutes = $indata['validity'];
+			$validfrom_unix = strtotime($indata['validfrom']);
+			$validtill_unix = strtotime("+$validity_minutes minutes",$validfrom_unix);
 			
-//			$this->module_model->insert_module($outdata);
-//			$this->load->view('code_created', $outdata);
+			$chars = '23456789ABCDEFGHJKMNPQRSTUVWZYZ';
+			mt_srand( intval( $mid+$validfrom_unix+$validtill_unix ) );
+			$code = '';
+			for ($p = 0; $p < 6; $p++) {
+				$code .= $chars[mt_rand(0, 30)];
+			}
+			
+			$this->load->model('code_model');
+			$sqldata = Array(
+				'start_time' => $validfrom_unix,
+				'end_time' => $validtill_unix,
+				'code' => $code,
+				'mid' => $mid
+			);
+			$this->code_model->insert_code($sqldata);
+			
+			$outdata = Array(
+				'code' => $code,
+				'startdate' => $indata['validfrom']
+			);
+			$this->load->view('code_created', $outdata);
 		} else {
 			redirect('/admin/create_module/');
 		}

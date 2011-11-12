@@ -25,16 +25,8 @@ class Site extends CI_Controller {
 	}
 	 
 	public function index()
-	{
-		$this->load->model('user_model');
-		
-		$data['user1'] = $this->user_model->get_users();
-		
-		$this->load->model('achievement_model');
-		
-		$data['achievement1'] = $this->achievement_model->get_achievements();
-		
-		$this->load->view('home', $data);
+	{	
+		$this->load->view('home');
 	}
 	
 	public function about()
