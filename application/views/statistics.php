@@ -21,7 +21,8 @@
       data.addColumn('string', 'Lecture');
       data.addColumn('number', 'attendance');
 	  <?php foreach($user1 as $user):
-	  echo " data.addRow(['$user->email', '$user->uid']";
+	  echo "data.addRow(['$user->email', '$user->uid'];
+	  ";
 	  endforeach; ?>
 
       // Set chart options
