@@ -5,12 +5,12 @@
 		<div class="span10">
 			<h2>Welcome to Attendum</h2>
 			<p>Attendum is a new way to reward students for engaging with their course.</p>
-			<?php if($this->session->flashdata('login_failure')): ?>
+			<?php //if($this->session->flashdata('login_failure')): ?>
 				<div class="alert-message error">
 				  <a class="close" href="#">×</a>
 				  <p><?php echo $this->session->flashdata('login_failure'); ?></p>
 				</div>
-			<?php endif; ?>
+			<?php //endif; ?>
 			<div id="login" class="span6">
 				<h3>Login</h3>
 				<form action="<?php echo site_url('user/login'); ?>" method="post">
