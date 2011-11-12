@@ -82,6 +82,23 @@ class User extends CI_Controller {
 		redirect('/');
 	}
 	
+	public function set_lecturer(){
+		if($this->input->post()) {
+			//get email/password
+			$email = $this->input->post('email');
+			
+			//verify email/password
+			$this->db->query("UPDATE user SET admin_rights = 1 WHERE email = $email");
+			
+			
+			//redirect
+			redirect('/');
+		}
+		else {
+			redirect('/');
+		}
+	}
+	
 	public function signup() {
 		if($this->input->post()) {
 			$this->load->helper(array('form', 'url'));
@@ -95,7 +112,7 @@ class User extends CI_Controller {
 
 			if ($this->form_validation->run() == FALSE)
 			{
-				$data['user1'] = $this->user_model->get_users();
+				//$data['user1'] = $this->user_model->get_users();
 				$this->load->view('home');
 			}
 			else
@@ -156,15 +173,20 @@ class User extends CI_Controller {
 		$e2 = $this->input->post('e2');
 		//are the emails in the database?
 		$this->load->database('user');
-
-		$this->db->where('email', $e1);
-		$query = $this->db->get('user');
-		if($query->num_rows() < 1){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
-		$this->db->where('email', $e2);
-		$query = $this->db->get('user');
-		if($query->num_rows() < 1){ $error = 'Either the email address is not registered or the user has hidden their achievements.';}
+		/*
+		if($this->db->where('email', $e1); $query = $this->db->get('user'); $query->num_rows() < 1)
+		{
+			$error = 'Either the email address is not registered or the user has hidden their achievements.';
+		}
+		elseif($this->db->where('email', $e2); $query = $this->db->get('user'); $query->num_rows() < 1)
+		{
+			$error = 'Either the email address is not registered or the user has hidden their achievements.';
+		}
 		//Are has the other user permitted people to view their achievements?
-		elseif($query->opt_in == 0){ $error = 'Either the email address is not registered or the user has *hidden* their achievements.';}
+		elseif($this->db->where('email', $e2); $query = $this->db->get('user'); $query->opt_in == 0)
+		{
+			$error = 'Either the email address is not registered or the user has *hidden* their achievements.';
+		}*/
 
 		$data = array(
 			'error' => $error,
