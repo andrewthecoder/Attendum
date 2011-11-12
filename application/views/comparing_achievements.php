@@ -17,10 +17,12 @@ else
 
 	$yourEmail = $e1;
 	$yourID = $this->user_model->get_uid_using_email($yourEmail);
+	echo $yourID;
 	$yourAchievements = array();
 
 	$theirEmail = $e2;
 	$theirID = $this->user_model->get_uid_using_email($theirEmail);
+	echo theirID;
 	$theirAchievements = array();
 
 	//if(count($userachievements) > 0){
@@ -33,6 +35,9 @@ else
 	//}
 
 	$commonAchievements = array();//achievement ids
+
+	$this->load->module('achievement_display_model')
+	$adm = $this->achievement_display_model
 
 	if(count($yourAchievements) < 1)
 	{
@@ -54,6 +59,7 @@ else
 			foreach($commonAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
+				$adm->achievementString($ca);
 			endforeach;
 			}
 
@@ -63,6 +69,7 @@ else
 			foreach($yourAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
+				$adm->achievementString($ca);
 			endforeach;
 			}
 
@@ -72,6 +79,7 @@ else
 			foreach($theirAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
+				$adm->achievementString($ca);
 			endforeach;
 			}
 		}
@@ -84,6 +92,7 @@ else
 				foreach($yourAchievements as $ca):
 					echo $achievements[$ca]->name;
 					echo $achievements[$ca]->description;
+					$adm->achievementString($ca);
 				endforeach;
 			}
 		}
@@ -97,6 +106,7 @@ else
 			foreach($theirAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
+				$adm->achievementString($ca);
 			endforeach;
 		}
 	}
