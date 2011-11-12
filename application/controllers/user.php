@@ -49,10 +49,11 @@ class User extends CI_Controller {
 			}
 			else
 			{
+				$str_bits = explode('@',$this->input->post('email'));
 				$data = array(
 					'email' => $this->input->post('email'),
 					'admin_rights' => 0,
-					'unid' => $this->user_model->get_unid_extension(),
+					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
 					'password' => $this->input->post('password')
 				);				
 			
