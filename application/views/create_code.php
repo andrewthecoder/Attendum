@@ -14,7 +14,15 @@
 				dateFormat: 'dd/mm/yy',
 				separator: ' @ '
 			});
-			$( "#validtill" ).timepicker();
+			$( "#validity" ).timepicker(
+				showHour: false,
+				timeFormat: 'mm',
+				stepMinute: 5,
+				minuteMin: 5,
+				minuteMax: 120,
+				timeOnlyTitle: "Choose how long code is valid",
+				minuteText: "Minutes"
+			);
 		});
 	</script>
 	<style type="text/css">
@@ -41,8 +49,8 @@
 						<td><input type="text" name="validfrom" id="validfrom" /></td>
 					</tr>
 					<tr>
-						<td><label for="start">Valid Till</label></td>
-						<td><input type="text" name="validtill" id="validtill" /></td>
+						<td><label for="start">Validity</label></td>
+						<td><input type="text" name="validity" id="validity" /></td>
 					</tr>
 					<tr>
 						<td><input type="submit" value="Submit" /></td>
