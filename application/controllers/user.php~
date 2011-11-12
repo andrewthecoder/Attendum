@@ -22,6 +22,8 @@ class User extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('user_model');
+		
+		$this->output->enable_profiler(TRUE);
 	 }
 	 
 	public function index()
@@ -65,7 +67,9 @@ class User extends CI_Controller {
 	}
 	
 	public function uni_check($str) {
-		if($this->user_model->check_uni()) {
+		$str_bits = explode('@',$str);
+		echo print_r(str_bits);
+		if($this->user_model->check_uni($str_bits[1])) {
 			return true;
 		}
 		else {
@@ -85,7 +89,7 @@ class User extends CI_Controller {
 		$this->load->model('achievement_model');
 		$data['achievements'] = $this->achievement_model->get_achievements();
 		
-		$this->load->view('compare_achievements', $data);
+		$this->load->view('comparing_achievements', $data);
 	}
 }
 
