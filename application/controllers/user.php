@@ -55,7 +55,7 @@ class User extends CI_Controller {
 				$this->session->set_userdata($sess);
 			
 				//redirect
-				//redirect('/');
+				redirect('/');
 			}
 			else {
 			}
