@@ -8,7 +8,8 @@ class User_model extends CI_Model {
     }
 	
 	function get_user() {
-		$query = $this->db->where('uid', 1)->get('user');
+		$this->db->where('uid', 1);
+		$query = $this->db->get('users');
 		
 		return $query->result();
 	}
