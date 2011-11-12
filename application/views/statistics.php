@@ -18,20 +18,17 @@
 
       // Create the data table.
       var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Topping');
-      data.addColumn('number', 'Slices');
+      data.addColumn('string', 'Lecture');
+      data.addColumn('number', 'attendance');
       data.addRows([
-        ['Mushrooms', 3],
-        ['Onions', 1],
-        ['Olives', 1], 
-        ['Zucchini', 1],
-        ['Pepperoni', 2]
+        ['lecture name 1', 3],
+        ['lecture name 2', 1],
       ]);
 
       // Set chart options
-      var options = {'title':'How Much Pizza I Ate Last Night',
-                     'width':400,
-                     'height':300};
+      var options = {'title':'how many people attend each lecture theater',
+                     'width':800,
+                     'height':600};
 
       // Instantiate and draw our chart, passing in some options.
       var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
