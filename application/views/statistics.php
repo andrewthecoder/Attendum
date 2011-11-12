@@ -68,10 +68,10 @@
 
 <body>
 <!--Div that will hold the pie chart-->
+
+<div class="container">
 <div id="chart_div"></div>
 <div id="chart_div1"></div>
-<div class="container">
-
 </div>
 </body>
 </html>
