@@ -66,6 +66,10 @@
 </head>
 <body>
 
+<?php foreach($user1 as $user): ?>
+<p><?php $user->email; ?></p>
+<?php endforeach; ?>
+
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 	

@@ -19,9 +19,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data = array (
-			'test' => 'hello world'
-		);
+		$this->load->model('user_model');
+		
+		$data['user1'] = $this->user_model->get_user();
+		
 		$this->load->view('welcome_message', $data);
 	}
 }
