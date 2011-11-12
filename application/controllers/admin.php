@@ -2,31 +2,15 @@
 
 class Admin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-	 
 	public function __construct() {
 		parent::__construct();
 
-		$this->session->set_userdata('unid', '2');
+		//$this->session->set_userdata('unid', '2');
 		//$this->output->enable_profiler(TRUE);
 		
-		/*if(!$this->session->userdata('logged_in')) {
+		if(!$this->session->userdata('logged_in')) {
 			redirect('/');
-		}*/
+		}
 	}
 	 
 	public function uni_admin()
@@ -116,6 +100,7 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
+			$this->session->set_flashdata('add_lecturer_success','Lecturer successfully added!');
 			redirect('/admin/uni_admin');
 		}
 		else {
@@ -133,6 +118,7 @@ class Admin extends CI_Controller {
 			
 			
 			//redirect
+			$this->session->set_flashdata('remove_lecturer_success','Lecturer successfully removed!');
 			redirect('/admin/uni_admin');
 		}
 		else {
@@ -145,8 +131,8 @@ class Admin extends CI_Controller {
 		$rows = $this->code_model->query_codes("SELECT * 
 										FROM  `code` ,  `module` 
 										WHERE  `code`.`mid` =  `module`.`mid` 
-										LIMIT 0 , 30
-										ORDER BY `code`.`start_time`");
+										ORDER BY `code`.`start_time` DESC
+										LIMIT 0 , 30");
 	
 		$htmlrows = '';
 		foreach ($rows as $row) {
@@ -173,6 +159,3 @@ class Admin extends CI_Controller {
 	}
 	
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
