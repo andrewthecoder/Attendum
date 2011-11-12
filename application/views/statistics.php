@@ -22,7 +22,7 @@
       data.addColumn('number', 'Slices');
       data.addRows([
         <?php foreach($user1 as $user):
-	  echo "['$user->email', $user->uid],;
+	  echo "['$user->email', $user->uid],
 	  "; 
 	  endforeach; ?>
         ['Pepperoni', 2]
