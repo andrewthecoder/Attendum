@@ -25,12 +25,8 @@ class Admin extends CI_Controller {
 	}
 	 
 	public function index()
-	{
-		$this->load->model('user_model');
-		
-		$data['user1'] = $this->user_model->get_user();
-		
-		$this->load->view('welcome_message', $data);
+	{	
+		$this->load->view('home', $data);
 	}
 	
 	public function create_module() {
