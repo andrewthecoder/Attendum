@@ -57,6 +57,8 @@ foreach($theirAchievements as $ca):
 endforeach;
 ?>
 
+?>
+
 </div>
 </body>
 </html>
