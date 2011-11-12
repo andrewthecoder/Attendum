@@ -25,9 +25,8 @@ class Statistics_model extends CI_Model {
 
 									LEFT JOIN module AS m ON c.mid = m.mid
 									LEFT JOIN usercode AS uc ON c.cid = uc.cid
-									LEFT JOIN user AS u ON u.uid = uc.uid);
-									return $query->result();');
-		return $query->result();
+									LEFT JOIN user AS u ON u.uid = uc.uid');
+									return $query->result();
 	}
 	
                                   

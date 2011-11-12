@@ -22,8 +22,8 @@
 			data.addColumn('string', 'Module');
 			data.addColumn('number', 'Number Of Students');
 			data.addRows([
-				<?php foreach($percOfAttenPerModule as $percOfAttenPerModule1):
-				echo "['$percOfAttenPerModule1->name', $percOfAttenPerModule1->num],
+				<?php foreach($percofattenpermodule as $percofattenpermodule1):
+				echo "['$percofattenpermodule1->name', $percofattenpermodule1->num],
 				"; 
 				endforeach; ?>
 			]);
@@ -36,15 +36,12 @@
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
-		}
-		
-		function drawChart2() {
-
-		// Create the data table.
-			var data = new google.visualization.DataTable();
-			data.addColumn('string', 'Module');
-			data.addColumn('number', 'Number Of Students');
-			data.addRows([
+			
+			// Create the data table.
+			var data1 = new google.visualization.DataTable();
+			data1.addColumn('string', 'Module');
+			data1.addColumn('number', 'Number Of Students');
+			data1.addRows([
 				<?php foreach($numofusersforcourse as $numofusersforcourse1):
 				echo "['$numofusersforcourse1->name', $numofusersforcourse1->num],
 				"; 
@@ -52,14 +49,16 @@
 			]);
 
 			// Set chart options
-			var options = {'title':'How many students per module',
+			var options1 = {'title':'How many students per module',
 			'width':800,
 			'height':600};
 
 			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
+			var chart1 = new google.visualization.BarChart(document.getElementById('chart_div'));
+			chart1.draw(data1, options1);
+			
 		}
+
 	</script>
 </head>
 
