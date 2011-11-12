@@ -47,7 +47,7 @@
 			]);
 
 			// Set chart options
-			var options = {'title':'How many students per module',
+			var options1 = {'title':'How many students per module',
 			'width':800,
 			'height':600};
 
