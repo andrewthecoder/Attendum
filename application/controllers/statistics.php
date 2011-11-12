@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class statistics extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,9 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->model('user_model');
 		
-		$data['user1'] = $this->user_model->get_user();
+		$data['user1'] = $this->user_model->get_users();
 		
-		$this->load->view('home', $data);
+		$this->load->view('statistics', $data);
 	}
 }
 
