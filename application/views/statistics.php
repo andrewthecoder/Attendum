@@ -19,12 +19,12 @@
 		// Create the data table.
 			var data = new google.visualization.DataTable();
 			data.addColumn('string', 'Module');
-			data.addColumn('number', '% of attendance for eaech module');
+			data.addColumn('number', '% of attendance for top 10 modules');
 
 				<?php 
 				$i = 0;
 				echo "data.addRows($num_numofusersforcourse);";
-				foreach($percofattenpermodule as $percofattenpermodule1):
+				foreach($toppercofattenpermodule as $percofattenpermodule1):
 				echo "data.setValue($i,0,'$percofattenpermodule1->name');";
 				echo "data.setValue($i,1,$percofattenpermodule1->num);";
 				$i++;
@@ -32,7 +32,7 @@
 	
 
 			// Set chart options
-			var options = {'title':'% of attendance for eaech module',
+			var options = {'title':'% of attendance for top 10 modules',
 			'width':800,
 			'height':600, 
 			min:0, 
@@ -42,6 +42,32 @@
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
+			
+			var data2 = new google.visualization.DataTable();
+			data2.addColumn('string', 'Module');
+			data2.addColumn('number', '% of attendance for bottom 10 modules');
+
+				<?php 
+				$i = 0;
+				echo "data2.addRows($num_numofusersforcourse);";
+				foreach($bottompercofattenpermodule as $percofattenpermodule1):
+				echo "data2.setValue($i,0,'$percofattenpermodule1->name');";
+				echo "data2.setValue($i,1,$percofattenpermodule1->num);";
+				$i++;
+				endforeach; ?>
+	
+
+			// Set chart options
+			var options2 = {'title':'% of attendance for bottom 10 modules',
+			'width':800,
+			'height':600, 
+			min:0, 
+			max:100,
+			hAxis: {title: 'Module', titleTextStyle: {color: 'red'}}};
+
+			// Instantiate and draw our chart, passing in some options.
+			var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+			chart2.draw(data2, options2);
 			
 			var data1 = new google.visualization.DataTable();
 			data1.addColumn('string', 'Module');
@@ -65,6 +91,7 @@
 		
 	</script>
 <div id="chart_div"></div>
+<div id="chart_div2"></div>
 <div id="chart_div1"></div>
 </div>
 
