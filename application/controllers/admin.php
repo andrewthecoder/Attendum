@@ -145,7 +145,8 @@ class Admin extends CI_Controller {
 		$rows = $this->code_model->query_codes("SELECT * 
 										FROM  `code` ,  `module` 
 										WHERE  `code`.`mid` =  `module`.`mid` 
-										LIMIT 0 , 30");
+										LIMIT 0 , 30
+										ORDER BY `code`.`start_time`");
 	
 		$htmlrows = '';
 		foreach ($rows as $row) {
