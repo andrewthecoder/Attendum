@@ -13,7 +13,7 @@ class Module_model extends CI_Model {
 		return $query->result();
 	}
 	
-	function insert_module('module', $data) {
-		return $this->db->insert($data);
+	function insert_module($data) {
+		return $this->db->insert('module', $data);
 	}
 }
