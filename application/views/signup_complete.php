@@ -6,8 +6,8 @@ Sign Up Complete | Attendum
 <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 </head>
 <body>
-<div id="container">
-<h1 style="color:green;">Sign Up Complete!</h1>
-</div>
+	<div class="container">
+	<h1 style="color:green;">Sign Up Complete!</h1>
+	</div>
 </body>
 </html>
