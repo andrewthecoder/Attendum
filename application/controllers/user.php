@@ -104,17 +104,26 @@ class User extends CI_Controller {
 			{
 				$str_bits = explode('@',$this->input->post('email'));
 				echo print_r($str_bits);
-				$data = array(
-					'email' => $this->input->post('email'),
-					'admin_rights' => 0,
-					'unid' => $this->user_model->get_unid_extension($str_bits[1]),
-					'password' => $this->input->post('pass')
-				);
 				
-				echo $this->input->post('email');
-			
-				$this->user_model->insert_user($data);
-				$this->load->view('signup_complete');
+				if($this->user_model->check_uni($str_bits[1])) {
+				
+					$data = array(
+						'email' => $this->input->post('email'),
+						'admin_rights' => 0,
+						'unid' => $this->user_model->get_unid_extension($str_bits[1]),
+						'password' => $this->input->post('pass')
+					);
+					
+					echo $this->input->post('email');
+				
+					$this->user_model->insert_user($data);
+					$this->load->view('signup_complete');
+				
+				}
+				else {
+					$this->session->flashdata('uni_check_fail', 'Uni not registered');
+					redirect('/');
+				}
 			}
 
 		}
