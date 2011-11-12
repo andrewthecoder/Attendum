@@ -11,8 +11,8 @@
 	<script>
 		$(function() {
 			$( "#validfrom" ).datetimepicker({ 
-				dateFormat: 'dd/mm/yy',
-				separator: ' @ ',
+				dateFormat: 'dd MM yy',
+				separator: ' ',
 				stepMinute: 5
 			});
 			$( "#validity" ).timepicker({
