@@ -55,4 +55,4 @@ class Checkin extends CI_Controller {
 		}
 	}
 	
-	
+}
