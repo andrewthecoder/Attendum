@@ -24,8 +24,10 @@ else
 	foreach($query->result() as $row):
 		if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
 	endforeach;
+	$i = 0;
 	foreach($query->result() as $row):
-		if($row->uid == $yourID){ $yourAchievements[] = $row->aid; }
+		if($row->uid == $yourID){ $yourAchievements[$i] = $row->aid; $i++; }
+		
 	endforeach;
 	$commonAchievements = array();//achievement ids
 	print_r($yourAchievements);
