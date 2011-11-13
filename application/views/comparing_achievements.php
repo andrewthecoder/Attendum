@@ -59,9 +59,9 @@ else
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
 				echo '<p><li>';
-				echo $achievements[$ca]->name;
+				echo $ca->name;
 				echo ' - ';
-				echo $achievements[$ca]->description;
+				echo $ca->description;
 				echo '</li></p>';
 				//echo "achievementString($ca)";
 			endforeach;
@@ -72,9 +72,9 @@ else
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
 				echo '<p><li>';
-				echo $achievements[$ca]->name;
+				echo $ca->name;
 				echo ' - ';
-				echo $achievements[$ca]->description;
+				echo $ca->description;
 				echo '</li></p>';
 				//echo "achievementString($ca)";
 			endforeach;
@@ -85,9 +85,9 @@ else
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
 				echo '<p><li>';
-				echo $achievements[$ca]->name;
+				echo $ca->name;
 				echo ' - ';
-				echo $achievements[$ca]->description;
+				echo $ca->description;
 				echo '</li></p>';
 				//echo "achievementString($ca)";
 			endforeach;
@@ -101,9 +101,9 @@ else
 				echo '<p>Your achievements are:</p>';
 				foreach($yourAchievements as $ca):
 					echo '<p><li>';
-					echo $achievements[$ca]->name;
+					echo $ca->name;
 					echo ' - ';
-					echo $achievements[$ca]->description;
+					echo $ca->description;
 					echo '</li></p>';
 					//echo "achievementString($ca)";
 				endforeach;
@@ -119,9 +119,9 @@ else
 			foreach($theirAchievements as $ca)
 			{
 				echo '<p><li>';
-				echo $achievements[$ca]->name;
+				echo $ca->name;
 				echo ' - ';
-				echo $achievements[$ca]->description;
+				echo $ca->description;
 				echo '</li></p>';
 				//echo achievementString($ca);
 			}
