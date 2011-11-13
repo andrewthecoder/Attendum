@@ -31,6 +31,8 @@ else
 	//foreach($query->result() as $row):
 	//	if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
 	//endforeach;
+	echo is_numeric($theirID);
+	echo is_numeric($yourID);
 	$query1 = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$yourID);
 	$yourAchievement = $query1->result();
 	//foreach($query->result() as $row):
