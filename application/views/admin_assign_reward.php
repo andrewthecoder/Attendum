@@ -3,6 +3,7 @@
 	<?php $this->load->view('inc/header.php'); ?>
 	<h2>Assign Awards</h2>
 	<?php $this->load->view('inc/admin_nav'); ?>
+	<?php if($this->session->flashdata('no_modules'): ?>
 	<form action="<?php echo site_url('admin/assign_reward'); ?>" method="post">
 		<table>
 			<tr>
@@ -37,5 +38,11 @@
 			</tr>
 		</table>
 	</form>
+	<?php else: ?>
+		<div class="alert-message error">
+			<a class="close" href="#">×</a>
+			<p><?php echo $this->session->flashdata('no_modules'); ?></p>
+		</div>	
+	<?php endif;?>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
