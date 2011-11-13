@@ -13,6 +13,13 @@ class Achievement_model extends CI_Model {
 		return $query->result();
 	}
 	
+	/*function get_user_achievements($uid) {
+		$this->db->where('uid',$uid);
+		$query = $this->db->get('achievement');
+		
+		return $query->result();
+	}*/
+	
 	function get_achievement($aid) {
 		$this->db->where('aid', $aid);
 		$query = $this->db->get('achievement');

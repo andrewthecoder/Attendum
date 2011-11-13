@@ -292,6 +292,8 @@ class User extends CI_Controller {
 			'achievements' => $this->achievement_model->get_achievements()
 		);
 		
+		echo print_r($data);
+		
 		$this->load->view('comparing_achievements', $data);
 	}
 

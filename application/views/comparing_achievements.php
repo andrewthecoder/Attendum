@@ -1,12 +1,6 @@
-<!doctype html>
-<head>
-<title>
-Achievements Comparison
-</title>
-</head>
-<body>
-<div id="container">
-
+<?php $this->load->view('inc/meta.php'); ?>
+<div class="container">
+<?php $this->load->view('inc/header.php'); ?>
 <?php
 if(strlen($error) > 0)
 {
@@ -121,5 +115,4 @@ else
 ?>
 
 </div>
-</body>
-</html>
+<?php $this->load->view('inc/footer.php'); ?>
