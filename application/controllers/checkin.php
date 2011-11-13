@@ -59,9 +59,11 @@ class Checkin extends CI_Controller {
 		
 					foreach($query->result() as $ach) {
 						$prep_sql = "SET @uid = ".$uid."; SET @cid = ".$cid.";";
-						$sql = $prep_sql.' '.$ach->sql.';';
+						echo $prep_sql;
+						$this->db->query($prep_sql);
 						
-						echo $sql;
+						$sql = $ach->sql;
+						$echo $sql;
 						
 						$CI =& get_instance();
 						$CI->load->model('module_model');
