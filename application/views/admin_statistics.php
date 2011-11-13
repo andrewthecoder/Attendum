@@ -1,6 +1,8 @@
 <?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
+	<h2>Statistics</h2>
+	<?php $this->load->view('inc/admin_nav.php'); ?>
 <!--Div that will hold the pie chart-->	
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
