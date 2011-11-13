@@ -18,6 +18,8 @@
 				echo '<a href="'.$surl.'">Compare achievements.<a/>';
 			?>
 		</div>
+	</div>
+	<div class="row">
 		<div class="span8">
 		<h3>Change Password</h3>
 			<?php if($this->session->flashdata('change_pw_success') != ''): ?>
