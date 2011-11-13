@@ -209,6 +209,7 @@ class Admin extends CI_Controller {
 	
 		$htmlrows = '';
 		foreach ($rows as $row) {
+			print_r($row->end_time);
 			if ($row->end_time > time()) {
 				$bgcolor = 'B3FFD7';
 			} elseif ($row->end_time < time()) {
