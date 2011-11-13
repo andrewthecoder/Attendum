@@ -45,9 +45,7 @@ else
 	//print_r($theirAchievements);
 	if(!empty($yourAchievements))
 	{
-		$yourAchievementsCopy = $yourAchievements;
 		if(!empty($theirAchievements))
-			$theirAchievementsCopy = $theirAchievements;
 		{
 
 			foreach($yourAchievements as $a):
@@ -55,8 +53,8 @@ else
 					if($a == $b)
 					{
 						$commonAchievements[] = $a;
-						unset($yourAchievementsCopy[$a]);
-						unset($theirAchievementsCopy[$b]);
+						unset($yourAchievements[$a]);
+						unset($theirAchievements[$b]);
 					}
 				endforeach;
 			endforeach;
@@ -74,10 +72,10 @@ else
 			endforeach;
 			}
 
-			if(!empty($yourAchievementsCopy))
+			if(!empty($yourAchievements))
 			{
 			echo "<p>Achievements you have that they don't</p>";
-			foreach($yourAchievementsCopy as $ca):
+			foreach($yourAchievements as $ca):
 				echo '<p><li>';
 				echo $ca->name;
 				echo ' - ';
@@ -87,10 +85,10 @@ else
 			endforeach;
 			}
 
-			if(!empty($theirAchievementsCopy))
+			if(!empty($theirAchievements))
 			{
 			echo "<p>Achievements they have that you don't</p>";
-			foreach($theirAchievementsCopy as $ca):
+			foreach($theirAchievements as $ca):
 				echo '<p><li>';
 				echo $ca->name;
 				echo ' - ';
@@ -103,10 +101,10 @@ else
 		else
 		{
 			echo '<p>They have no achievements.</p>';
-			if(!empty($yourAchievementsCopy))
+			if(!empty($yourAchievements))
 			{
 				echo '<p>Your achievements are:</p>';
-				foreach($yourAchievementsCopy as $ca):
+				foreach($yourAchievements as $ca):
 					echo '<p><li>';
 					echo $ca->name;
 					echo ' - ';
@@ -120,10 +118,10 @@ else
 	else
 	{
 		echo '<p>You have no achievements.</p>';
-		if(!empty($theirAchievementsCopy))
+		if(!empty($theirAchievements))
 		{
 			echo '<p>Their achievements are:</p>';
-			foreach($theirAchievementsCopy as $ca)
+			foreach($theirAchievements as $ca)
 			{
 				echo '<p><li>';
 				echo $ca->name;
