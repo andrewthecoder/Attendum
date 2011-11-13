@@ -44,10 +44,12 @@ else
 		if($row->uid == $theirID)
 		{
 			array_push($theirAchievements, $row->aid);
+			echo $row->aid;
 		}
 		if($row->uid == $yourID)
 		{
 			array_push($yourAchievements, $row->aid);
+			echo $row->aid;
 		}
 	endforeach;
 	//}
