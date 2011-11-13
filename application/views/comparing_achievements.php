@@ -20,7 +20,7 @@ else
 		
 		$str = '';
 		$str .= '<p>';
-		$str .= "<img src="$image_filename" alt"$name" style="+'"float:right;margin:0 5px 0 0;"/>';
+		$str .= '<img src="'+$image_filename+'" alt"'+$name+'" style="float:right;margin:0 5px 0 0;"/>';
 		$str .= $name+'<br/>';
 		$str .= $description;
 		$str .= '</p>';
