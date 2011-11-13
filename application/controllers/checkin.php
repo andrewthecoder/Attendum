@@ -47,38 +47,20 @@ class Checkin extends CI_Controller {
 						'uid' => $uid,
 						'cid' => $cid
 					);
-					//achievement($uid, $cid);
-					// insert usercode data
+					
+					// insert the correctly valid code to database; log attendance! woo!
 					$this->usercode_model->insert_usercode($data);
 					
-					//$this->load->model('user_achievement_model');
-					
-					//$achievement = $this->user_achievement_model->check_achievements($uid, $cid);
-					
+					//now let's get down to some complicated achievement shit.
 					$query = $this->db->get('achievement');
 		
-					foreach($query->result() as $ach) {
-						$prep_sql = "SET @uid = ".$uid."; SET @cid = ".$cid.";";
-						$sql = $prep_sql.' '.$ach->sql;
+					foreach($query->result() as $ach_row) {
+						$test_ach_sql = $ach_row->sql;
 						
-						$achsql = explode(";",$sql);						
-						
-						$CI =& get_instance();
-						$CI->load->model('module_model');
-						$mid = $CI->module_model->get_mid_cid($cid);
-						
-						$aid = $ach->aid;
-						
-						print_r($achsql);
+						echo $test_ach_sql;
 						die();
-						
-						foreach ($achsql as $singlesql) {
-							$this->db->query($singlesql);
-						}
-						
-						$row = $query->row();
-						print_r($row);
-						
+					
+					
 						if($row->obtained == 1) {
 							$this->load->model('achievement_model');
 							
@@ -110,17 +92,5 @@ class Checkin extends CI_Controller {
 			redirect('/checkin');
 		}
 	}
-	
-	private function achievement($uid, $cid){
-		//for each achievment (
-		//	if $this->db->query("SET @uid = $uid;
-		//		SET @cid = $cid;".$query field) = 1 
-		//		then 
-		// 		if doesnt have achievement
-		//			add achievment (insert uid, aid, mid (got from cid) into achievment
-		//)
-	}
-	
-	
 	
 }
