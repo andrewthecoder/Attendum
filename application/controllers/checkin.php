@@ -63,7 +63,7 @@ class Checkin extends CI_Controller {
 						$this->db->query($prep_sql);
 						
 						$sql = $ach->sql;
-						$echo $sql;
+						echo $sql;
 						
 						$CI =& get_instance();
 						$CI->load->model('module_model');
