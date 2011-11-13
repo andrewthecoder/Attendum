@@ -10,10 +10,10 @@
 	?>
 	<table>
 	<td>
-	<?php foreach($rewards->result() as $r): ?>
+	<?php foreach($rewards->result() as $r){ ?>
 		<tr><?php $r->name; ?></tr>
 		<tr><?php $r->description; ?></tr>
-	<?php endfor ?>
+	<?php } ?>
 	</td>
 	</table>
 </div>
