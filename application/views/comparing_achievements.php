@@ -14,6 +14,7 @@ if(strlen($error) > 0)
 }
 else
 {
+	$this->load->model('adm_model');
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
@@ -41,7 +42,7 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	//$this->load->model('adm_model');
+	
 
 	if(count($yourAchievements) > 0)
 	{
@@ -51,9 +52,11 @@ else
 			foreach($yourAchievements as $a):
 				foreach($theirAchievements as $b):
 					if($a == $b)
+					{
 						array_push($commonAchievements, $a);
 						unset($yourAchievements[$a]);
 						unset($theirAchievements[$b]);
+					}
 				endforeach;
 			endforeach;
 			 
