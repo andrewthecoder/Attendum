@@ -26,6 +26,7 @@ class Admin extends CI_Controller {
 	public function assign_reward() {
 		$this->load->model('module_model');
 		$this->load->model('reward_model');
+		$this->load->model('achievement_module');
 		$data = array(
 			'modules' => $this->module_model->get_modules($this->session->userdata('uid')),
 			'achievements' => $this->achievement_model->get_achievements(),
