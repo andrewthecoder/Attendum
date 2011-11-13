@@ -17,12 +17,10 @@ else
 
 	$yourEmail = $e1;
 	$yourID = $this->user_model->get_uid_using_email($yourEmail);
-	echo $yourID;
 	$yourAchievements = array();
 
 	$theirEmail = $e2;
 	$theirID = $this->user_model->get_uid_using_email($theirEmail);
-	echo theirID;
 	$theirAchievements = array();
 
 	//if(count($userachievements) > 0){
@@ -36,7 +34,7 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	$this->load->module('adm');
+	$this->load->model('adm');
 
 	if(count($yourAchievements) < 1)
 	{
