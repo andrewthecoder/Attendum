@@ -5,7 +5,7 @@ class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		
 		if(!$this->session->userdata('logged_in')) {
 			redirect('/');
@@ -24,25 +24,29 @@ class Admin extends CI_Controller {
 	}
 	
 	public function assign_reward() {
-		$this->load->model('module_model', 'reward_model');
+		$this->load->model('module_model');
+		$this->load->model('reward_model');
 		$this->load->helper('form');
 		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
 		if($module_rows) {		
 			foreach ($module_rows as $row) {
 				$module_refs[$row->mid] = $row->ref;
 			}
-			$data = form_dropdown('mid', $module_refs);
+			$temp = form_dropdown('mid', $module_refs);
 			$data = array(
-				'module_dropdown' => $data,
+				'module_dropdown' => $temp,
 				'achievements' => $this->achievement_model->get_achievements(),
 				'rewards' => $this->reward_model->get_rewards()
 			);
+			
+			echo print_r($data);
+			
 			$this->load->view('admin_assign_reward', $data);
 		}
 		else {
 			//redirect no modules;	
 			$this->session->set_flashdata('no_modules', 'There are no modules for which to assign a reward.');
-			$this->load->view('admin_assign_reward', $data);
+			$this->load->view('admin_assign_reward');
 		}
 	}
 	
