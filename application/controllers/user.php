@@ -33,20 +33,20 @@ class User extends CI_Controller {
 	
 	public function profile() {
 
-		$achievements = array();
+		$achievementStrings = array();
 		$myID = $this->session->userdata['uid'];
 		$this->load->database('userachievementmodule');
 		$query = $this->db->query('SELECT * FROM userachievementmodule');
+		//$this->load->model('adm_model');
 		foreach($query->result() as $row):
 			if($row->uid == $myID)
 			{
-				array_push($achievementStrings, $this->adm_model->achievementString($row->aid));
+				//array_push($achievementStrings, $this->adm_model->achievementStrings($row->aid));
 			}
 		endforeach;
-		$this->load->model('adm_model');
 
 		$data['page_title'] = 'Your Profile';
-		$data['achievementStrings'] = $achievementStrings
+		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);
 	}
 	
