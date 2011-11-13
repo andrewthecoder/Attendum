@@ -31,8 +31,8 @@ else
 	//foreach($query->result() as $row):
 	//	if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
 	//endforeach;
-	$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$yourID);
-	$yourAchievement = $query->result();
+	$query1 = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$yourID);
+	$yourAchievement = $query1->result();
 	//foreach($query->result() as $row):
 	//	if($row->uid == $yourID){ $yourAchievements[] = $row->aid; }
 	//endforeach;
