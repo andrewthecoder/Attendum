@@ -125,6 +125,7 @@ else
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
 				echo achievementString($ca);
+				echo 'Hello';
 			}
 		}
 	}
