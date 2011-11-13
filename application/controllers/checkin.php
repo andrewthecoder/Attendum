@@ -69,7 +69,8 @@ class Checkin extends CI_Controller {
 						
 						$aid = $ach->aid;
 						
-						print_r($achsql);/*
+						print_r($achsql);
+						die();
 						
 						foreach ($achsql as $singlesql) {
 							$this->db->query($singlesql);
@@ -87,7 +88,7 @@ class Checkin extends CI_Controller {
 						}
 						else {
 							return false;
-						}*/
+						}
 					}
 					
 					// thank the muppets and redirect
