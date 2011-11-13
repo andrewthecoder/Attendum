@@ -115,6 +115,6 @@ class User_model extends CI_Model {
 		$query = $this->db->get('user');
 		$row = $query->row();
 		
-		return $row->uid;
+		return $row['uid'];
 	}
 }

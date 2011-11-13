@@ -40,7 +40,7 @@ class User extends CI_Controller {
 		//$this->load->model('adm_model');
 		foreach($query->result() as $row):
 			if($row->uid == $myID)
-			{
+			{	//Modules hate me.
 				//array_push($achievementStrings, $this->adm_model->achievementString($row->aid));
 			}
 		endforeach;
@@ -265,7 +265,7 @@ class User extends CI_Controller {
 		}
 		elseif($row['opt_in'] == 0)
 		{//Has the other user permitted people to view their achievements?
-			$error = '\nEither the email address is not registered or the user has hidden their achievements.<br/>';
+			$error = 'Either the email address is not registered or the user has hidden their achievements.<br/>';
 		}
 
 		$e1id = $this->session->userdata['uid'];
