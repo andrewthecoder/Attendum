@@ -4,6 +4,22 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" />
 	<title>Check In | Attendum</title>
+	<style type="text/css">
+		#checkin_body {
+			background: #49a2d1;
+			font-family: 'Helvetica', 'Arial', sans-serif;
+		}
+
+		#checkin h3 {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			color: white;
+		}
+
+		#checkin p {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			color: white;
+		}
+	</style>
 </head>
 <body id="checkin_body">
 	<div id="checkin" class="checkin_div">
