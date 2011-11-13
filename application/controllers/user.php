@@ -273,6 +273,7 @@ class User extends CI_Controller {
 
 	public function compare_achievements()
 	{
+		$this->output->enable_profiler(TRUE);
 		$this->load->database('user');
 
 		$error = '';
