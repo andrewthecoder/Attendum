@@ -58,9 +58,9 @@ class Checkin extends CI_Controller {
 					$query = $this->db->get('achievement');
 		
 					foreach($query->result() as $ach) {
-						$prep_sql = "SET @uid = ".$uid."; SET @cid = ".$cid.";";
-						echo $prep_sql;
-						$this->db->query($prep_sql);
+
+						$this->db->query("SET @uid = '$uid'");
+						$this->db->query("SET @cid = '$cid'");
 						
 						$sql = $ach->sql;
 						echo $sql;
