@@ -74,8 +74,7 @@ class Checkin extends CI_Controller {
 						}
 						
 						print_r($external_sql_vars);
-						die();
-					
+						/*
 					
 						if($row->obtained == 1) {
 							$this->load->model('achievement_model');
@@ -86,7 +85,7 @@ class Checkin extends CI_Controller {
 						}
 						else {
 							return false;
-						}
+						}*/
 					}
 					
 					// thank the muppets and redirect
