@@ -32,7 +32,8 @@ class User extends CI_Controller {
 	}
 	
 	public function profile() {
-		$this->load->view('profile');
+		$data['page_title'] = 'Your Profile';
+		$this->load->view('profile', $data);
 	}
 	
 	public function change_pass() {
@@ -51,6 +52,7 @@ class User extends CI_Controller {
 				//update
 				$this->user_model->change_pass($this->session->userdata('uid'),$this->input->post('new_pass'));
 				
+				$this->session->set_flashdata('change_pw_success', 'Password changed.');
 				//redirect
 				redirect('/user/profile');
 			}
