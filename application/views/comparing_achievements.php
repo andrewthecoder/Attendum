@@ -52,9 +52,11 @@ else
 			foreach($yourAchievements as $a):
 				foreach($theirAchievements as $b):
 					if($a == $b)
+					{
 						array_push($commonAchievements, $a);
 						unset($yourAchievements[$a]);
 						unset($theirAchievements[$b]);
+					}
 				endforeach;
 			endforeach;
 			 
