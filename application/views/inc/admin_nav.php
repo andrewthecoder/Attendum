@@ -1,4 +1,7 @@
 <ul class="pills">
+	<?php
+		$admin_rights = $this->session->userdata('admin_rights');
+	?>
 	<?php if($admin_rights >= 1): ?>
 		<li><a href="<?php echo site_url('/admin/create_code'); ?>">Create Code</a></li>
 		<li><a href="<?php echo site_url('/admin/create_module'); ?>">Create Module</a></li>
