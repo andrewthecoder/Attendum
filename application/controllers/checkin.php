@@ -36,9 +36,10 @@ class Checkin extends CI_Controller {
 						'uid' => $uid,
 						'cid' => $cid
 					);
+					print_r($data);
 					
 					// insert usercode data
-					$this->usercode_model->insert_usercode($data);
+				//	$this->usercode_model->insert_usercode($data);
 					
 					//redirect
 					redirect('/');
