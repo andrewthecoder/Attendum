@@ -32,8 +32,8 @@ class Checkin extends CI_Controller {
 				$cid = $this->code_model->query_codes($code_query);
 				if ($cid) {
 					$data = Array(
-						'uid' = $user->uid,
-						'cid' = $cid
+						'uid' => $user->uid,
+						'cid' => $cid
 					);
 					
 					// insert usercode data
