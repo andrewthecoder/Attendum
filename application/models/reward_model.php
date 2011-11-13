@@ -19,7 +19,7 @@ class Reward_model extends CI_Model {
 	
 	function assign_reward($rid, $aid, $mid) {
 		$data = array(
-			'rid' = $rid,
+			'rid' => $rid,
 			'aid' => $aid,
 			'mid' => $mid
 		);
