@@ -26,32 +26,35 @@ class Checkin extends CI_Controller {
 			if($this->user_model->check_login($email, sha1($password))) {
 				//get user details
 				$user = $this->user_model->get_user($email);
+				$uid = $user->uid;
 				
 				//check code
 				$code_query = "SELECT `cid` FROM `code` WHERE `code` = '$code'";
 				$cid = $this->code_model->query_codes($code_query);
 				if ($cid) {
+					$cid = $cid[0]->cid;
 					$data = Array(
-						'uid' => $user->uid,
+						'uid' => $uid,
 						'cid' => $cid
 					);
 					
 					// insert usercode data
 					$this->usercode_model->insert_usercode($data);
 					
-					//redirect
-					redirect('/');
+					// thank the muppets and redirect
+					$this->session->set_flashdata('checkin_success', 'Check-In Successful!');
+					redirect('/checkin');
 				} else {
 					$this->session->set_flashdata('invalid_code', 'Check-In Failed: Code Incorrect / Expired');
-					redirect('/');
+					redirect('/checkin');
 				}
 			} else {
 				$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
-				redirect('/');
+				redirect('/checkin');
 			}
 		} else {
 			$this->session->flashdata('login-failure', 'Login Failed: Email/Password Incorrect');
-			redirect('/');
+			redirect('/checkin');
 		}
 	}
 	
