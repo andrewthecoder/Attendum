@@ -103,7 +103,7 @@ else
 	else
 	{
 		echo '<p>You have no achievements.</p>';
-		if(!empty($theirAchievements)1)
+		if(!empty($theirAchievements))
 		{
 			echo '<p>Their achievements are:</p>';
 			foreach($theirAchievements as $ca)
