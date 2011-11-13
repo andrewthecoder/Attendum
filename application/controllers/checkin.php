@@ -87,6 +87,7 @@ class Checkin extends CI_Controller {
 							return false;
 						}*/
 					}
+					die();
 					
 					// thank the muppets and redirect
 					$this->session->set_flashdata('checkin_success', 'Check-In Successful!');
