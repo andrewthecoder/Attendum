@@ -18,7 +18,6 @@
 		#checkin p {
 			font-family: 'Helvetica', 'Arial', sans-serif;
 			color: white;
-			width: 100%;
 		}
 	</style>
 </head>
