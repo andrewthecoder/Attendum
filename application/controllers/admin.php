@@ -8,6 +8,9 @@ class Admin extends CI_Controller {
 		//$this->output->enable_profiler(TRUE);
 		
 		if(!$this->session->userdata('logged_in')) {
+			if(!$this->session->userdata('admin_rights') < 1) {
+				redirect('/');
+			}
 			redirect('/');
 		}
 	}
@@ -55,7 +58,12 @@ class Admin extends CI_Controller {
 	}
 	
 	public function create_reward() {
-		$this->load->view('admin_create_reward');
+		if(!$this->session->userdata('admin_rights') < 2) {
+			$this->load->view('admin_create_reward');
+		}
+		else {
+			redirect('/admin');
+		}
 	}
 	
 	public function create_module() {
@@ -234,8 +242,13 @@ class Admin extends CI_Controller {
 	}
 	
 	public function list_rewards()
-	{
-		$this->load->view('admin_list_rewards');
+	{	
+		if(!$this->session->userdata('admin_rights') < 2) {
+			$this->load->view('admin_list_rewards');
+		}
+		else {
+			redirect('/admin');
+		}
 	}
 	
 }

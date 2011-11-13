@@ -22,6 +22,9 @@ class statistics extends CI_Controller {
 		parent::__construct();
 		
 		if(!$this->session->userdata('logged_in')) {
+			if(!$this->session->userdata('admin_rights') < 2) {
+				redirect('/');
+			}
 			redirect('/');
 		}
 	}
