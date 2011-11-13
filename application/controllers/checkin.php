@@ -32,6 +32,7 @@ class Checkin extends CI_Controller {
 				$code_query = "SELECT `cid` FROM `code` WHERE `code` = '$code'";
 				$cid = $this->code_model->query_codes($code_query);
 				if ($cid) {
+					$cid = $cid[0]->cid;
 					$data = Array(
 						'uid' => $uid,
 						'cid' => $cid
