@@ -42,7 +42,7 @@ echo count($theirAchievements);
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
-	echo $row->aid;
+	echo $row->aid+'</br>;
 		if($row->uid == $theirID)
 		{
 			array_push($theirAchievements, $row->aid);
