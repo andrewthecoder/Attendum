@@ -12,14 +12,8 @@
 				echo $a->name.' - '.$a->points.'points<br>'; 
 			endforeach;
 			?>
-			<h3>Compare Achievements</h3>
-			<?php 
-				$surl = site_url('user/comparison_chooser');
-				echo '<a href="'.$surl.'">Compare achievements.<a/>';
-			?>
+			
 		</div>
-	</div>
-	<div class="row">
 		<div class="span8">
 		<h3>Change Password</h3>
 			<?php if($this->session->flashdata('change_pw_success') != ''): ?>
@@ -45,6 +39,23 @@
 				</tr>
 				</table>
 			</form>
+		
+		
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+				
+		
+		<h3>Compare Achievements</h3>
+			<?php 
+				$surl = site_url('user/comparison_chooser');
+				echo '<a href="'.$surl.'">Compare achievements.<a/>';
+			?>
+		</div>
+		<div class="span8">
+			
 			<h3>Controlling Your Data</h3>
 			<p>By default all of your data is hidden. That means that all of your achievements and points are hidden from other
 			users. By clicking the button below you can toggle whether your data is shared or not. If you choose to share your data
