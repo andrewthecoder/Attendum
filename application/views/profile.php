@@ -6,7 +6,7 @@
 	<h4><strong>Points: </strong><?php echo $points; ?></h4>
 	<div class="row">
 		<div class="span8">
-			<h3>Currenct Achievements</h3>
+			<h3>Current Achievements</h3>
 			<?php 
 			foreach($achievementStrings as $a):
 				echo $a->name.' - '.$a->points.'points<br>'; 
