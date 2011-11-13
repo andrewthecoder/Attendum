@@ -116,10 +116,11 @@ else
 			echo '<p>Their achievements are:</p>';
 			foreach($theirAchievements as $ca)
 			{
-				echo '<p>';
+				echo '<p><li>';
 				echo $achievements[$ca]->name;
+				echo ' - ';
 				echo $achievements[$ca]->description;
-				echo '</p>';
+				echo '</li></p>';
 				//echo achievementString($ca);
 			}
 		}
