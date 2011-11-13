@@ -8,10 +8,12 @@ class Admin extends CI_Controller {
 		//$this->output->enable_profiler(TRUE);
 		
 		if(!$this->session->userdata('logged_in')) {
+			redirect('/');
+		}
+		else {
 			if(!$this->session->userdata('admin_rights') < 1) {
 				redirect('/');
 			}
-			redirect('/');
 		}
 	}
 	 
