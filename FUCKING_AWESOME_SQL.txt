@@ -1,3 +1,36 @@
+============= point list for a module ===============
+
+SELECT ((COUNT(c.cid) * 10) + (SUM(a.points))) AS points, u.uid AS uid, u.email AS email
+FROM 
+code AS c 
+LEFT JOIN usercode AS uc ON c.cid = uc.cid
+LEFT JOIN user AS u ON u.uid = uc.uid
+LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+LEFT JOIN module AS m ON uam.mid = m.mid
+LEFT JOIN achievement AS a ON a.aid = uam.aid
+WHERE u.uid = $uid AND m.mid = $mid
+GROUP BY email
+ORDER BY points ASC
+
+
+
+
+============== how many points does a user have? ============
+
+SELECT ((COUNT(c.cid) * 10) + (SUM(a.points))) AS points 
+FROM 
+code AS c 
+LEFT JOIN usercode AS uc ON c.cid = uc.cid
+LEFT JOIN user AS u ON u.uid = uc.uid
+LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+LEFT JOIN achievement AS a ON a.aid = uam.aid
+WHERE u.uid = $uid
+
+
+
+
+============== has a user gone too the last five lectures? =========
+
 SELECT CASE WHEN COUNT(cid) < 5 THEN 0 ELSE 1 END
 FROM 
 (

@@ -66,7 +66,7 @@ else
 			foreach($yourAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo $this->adm_model->achievementString($ca);
+				//echo $this->adm_model->achievementString($ca);
 			endforeach;
 			}
 

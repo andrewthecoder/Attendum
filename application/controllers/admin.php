@@ -35,8 +35,10 @@ class Admin extends CI_Controller {
 			$data['uid'] = $this->session->userdata('uid');
 			
 			$this->module_model->insert_module($data);
-			$this->load->view('admin_module_created');
+			$this->session->set_flashdata('module_created', 'Module Successfully Created');
+			redirect('/admin/create_module/');
 		} else {
+			$this->session->set_flashdata('invalid_input', 'Invalid Input');
 			redirect('/admin/create_module/');
 		}
 	}
@@ -83,14 +85,11 @@ class Admin extends CI_Controller {
 				'mid' => $mid
 			);
 			$this->code_model->insert_code($sqldata);
-			
-			$outdata = Array(
-				'code' => $code,
-				'startdate' => $indata['validfrom']
-			);
-			$this->load->view('admin_code_created', $outdata);
+			$this->session->set_flashdata('code_created', "Code: $code created successfully!");
+			redirect('/admin/create_code/');
 		} else {
-			redirect('/admin/create_module/');
+			$this->session->set_flashdata('invalid_input', "Invalid Input");
+			redirect('/admin/create_code/');
 		}
 	}
 	
