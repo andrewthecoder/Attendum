@@ -57,7 +57,6 @@ class User extends CI_Controller {
 		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);
 	}
-	
 	public function change_pass() {
 		if($this->input->post()) {
 		
@@ -275,12 +274,12 @@ class User extends CI_Controller {
 		{//Has the other user permitted people to view their achievements?
 			$error = 'Either the email address is not registered or the user has hidden their achievements.<br/>';
 		}
-
-		$e1id = $this->session->userdata['uid'];
-		$this->db->where('uid', $e1id);
-		$query = $this->db->get('user');
-		$row = $query->row_array(); 
-		$e1 = $row['uid'];
+		$e1 = $this->session->userdata['uid'];
+		//$e1id = $this->session->userdata['uid'];
+		//$this->db->where('uid', $e1id);
+		//$query = $this->db->get('user');
+		//$row = $query->row_array(); 
+		//$e1 = $row['uid'];
 		if(strlen($e1) < 1)
 		{
 			$error = 'You must be logged in to compare your achievements.<br/>';
@@ -298,8 +297,33 @@ class User extends CI_Controller {
 		$this->load->view('comparing_achievements', $data);
 	}
 
-	public function module_league()
-	{
+	public function league() {
+		$uid = $this->session->userdata['uid'];
+		$unid = $this->session->userdata['unid'];
+	
+		$query = $this->db->query("
+			SELECT ((COUNT(DISTINCT c.cid) * 10) + (SUM(a.points))) AS points, u.uid AS uid, u.email AS email
+			FROM 
+			code AS c 
+			LEFT JOIN usercode AS uc ON c.cid = uc.cid
+			LEFT JOIN user AS u ON u.uid = uc.uid
+			LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+			LEFT JOIN achievement AS a ON a.aid = uam.aid
+			WHERE u.unid = $unid
+			AND u.opt_in = 1
+			GROUP BY email
+			ORDER BY points DESC
+			LIMIT 0,30;");		
+		$leagueboard = $query->result_array();
+		
+		$htmlout = '<tr><td>Points</td><td>Username</td></tr>';
+		foreach ($leagueboard as $league_entry) {
+			$username = substr($league_entry['email'],0,strpos($league_entry['email'],'@'));
+			$htmlout .= "<tr><td>{$league_entry['points']}</td><td>{$username}</td></tr>";
+		}
+		$dataout = Array('htmlout' => $htmlout);
+		
+		$this->load->view('league', $dataout);
 		
 	}
 

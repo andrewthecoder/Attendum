@@ -35,22 +35,33 @@ else
 
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
+	echo $theirID; echo $yourID;
 	$theirAchievements = array();
-
+echo count($yourAchievements);
+echo count($theirAchievements);
 	//if(count($userachievements) > 0){
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
+	echo $row->uid;
+	echo '=';
+	echo $theirID;
+	echo '=';
+	echo $yourID;
+	echo '...';
 		if($row->uid == $theirID)
 		{
-			array_push($theirAchievements, $row->aid);
+			$theirAchievements[] = $row->aid;
 		}
 		if($row->uid == $yourID)
 		{
-			array_push($yourAchievements, $row->aid);
+			$yourAchievements = $row->aid;
 		}
 	endforeach;
 	//}
+
+echo count($yourAchievements);
+echo count($theirAchievements);
 
 	$commonAchievements = array();//achievement ids
 
@@ -117,14 +128,19 @@ else
 	else
 	{
 		echo 'You have no achievements.';
-		if(count($theirAchievements) < 1)
+		if(count($theirAchievements) > 0)
 		{
 			echo 'Their achievements are:';
-			foreach($theirAchievements as $ca):
+			foreach($theirAchievements as $ca)
+			{
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
 				echo achievementString($ca);
-			endforeach;
+			}
+		}
+		else
+		{
+			echo 'They have no achievements.';
 		}
 	}
 }

@@ -6,7 +6,7 @@
 	<h4><strong>Points: </strong><?php echo $points; ?></h4>
 	<div class="row">
 		<div class="span8">
-			<h3>Currenct Achievements</h3>
+			<h3>Current Achievements</h3>
 			<?php 
 			foreach($achievementStrings as $a):
 				echo $a->name.' - '.$a->points.'points<br>'; 
@@ -51,7 +51,7 @@
 		<h3>Compare Achievements</h3>
 			<?php 
 				$surl = site_url('user/comparison_chooser');
-				echo '<a href="'.$surl.'">Compare achievements.<a/>';
+				echo '<a href="'.$surl.'">Compare achievements.</a>';
 			?>
 		</div>
 		<div class="span8">
