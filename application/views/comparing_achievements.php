@@ -36,9 +36,9 @@ else
 
 	//$this->load->model('adm_model');
 
-	if(count($yourAchievements) < 1)
+	if(count($yourAchievements) > 0)
 	{
-		if(count($theirAchievements) < 1)
+		if(count($theirAchievements) > 0)
 		{
 
 			foreach($yourAchievements as $a):
