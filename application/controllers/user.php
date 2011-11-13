@@ -88,7 +88,7 @@ class User extends CI_Controller {
 				$data['points'] = $points[0]->points;
 				$data['page_title'] = 'Your Profile';
 				$data['achievementStrings'] = $achievementStrings;
-				$this->load->view('profile');
+				$this->load->view('profile', $data);
 			}
 			else {
 				//update
