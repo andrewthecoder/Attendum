@@ -5,7 +5,7 @@
 	<?php $this->load->view('inc/admin_nav'); ?>
 	<h3>Reward</h3>
 	<?php if($this->session->flashdata('add_reward_success') != ''): ?>
-				<div class="alert-message error">
+				<div class="alert-message success">
 				  <a class="close" href="#">×</a>
 				  <p><?php echo $this->session->flashdata('add_reward_success'); ?></p>
 				</div>
