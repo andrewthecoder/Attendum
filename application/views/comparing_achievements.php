@@ -80,7 +80,7 @@ else
 			foreach($commonAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo achievementString($ca);
 			endforeach;
 			}
 
@@ -90,7 +90,7 @@ else
 			foreach($yourAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo achievementString($ca);
 			endforeach;
 			}
 
@@ -100,7 +100,7 @@ else
 			foreach($theirAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo achievementString($ca);
 			endforeach;
 			}
 		}
@@ -113,7 +113,7 @@ else
 				foreach($yourAchievements as $ca):
 					//echo $achievements[$ca]->name;
 					//echo $achievements[$ca]->description;
-					echo $this->achievementString($ca);
+					echo achievementString($ca);
 				endforeach;
 			}
 		}

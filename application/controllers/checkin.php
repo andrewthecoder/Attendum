@@ -8,7 +8,7 @@ class Checkin extends CI_Controller {
 		$this->load->model('code_model');
 		$this->load->model('module_model');
 		$this->load->model('usercode_model');
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 	}
 	 
 	public function index()
