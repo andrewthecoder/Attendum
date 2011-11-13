@@ -28,7 +28,7 @@ else
 		if($row->uid == $yourID){ $yourAchievements[] = $row->aid; }
 	endforeach;
 	$commonAchievements = array();//achievement ids
-
+	print_r($yourAchievements);
 	if(!empty($yourAchievements))
 	{
 		if(!empty($theirAchievements))
