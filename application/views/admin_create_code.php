@@ -30,7 +30,8 @@
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
 		<div style="padding-top: 30px;">
-			<h3>Create Code</h3>
+			<h2>Create Code</h2>
+			<?php $this->load->view('inc/admin_nav'); ?>
 			<?php if($this->session->flashdata('code_created') != ''): ?>
 				<div class="alert-message success">
 				  <a class="close" href="#">×</a>
