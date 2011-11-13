@@ -4,6 +4,18 @@
 	
 	<div>
 		<h3>Create Module</h3>
+			<?php if($this->session->flashdata('module_created') != ''): ?>
+				<div class="alert-message success">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('module_created'); ?></p>
+				</div>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('invalid_input') != ''): ?>
+				<div class="alert-message error">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('invalid_input'); ?></p>
+				</div>
+			<?php endif; ?>
 		<form action="<?php echo site_url('admin/submit_module'); ?>" method="post">
 			<table>
 				<tr>
