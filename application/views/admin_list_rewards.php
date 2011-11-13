@@ -7,11 +7,14 @@
 	<?php 
 	$yourUniID = $this->session->userdata['unid'];
 	$rewards = $this->db->query("SELECT name, description FROM reward WHERE unid =$yourUniID");
-	foreach($rewards->result() as $r)
-	{
-		echo $r->name;
-		echo $r->description;
-	}
 	?>
+	<table>
+	<td>
+	<?php foreach($rewards->result() as $r): ?>
+		<tr><?php $r->name; ?></tr>
+		<tr><?php $r->description; ?></tr>
+	<?php endfor ?>
+	</td>
+	</table>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
