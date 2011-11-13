@@ -43,7 +43,7 @@ class Admin extends CI_Controller {
 		else {
 			//redirect no modules;	
 			$this->session->set_flashdata('no_modules', 'There are no modules for which to assign a reward.');
-			$this->load->view('admin_assign_reward', $data);
+			$this->load->view('admin_assign_reward');
 		}
 	}
 	
