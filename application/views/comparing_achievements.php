@@ -46,11 +46,11 @@ echo count($theirAchievements);
 	echo '...';
 		if($row->uid == $theirID)
 		{
-			array_push($theirAchievements, $row->aid);
+			$theirAchievements[] = $row->aid;
 		}
 		if($row->uid == $yourID)
 		{
-			array_push($yourAchievements, $row->aid);
+			$yourAchievements = $row->aid;
 		}
 	endforeach;
 	//}
