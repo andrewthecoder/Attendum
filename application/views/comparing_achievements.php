@@ -35,6 +35,7 @@ else
 
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
+	echo $theirID; echo $yourID;
 	$theirAchievements = array();
 echo count($yourAchievements);
 echo count($theirAchievements);
