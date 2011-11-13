@@ -12,8 +12,8 @@
 	<table>
 	<tr>
 	<?php foreach($rows as $r): ?>
-		<td><?=$r->name?></td>
-		<td><?=$r->description?></td>
+		<td>{$r->name}</td>
+		<td>{$r->description}</td>
 	<?php endforeach; ?>
 	</tr>
 	</table>
