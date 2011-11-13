@@ -2,11 +2,6 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
-function a()
-{
-return 'hello';
-}
-echo a();
 if(strlen($error) > 0)
 {
 	echo $error;
@@ -85,7 +80,7 @@ else
 			foreach($commonAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo achievementString($ca);
 			endforeach;
 			}
 
@@ -95,7 +90,7 @@ else
 			foreach($yourAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo achievementString($ca);
 			endforeach;
 			}
 
@@ -105,7 +100,7 @@ else
 			foreach($theirAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo achievementString($ca);
 			endforeach;
 			}
 		}
@@ -118,7 +113,7 @@ else
 				foreach($yourAchievements as $ca):
 					//echo $achievements[$ca]->name;
 					//echo $achievements[$ca]->description;
-					echo $this->achievementString($ca);
+					echo achievementString($ca);
 				endforeach;
 			}
 		}
