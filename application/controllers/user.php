@@ -33,16 +33,10 @@ class User extends CI_Controller {
 	
 	public function profile() {
 
-		$achievementStrings = array();
+		
 		$myID = $this->session->userdata['uid'];
-		$query = $this->db->query('SELECT * FROM userachievementmodule');
-		//$this->load->model('adm_model');
-		foreach($query->result() as $row):
-			if($row->uid == $myID)
-			{	//Modules hate me.
-				//array_push($achievementStrings, $this->adm_model->achievementString($row->aid));
-			}
-		endforeach;
+		$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid = '.$myID);
+		$achievementStrings = $query->result();
 		
 		$query = $this->db->query("
 			SELECT ((COUNT(c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points 

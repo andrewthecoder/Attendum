@@ -95,19 +95,12 @@ class Checkin extends CI_Controller {
 							
 							//award achievement
 							$this->achievement_model->award_achievement($uid, $aid, $mid);
-							return $this->achievement_model->get_achievement($aid);
-						}
-						else {
-							return false;
+							$this->session->set_flashdata('achievement_gained','Achievement Gained: '.$ach_row->name.' '.$ach_row->points.' Points');
 						}
 					}
-					die();
 					
 					// thank the muppets and redirect
 					$this->session->set_flashdata('checkin_success', 'Check-In Successful!');
-					if($achievement) {
-						$this->session->set_flashdata('achievement_gained','Achievement Gained: '.$achievement->name.' '.$achievement->points.' Points');
-					}
 					redirect('/checkin');
 				} else {
 					$this->session->set_flashdata('invalid_code', 'Check-In Failed: Code Incorrect / Expired');
