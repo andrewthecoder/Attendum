@@ -212,8 +212,7 @@ class Admin extends CI_Controller {
 			if ($row->end_time > time()) {
 				$bgcolor = 'B3FFD7';
 			} elseif ($row->end_time < time()) {
-				//$bgcolor = 'FFB3B3';
-				$bgcolor = print_r($row->end_time,1);
+				$bgcolor = 'FFB3B3';
 			} else $bgcolor = 'FFFFFF';
 			
 			$start_date = date('l jS \of F Y h:i A', $row->start_time);
