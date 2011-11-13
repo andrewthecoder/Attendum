@@ -8,9 +8,15 @@
 		<div class="span8">
 			<h3>Current Achievements</h3>
 			<?php 
-			foreach($achievementStrings as $a):
-				echo $a->name.' - '.$a->points.'points<br>'; 
-			endforeach;
+			
+			if($achievementStrings == '') {
+				echo '<p>You have no achievements.</p>';
+			} 
+			else {
+				foreach($achievementStrings as $a):
+					echo $a->name.' - '.$a->points.'points<br>'; 
+				endforeach;
+			}
 			?>
 		</div>
 		<div class="span8">
