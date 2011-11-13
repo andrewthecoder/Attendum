@@ -32,15 +32,9 @@ class User extends CI_Controller {
 	}
 	
 	public function profile() {
-
-		$achievementStrings = array();
 		$myID = $this->session->userdata['uid'];
-		$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid = '.$myID);
-		$achievementStrings = $query->result();
-		
-		$data['points'] = $points[0]->points;
+		$$data['achievementStrings'] = $this->db->query('SELECT * FROM userachievementmodule WHERE uid = '.$myID)->result();		
 		$data['page_title'] = 'Your Profile';
-		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);
 	}
 	
