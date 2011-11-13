@@ -66,7 +66,7 @@ class Checkin extends CI_Controller {
 						foreach($vars as $index=>$varname) {
 							$sql_var_query = str_replace("@cid",$cid,$queries[$index]);
 							$var_query_result = $this->code_model->query_codes($sql_var_query);
-							echo $var_query_result + "POOP\n\n\n";
+							echo $var_query_result."POOP\n\n\n";
 						}
 						
 						die();
