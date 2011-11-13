@@ -289,6 +289,13 @@ class User extends CI_Controller {
 		
 		$this->load->view('comparing_achievements', $data);
 	}
+
+	public function league()
+	{
+		
+		$this->load->view('league', $data)
+	}
+
 }
 
 /* End of file welcome.php */

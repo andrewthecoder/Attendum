@@ -8,7 +8,8 @@ Achievements Comparison
 <div id="container">
 
 <?php
-if(strlen($error) > 0){
+if(strlen($error) > 0)
+{
 	echo $error;
 }
 else
@@ -27,8 +28,14 @@ else
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
-		if($row->uid == $theirID) array_push($theirAchievements, $row->aid);
-		if($row->uid == $yourID) array_push($yourAchievements, $row->aid);
+		if($row->uid == $theirID)
+		{
+			array_push($theirAchievements, $row->aid);
+		}
+		if($row->uid == $yourID)
+		{
+			array_push($yourAchievements, $row->aid);
+		}
 	endforeach;
 	//}
 
