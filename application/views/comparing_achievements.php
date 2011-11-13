@@ -120,11 +120,12 @@ else
 		if(count($theirAchievements) < 1)
 		{
 			echo 'Their achievements are:';
-			foreach($theirAchievements as $ca):
+			foreach($theirAchievements as $ca)
+			{
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
 				echo achievementString($ca);
-			endforeach;
+			}
 		}
 	}
 }
