@@ -1,7 +1,7 @@
 
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" />
 	<div id="checkin" class="checkin_div">
-		<h3>Check-In!</h3>
+		<h3>Check-In! BITCH</h3>
 		<?php if($this->session->flashdata('achievement_gained') != ''): ?>
 			<div class="success">
 			  <p><?php echo $this->session->flashdata('achievement_gained'); ?></p>
