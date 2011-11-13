@@ -12,7 +12,10 @@
 				echo $a->name.' - '.$a->points.'points<br>'; 
 			endforeach;
 			?>
-			<h3>Compare Achievements</h3>
+			
+		</div>
+		<div class="span8">
+		<h3>Compare Achievements</h3>
 			<?php 
 				$surl = site_url('user/comparison_chooser');
 				echo '<a href="'.$surl.'">Compare achievements.<a/>';
