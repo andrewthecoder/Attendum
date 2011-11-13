@@ -36,9 +36,9 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	if(count($yourAchievements) > 0)
+	if(!empty($yourAchievements)
 	{
-		if(count($theirAchievements) > 0)
+		if(!empty($theirAchievements))
 		{
 
 			foreach($yourAchievements as $a):
@@ -52,7 +52,7 @@ else
 				endforeach;
 			endforeach;
 			 
-			if(count($commonAchievements) > 0)
+			if(!empty($commonAchievements))
 			{
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
@@ -65,7 +65,7 @@ else
 			endforeach;
 			}
 
-			if(count($yourAchievements) > 0)
+			if(!empty($yourAchievements))
 			{
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
@@ -78,7 +78,7 @@ else
 			endforeach;
 			}
 
-			if(count($theirAchievements) > 0)
+			if(!empty($theirAchievements))
 			{
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
@@ -94,7 +94,7 @@ else
 		else
 		{
 			echo '<p>They have no achievements.</p>';
-			if(count($yourAchievements) < 1)
+			if(!empty($yourAchievements))
 			{
 				echo '<p>Your achievements are:</p>';
 				foreach($yourAchievements as $ca):
