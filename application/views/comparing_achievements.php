@@ -13,11 +13,11 @@ else
 
 	$yourEmail = $e1;
 	$yourID = $this->user_model->emailtouid($yourEmail);
-	$yourAchievements = array();
+	//$yourAchievements = array();
 
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
-	$theirAchievements = array();
+	//$theirAchievements = array();
 	
 	echo $yourEmail;
 	echo 'a';
