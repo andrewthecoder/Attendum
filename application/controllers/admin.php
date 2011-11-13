@@ -5,7 +5,7 @@ class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		
 		if(!$this->session->userdata('logged_in')) {
 			redirect('/');
@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
 				'rewards' => $this->reward_model->get_rewards()
 			);
 			
-			print_r($data);
+			echo print_r($data);
 			
 			$this->load->view('admin_assign_reward', $data);
 		}
