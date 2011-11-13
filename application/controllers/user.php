@@ -32,7 +32,8 @@ class User extends CI_Controller {
 	}
 	
 	public function profile() {
-		$this->load->view('profile');
+		$data['page_title'] = 'Your Profile';
+		$this->load->view('profile', $data);
 	}
 	
 	public function change_pass() {
@@ -40,7 +41,7 @@ class User extends CI_Controller {
 		
 			$this->form_validation->set_rules('curr_pass', 'Current Password', 'trim|required|callback_check_curr_pass|sha1');
 			$this->form_validation->set_rules('new_pass', 'New Password', 'trim|required|matches[new_pass_conf]|sha1');
-			$this->form_validation->set_rules('new_pass_conf', 'Email', 'trim|required');
+			$this->form_validation->set_rules('new_pass_conf', 'New Password Confirmation', 'trim|required');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -51,6 +52,7 @@ class User extends CI_Controller {
 				//update
 				$this->user_model->change_pass($this->session->userdata('uid'),$this->input->post('new_pass'));
 				
+				$this->session->set_flashdata('change_pw_success', 'Password changed.');
 				//redirect
 				redirect('/user/profile');
 			}
@@ -69,12 +71,13 @@ class User extends CI_Controller {
 	
 	function check_curr_pass($str) {
 		$this->form_validation->set_message('check_curr_pass', 'That\'s not your current password');
-		return $this->user_model->check_curr_pass($this->session->userdata('uid'), $str);
+		return $this->user_model->check_curr_pass($this->session->userdata('uid'), sha1($str));
 	}
 	
 	public function show_data() {
 		if($this->input->post()) {
 			$this->user_model->show_data($this->session->userdata('uid'));
+			$this->session->set_userdata('opt_in', 1);
 			$this->session->set_flashdata('show_data_success','You are now sharing your data');
 			redirect('/user/profile');
 		}
@@ -86,6 +89,7 @@ class User extends CI_Controller {
 	public function hide_data() {
 		if($this->input->post()) {
 			$this->user_model->hide_data($this->session->userdata('uid'));
+			$this->session->set_userdata('opt_in', 0);
 			$this->session->set_flashdata('hide_data_success','You are now hiding your data');
 			redirect('/user/profile');
 		}
@@ -120,11 +124,12 @@ class User extends CI_Controller {
 					$this->session->set_userdata($sess);
 				
 					//redirect
-					redirect('/');
+					//redirect('/');
+					redirect('/user/profile');
 				}
 				else {
 					$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
-					//$this->load->view('home');
+					//$this->load->view('/user/profile');
 					redirect('/');
 				}
 			}
@@ -181,7 +186,8 @@ class User extends CI_Controller {
 					//echo $this->input->post('email');
 				
 					$this->user_model->insert_user($data);
-					$this->load->view('signup_complete');
+					$this->session->set_flashdata('signup_success','You\'ve successfully signed up.');
+					redirect('/');
 				
 				}
 				else {
@@ -233,15 +239,6 @@ class User extends CI_Controller {
 		$this->load->model('user_achievement_model');
 		$this->load->model('achievement_model');
 		
-		$e1id = $this->session->userdata['uid'];
-		$this->db->where('uid', $e1id);
-		$query = $this->db->get('user');
-		$row = $query->row_array(); 
-		$e1 = $row['uid'];
-		if(strlen($e1) < 1)
-		{
-			$error .= 'You must be logged in to compare your achievements.\n';
-		}
 		$e2 = $this->input->post('e2');
 
 		//Is the email address in the database?
@@ -250,11 +247,21 @@ class User extends CI_Controller {
 		$row = $query->row_array();
 		if($query->num_rows() < 1)
 		{
-			$error .= 'Either the email address is not registered or the user has hidden their achievements.\n';
+			$error = 'Either the email address is not registered or the user has hidden their achievements.<br/>';
 		}
 		elseif($row['opt_in'] == 0)
 		{//Has the other user permitted people to view their achievements?
-			$error .= '\nEither the email address is not registered or the user has hidden their achievements.\n';
+			$error = '\nEither the email address is not registered or the user has hidden their achievements.<br/>';
+		}
+
+		$e1id = $this->session->userdata['uid'];
+		$this->db->where('uid', $e1id);
+		$query = $this->db->get('user');
+		$row = $query->row_array(); 
+		$e1 = $row['uid'];
+		if(strlen($e1) < 1)
+		{
+			$error = 'You must be logged in to compare your achievements.<br/>';
 		}
 	
 		$data = array(
