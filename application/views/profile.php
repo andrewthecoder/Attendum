@@ -48,10 +48,10 @@
 			<?php endif; ?>
 		</div>
 	</div>
-	<h3> 
+	<h3>Currenct Achievements</h3>
 	<?php 
 	foreach($achievementStrings as $a):
-		echo $a->name;
+		echo $a->name.' - '.$a->points.'points<br>'; 
 	endforeach;
 	?>
 	<h3>Compare Achievements</h3>
