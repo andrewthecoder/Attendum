@@ -38,6 +38,9 @@ class Admin extends CI_Controller {
 				'achievements' => $this->achievement_model->get_achievements(),
 				'rewards' => $this->reward_model->get_rewards()
 			);
+			
+			print_r($data);
+			
 			$this->load->view('admin_assign_reward', $data);
 		}
 		else {
