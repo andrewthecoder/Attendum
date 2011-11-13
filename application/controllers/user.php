@@ -364,7 +364,7 @@ class User extends CI_Controller {
 			$modulehtmlout = '<tr><td><strong>Username</strong></td><td><strong>Achievements</strong></td><td><strong>Points</strong></td></tr>';
 			foreach ($moduleleagueboard as $moduleleague_entry) {
 				$moduleusername = substr($moduleleague_entry['email'],0,strpos($moduleleague_entry['email'],'@'));
-				$modulehtmlout .= "<tr><td>{$username}</td><td>{$moduleleague_entry['achcount']}</td><td>{$moduleleague_entry['points']}</td></tr>";
+				$modulehtmlout .= "<tr><td>{$moduleusername}</td><td>{$moduleleague_entry['achcount']}</td><td>{$moduleleague_entry['points']}</td></tr>";
 			}
 			
 			$dataout = Array('htmlout' => $htmlout, 'modulehtmlout' => $modulehtmlout);
