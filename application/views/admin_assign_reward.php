@@ -9,9 +9,11 @@
 			<tr>
 				<td>Module</td>
 				<td>
-					<?php foreach($modules as $mod): ?>
-							<option value="<?php echo $mod->mid; ?>"><?php echo $mod->name; ?></option>
-					<?php endforeach; ?>
+					<select name="module">
+						<?php foreach($modules as $mod): ?>
+								<option value="<?php echo $mod->mid; ?>"><?php echo $mod->name; ?></option>
+						<?php endforeach; ?>
+					</select>
 				</td>
 			</tr>
 			<tr>
