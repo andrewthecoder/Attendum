@@ -13,10 +13,12 @@
 
 #checkin h3 {
 	font-family: 'Helvetica', 'Arial', sans-serif;
+	color: white;
 }
 
 #checkin p {
 	font-family: 'Helvetica', 'Arial', sans-serif;
+	color: white;
 }
 
 #checkin form {

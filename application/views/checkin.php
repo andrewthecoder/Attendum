@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" />
 	<title>Check In | Attendum</title>
 </head>
