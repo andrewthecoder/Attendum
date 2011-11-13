@@ -15,12 +15,20 @@ class Checkin extends CI_Controller {
 		$this->load->view('checkin');
 	}
 	
-	public function login() {
+	public function process() {
 		if($this->input->post()) {
-			//get email/password/code
+			// check for checkin from mobile device
+			if($this->input->post('comments')) {
+				$smsdata = $this->input->post('comments');
+				$smsexploded = explode(" ", $smsdata);
+				$password = $smsexploded[0];
+				$code = $smsexploded[1];			
+			} else {
+				//get password/code
+				$password = $this->input->post('password');
+				$code = $this->input->post('code');		
+			}
 			$email = $this->input->post('email');
-			$password = $this->input->post('password');
-			$code = $this->input->post('code');
 			
 			//verify email/password
 			if($this->user_model->check_login($email, sha1($password))) {
