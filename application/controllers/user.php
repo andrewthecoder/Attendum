@@ -35,7 +35,7 @@ class User extends CI_Controller {
 
 		
 		$myID = $this->session->userdata['uid'];
-		$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid = '.$myID);
+		$query = $this->db->query('SELECT name FROM userachievementmodule WHERE uid = '.$myID);
 		$achievementStrings = $query->result();
 		
 		$query = $this->db->query("
@@ -291,8 +291,6 @@ class User extends CI_Controller {
 			'userachievements' => $this->user_achievement_model->get_user_achievements(),
 			'achievements' => $this->achievement_model->get_achievements()
 		);
-		
-		echo print_r($data);
 		
 		$this->load->view('comparing_achievements', $data);
 	}
