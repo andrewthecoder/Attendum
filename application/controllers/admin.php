@@ -24,7 +24,26 @@ class Admin extends CI_Controller {
 	}
 	
 	public function assign_reward() {
-		$this->load->view('admin_assign_reward');
+		this->load->model('module_model');
+		$this->load->helper('form');
+		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
+		if($module_rows) {		
+			foreach ($module_rows as $row) {
+				$module_refs[$row->mid] = $row->ref;
+			}
+			$data = form_dropdown('mid', $module_refs);
+			$data = array(
+				"module_dropdown" => $data,
+				"achievements" => $this->achievement_model->get_achievements(),
+				"rewards" => $this->reward_model->get_rewards()
+			);
+			$this->load->view('admin_assign_reward', $data);
+		}
+		else {
+			//redirect no modules;	
+			$this->session->set_flashdata('no_modules', 'There are no modules for which to assign a reward.');
+			$this->load->view('admin_assign_reward', $data);
+		}
 	}
 	
 	public function create_reward() {
