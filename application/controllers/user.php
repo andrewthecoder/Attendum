@@ -46,7 +46,7 @@ class User extends CI_Controller {
 		$this->load->model('adm_model');
 
 		$data['page_title'] = 'Your Profile';
-		$data['achievementStrings'] = $achievementStrings
+		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);
 	}
 	
