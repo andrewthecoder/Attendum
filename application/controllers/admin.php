@@ -210,7 +210,7 @@ class Admin extends CI_Controller {
 		$htmlrows = '';
 		foreach ($rows as $row) {
 			$bgcolor = 'FFB3B3';
-			if ($row->start_time > time()) {
+			if ($row->end_time < time()) {
 				$bgcolor = 'B3FFD7';
 			}
 			$start_date = date('l jS \of F Y h:i A', $row->start_time);
