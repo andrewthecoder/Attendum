@@ -37,7 +37,7 @@ class Checkin extends CI_Controller {
 						'uid' => $uid,
 						'cid' => $cid
 					);
-					
+					achievement($uid, $cid);
 					// insert usercode data
 					$this->usercode_model->insert_usercode($data);
 					
@@ -57,5 +57,17 @@ class Checkin extends CI_Controller {
 			redirect('/checkin');
 		}
 	}
+	
+	private achievement($uid, $cid){
+		//for each achievment (
+		//	if $this->db->query("SET @uid = $uid;
+		//		SET @cid = $cid;".$query field) = 1 
+		//		then 
+		// 		if doesnt have achievement
+		//			add achievment (insert uid, aid, mid (got from cid) into achievment
+		//)
+	}
+	
+	
 	
 }
