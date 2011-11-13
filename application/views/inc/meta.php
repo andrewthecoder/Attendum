@@ -1,7 +1,11 @@
 <!doctype html>
 <head>
 	<title>
-	Attendum - Rewarding Your Attendance
+	<?php if(isset($page_title)): ?>
+		<?php echo $page_title; ?> | Attendum
+	<?php else: ?>
+		Attendum - Rewarding Your Attendance
+	<?php endif; ?>
 	</title>
 	<link href='http://fonts.googleapis.com/css?family=Cookie|Leckerli+One' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">

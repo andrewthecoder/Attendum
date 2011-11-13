@@ -32,7 +32,8 @@ class User extends CI_Controller {
 	}
 	
 	public function profile() {
-		$this->load->view('profile');
+		$data['page_title'] = 'Your Profile';
+		$this->load->view('profile', $data);
 	}
 	
 	public function change_pass() {
@@ -40,7 +41,7 @@ class User extends CI_Controller {
 		
 			$this->form_validation->set_rules('curr_pass', 'Current Password', 'trim|required|callback_check_curr_pass|sha1');
 			$this->form_validation->set_rules('new_pass', 'New Password', 'trim|required|matches[new_pass_conf]|sha1');
-			$this->form_validation->set_rules('new_pass_conf', 'Email', 'trim|required');
+			$this->form_validation->set_rules('new_pass_conf', 'New Password Confirmation', 'trim|required');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -51,6 +52,7 @@ class User extends CI_Controller {
 				//update
 				$this->user_model->change_pass($this->session->userdata('uid'),$this->input->post('new_pass'));
 				
+				$this->session->set_flashdata('change_pw_success', 'Password changed.');
 				//redirect
 				redirect('/user/profile');
 			}
@@ -69,7 +71,7 @@ class User extends CI_Controller {
 	
 	function check_curr_pass($str) {
 		$this->form_validation->set_message('check_curr_pass', 'That\'s not your current password');
-		return $this->user_model->check_curr_pass($this->session->userdata('uid'), $str);
+		return $this->user_model->check_curr_pass($this->session->userdata('uid'), sha1($str));
 	}
 	
 	public function show_data() {
@@ -184,7 +186,8 @@ class User extends CI_Controller {
 					//echo $this->input->post('email');
 				
 					$this->user_model->insert_user($data);
-					$this->load->view('signup_complete');
+					$this->session->set_flashdata('signup_success','You\'ve successfully signed up.');
+					redirect('/');
 				
 				}
 				else {
