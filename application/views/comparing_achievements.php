@@ -34,7 +34,7 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	$this->load->model('adm_model');
+	//$this->load->model('adm_model');
 
 	if(count($yourAchievements) < 1)
 	{
@@ -56,7 +56,7 @@ else
 			foreach($commonAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo $this->adm_model->achievementString($ca);
+				//echo $this->adm_model->achievementString($ca);
 			endforeach;
 			}
 
@@ -76,7 +76,7 @@ else
 			foreach($theirAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo $this->adm_model->achievementString($ca);
+				//echo $this->adm_model->achievementString($ca);
 			endforeach;
 			}
 		}
@@ -89,7 +89,7 @@ else
 				foreach($yourAchievements as $ca):
 					echo $achievements[$ca]->name;
 					echo $achievements[$ca]->description;
-					echo $this->adm_model->achievementString($ca);
+					//echo $this->adm_model->achievementString($ca);
 				endforeach;
 			}
 		}
@@ -103,7 +103,7 @@ else
 			foreach($theirAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo $this->adm_model->achievementString($ca);
+				//echo $this->adm_model->achievementString($ca);
 			endforeach;
 		}
 	}
