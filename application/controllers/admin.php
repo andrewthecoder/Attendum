@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 		$this->load->model('module_model');
 		$this->load->model('reward_model');
 		$data = array(
-			'modules' => $this->module_model->get_modules($this->session->userdata('uid'),
+			'modules' => $this->module_model->get_modules($this->session->userdata('uid')),
 			'achievements' => $this->achievement_model->get_achievements(),
 			'rewards' => $this->reward_model->get_rewards()
 		);
