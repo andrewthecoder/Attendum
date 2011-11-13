@@ -120,7 +120,7 @@ echo count($theirAchievements);
 				echo '<p>';
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo '</p>'
+				echo '</p>';
 				//echo achievementString($ca);
 			}
 		}
