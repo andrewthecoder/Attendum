@@ -16,4 +16,14 @@ class Reward_model extends CI_Model {
 	function insert_reward($data) {
 		$this->db->insert('reward', $data);
 	}
+	
+	function assign_reward($rid, $aid, $mid) {
+		$data = array(
+			'rid' = $rid,
+			'aid' => $aid,
+			'mid' => $mid
+		);
+		
+		$this->db->insert('rewardachievementmodule',$data);
+	}
 }

@@ -36,6 +36,24 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_assign_reward', $data);
 	}
 	
+	public function do_assign_reward() {
+		if($this->input->post()) {
+			$rid = $this->input>post('rid');
+			$aid = $this->input->post('aid');
+			$mid = $this->input->post('mid');
+			
+			$this->load->model('reward_model');
+			
+			$this->reward_model->assign_reward($rid, $aid, $mid);
+			
+			$this->session->set_flashdata('assign_reward_success', 'The reward has been assigned successfully');
+			redirect('admin/assign_reward');
+		}
+		else {
+			redirect('/admin/assign_reward');
+		}
+	}
+	
 	public function create_reward() {
 		$this->load->view('admin_create_reward');
 	}
