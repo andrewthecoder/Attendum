@@ -14,7 +14,7 @@ if(strlen($error) > 0)
 }
 else
 {
-	$this->load->model('adm_model');
+	$this->load->model('code_model');
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
