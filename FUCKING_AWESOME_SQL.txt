@@ -1,0 +1,22 @@
+SELECT cid FROM 
+(
+SELECT c.cid AS cid
+FROM code AS c
+LEFT JOIN usercode AS uc ON c.cid = uc.cid
+LEFT JOIN user AS u ON u.uid = uc.uid
+LEFT JOIN module AS m ON m.mid = c.mid
+WHERE c.start_time <=99999999999
+AND u.uid =2
+AND m.mid =2
+ORDER BY c.start_time DESC 
+LIMIT 0 , 5
+) AS a JOIN (
+
+SELECT c.cid AS cidb
+FROM code AS c
+LEFT JOIN module AS m ON m.mid = c.mid
+WHERE c.start_time <=99999999999
+AND m.mid =2
+ORDER BY c.start_time DESC 
+LIMIT 0 , 5
+) AS b ON a.cid = b.cidb
