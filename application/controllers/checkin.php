@@ -60,8 +60,14 @@ class Checkin extends CI_Controller {
 							"|^SET @([^ ]+) = (.+)$|m",
 							$test_ach_sql,
 							$set_matches);
+						$vars = $set_matches[1];
+						$queries = $set_matches[2];
 						
-						print_r($set_matches);
+						foreach($vars as $index=>$varname) {
+							$sql_var_query = str_replace("@cid",$cid,$queries[$index]);
+							$var_query_result = $this->code_model->query_codes($sql_var_query);
+							echo $var_query_result + "POOP\n\n\n";
+						}
 						
 						die();
 					
