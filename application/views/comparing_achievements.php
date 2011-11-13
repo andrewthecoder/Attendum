@@ -19,8 +19,7 @@ else
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	echo $theirID; echo $yourID;
 	$theirAchievements = array();
-echo count($yourAchievements);
-echo count($theirAchievements);
+
 	//if(count($userachievements) > 0){
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
