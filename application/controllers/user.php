@@ -37,11 +37,11 @@ class User extends CI_Controller {
 		$myID = $this->session->userdata['uid'];
 		$this->load->database('userachievementmodule');
 		$query = $this->db->query('SELECT * FROM userachievementmodule');
-		//$this->load->model('adm_model');
+		$this->load->model('adm_model');
 		foreach($query->result() as $row):
 			if($row->uid == $myID)
 			{
-				//array_push($achievementStrings, $this->adm_model->achievementStrings($row->aid));
+				array_push($achievementStrings, $this->adm_model->achievementStrings($row->aid));
 			}
 		endforeach;
 
