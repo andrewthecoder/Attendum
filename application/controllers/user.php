@@ -36,7 +36,7 @@ class User extends CI_Controller {
 		
 		$myID = $this->session->userdata['uid'];
 		$query = $this->db->query('SELECT a.name AS name,
-								a.point AS points
+								a.points AS points
 								FROM userachievementmodule 
 								AS uam LEFT JOIN achievement AS a ON a.aid = uam.aid WHERE uam.uid = '.$myID);
 		$achievementStrings = $query->result();
