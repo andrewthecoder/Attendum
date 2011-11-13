@@ -59,10 +59,12 @@ class Checkin extends CI_Controller {
 		
 					foreach($query->result() as $ach) {
 						$prep_sql = "SET @uid = ".$uid."; SET @cid = ".$cid.";";
-						$sql = $prep_sql.' '.$ach->sql.';';
+						$sql = $prep_sql.' '.$ach->sql;
 						
 						$achsql = explode(";",$sql);
 						print_r($achsql);
+						
+						
 						
 						$CI =& get_instance();
 						$CI->load->model('module_model');
@@ -70,7 +72,9 @@ class Checkin extends CI_Controller {
 						
 						$aid = $ach->aid;
 						
-						$query = $this->db->query($sql);
+						foreach ($achsql as $singlesql) {
+							$this->db->query($singlesql);
+						}
 						
 						$row = $query->row();
 						
