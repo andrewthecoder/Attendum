@@ -10,12 +10,14 @@
 	$rows = $rewards->result();
 	?>
 	<table>
-	<tr>
+	
 	<?php foreach($rows as $r): ?>
+	<tr>
 		<td>{$r->name}</td>
 		<td>{$r->description}</td>
-	<?php endforeach; ?>
 	</tr>
+	<?php endforeach; ?>
+	
 	</table>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
