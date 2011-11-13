@@ -61,10 +61,11 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
-				echo '<p>';
+				echo '<p><li>';
 				echo $achievements[$ca]->name;
+				echo ' - ';
 				echo $achievements[$ca]->description;
-				echo '</p>';
+				echo '</li></p>';
 				//echo "achievementString($ca)";
 			endforeach;
 			}
@@ -73,10 +74,11 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
-				echo '<p>';
+				echo '<p><li>';
 				echo $achievements[$ca]->name;
+				echo ' - ';
 				echo $achievements[$ca]->description;
-				echo '</p>';
+				echo '</li></p>';
 				//echo "achievementString($ca)";
 			endforeach;
 			}
@@ -85,10 +87,11 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
-				echo '<p>';
+				echo '<p><li>';
 				echo $achievements[$ca]->name;
+				echo ' - ';
 				echo $achievements[$ca]->description;
-				echo '</p>';
+				echo '</li></p>';
 				//echo "achievementString($ca)";
 			endforeach;
 			}
@@ -100,10 +103,11 @@ echo count($theirAchievements);
 			{
 				echo '<p>Your achievements are:</p>';
 				foreach($yourAchievements as $ca):
-					echo '<p>';
+					echo '<p><li>';
 					echo $achievements[$ca]->name;
+					echo ' - ';
 					echo $achievements[$ca]->description;
-					echo '</p>';
+					echo '</li></p>';
 					//echo "achievementString($ca)";
 				endforeach;
 			}
