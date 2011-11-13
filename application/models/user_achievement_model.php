@@ -20,6 +20,8 @@ class User_achievement_model extends CI_Model {
 			$prep_sql = "SET @uid = ".$uid."; SET @cid = ".$cid.";";
 			$sql = $prep_sql.' '.$ach->sql.';';
 			
+			echo $sql;
+			
 			$CI =& get_instance();
 			$CI->load->model('module_model');
 			$mid = $CI->module_model->get_mid_cid($cid);
@@ -29,6 +31,10 @@ class User_achievement_model extends CI_Model {
 			$query = $this->db->query($sql);
 			
 			$row = $query->row();
+			
+			echo 'MID: '.$mid;
+			echo 'AID: '.$aid;
+			echo 'CID: '.$cid;
 			
 			if($row->obtained == 1) {
 				$this->load->model('achievement_model');
