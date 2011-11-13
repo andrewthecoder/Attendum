@@ -123,7 +123,7 @@ else
 			foreach($theirAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo achievementString($ca);
 			endforeach;
 		}
 	}
