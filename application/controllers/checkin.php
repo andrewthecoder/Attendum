@@ -70,7 +70,8 @@ class Checkin extends CI_Controller {
 							
 							foreach ($var_query_result->result_array() as $row)
 							{
-							   echo $row[$sql_select_name];
+								echo $varname;
+								echo $row[$sql_select_name];
 							}
 						}
 						
