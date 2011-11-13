@@ -30,6 +30,12 @@
 		</div>
 		<div class="span6">
 			<h3>Sign Up</h3>
+			<?php if($this->session->flashdata('signup_success') != ''): ?>
+				<div class="alert-message success">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('signup_success'); ?></p>
+				</div>
+			<?php endif; ?>
 			<?php if($this->session->flashdata('uni_check_fail') != ''): ?>
 				<div class="alert-message error">
 				  <a class="close" href="#">×</a>
