@@ -76,8 +76,8 @@ else
 			{
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
 				echo $this->achievementString($ca);
 			endforeach;
 			}
@@ -86,9 +86,9 @@ else
 			{
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
+				echo $this->achievementString($ca);
 			endforeach;
 			}
 
@@ -96,9 +96,9 @@ else
 			{
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
+				echo $this->achievementString($ca);
 			endforeach;
 			}
 		}
@@ -109,9 +109,9 @@ else
 			{
 				echo 'Your achievements are:';
 				foreach($yourAchievements as $ca):
-					echo $achievements[$ca]->name;
-					echo $achievements[$ca]->description;
-					//echo $this->adm_model->achievementString($ca);
+					//echo $achievements[$ca]->name;
+					//echo $achievements[$ca]->description;
+					echo $this->achievementString($ca);
 				endforeach;
 			}
 		}
@@ -123,9 +123,9 @@ else
 		{
 			echo 'Their achievements are:';
 			foreach($theirAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
+				echo $this->achievementString($ca);
 			endforeach;
 		}
 	}
