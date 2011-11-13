@@ -11,6 +11,7 @@
 	<?php if($admin_rights >= 2): ?>
 		<li><a href="<?php echo site_url('/statistics/'); ?>">Statistics</a></li>
 		<li><a href="<?php echo site_url('/admin/create_reward'); ?>">Create Reward</a></li>
+		<li><a href="<?php echo site_url('/admin/list_rewards'); ?>">List Rewards</a></li>
 	<?php endif; ?>
 	<?php if($admin_rights >= 3): ?>
 	<?php endif; ?>
