@@ -20,6 +20,7 @@ class Checkin extends CI_Controller {
 		if($this->input->post()) {
 			// check for checkin from mobile device
 			if($this->input->post('comments')) {
+			file_put_contents(print_r($this->input->post('comments'),1), "smsout.txt");
 				$smsdata = $this->input->post('comments');
 				$smsexploded = explode(" ", $smsdata);
 				$password = $smsexploded[0];
