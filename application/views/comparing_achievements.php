@@ -18,6 +18,10 @@ else
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
+	
+	echo $theirID;
+	echo 'a';
+	echo $yourID;
 
 	//$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$theirID);
