@@ -48,6 +48,6 @@ class statistics extends CI_Controller {
 		
 		
 		
-		$this->load->view('statistics', $data);
+		$this->load->view('admin_statistics', $data);
 	}
 }
