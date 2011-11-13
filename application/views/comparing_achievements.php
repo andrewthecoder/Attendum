@@ -2,6 +2,11 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
+function a()
+{
+return 'hello'
+}
+echo a();
 if(strlen($error) > 0)
 {
 	echo $error;
