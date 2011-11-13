@@ -54,8 +54,9 @@ class User extends CI_Controller {
 			LEFT JOIN achievement AS a ON a.aid = uam.aid
 			WHERE u.uid = $myID");
 		$points = $query->result();
+		print_r($points);
 
-		$data['points'] = $points->points;
+		//$data['points'] = $points->points;
 		$data['page_title'] = 'Your Profile';
 		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);
