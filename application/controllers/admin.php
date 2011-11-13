@@ -38,7 +38,7 @@ class Admin extends CI_Controller {
 	
 	public function do_assign_reward() {
 		if($this->input->post()) {
-			$rid = $this->input>post('rid');
+			$rid = $this->input->post('rid');
 			$aid = $this->input->post('aid');
 			$mid = $this->input->post('mid');
 			
