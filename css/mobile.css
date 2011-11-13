@@ -15,6 +15,10 @@ and (max-device-width : 480px) {
 		line-height: 25px;
 	}
 	
+	#checkin p {
+		width: 302px;
+	}
+	
 	#checkin > form {
 		width: 260px;
 		height: 125px;
@@ -44,6 +48,10 @@ and (min-width : 321px) {
 		line-height: 25px;
 	}
 	
+	#checkin p {
+		width: 302px;
+	}
+	
 	#checkin > form {
 		width: 260px;
 		height: 125px;
@@ -71,6 +79,10 @@ and (max-width : 320px) {
 		background-color: #3366CC;
 		text-align: center;
 		line-height: 25px;
+	}
+	
+	#checkin p {
+		width: 302px;
 	}
 	
 	#checkin > form {
