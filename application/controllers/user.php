@@ -295,7 +295,7 @@ class User extends CI_Controller {
 		{//Has the other user permitted people to view their achievements?
 			$error = 'Either the email address is not registered or the user has hidden their achievements.<br/>';
 		}
-		$e1 = $this->session->userdata['uid'];
+		$e1 = $this->session->userdata['email'];
 		//$e1id = $this->session->userdata['uid'];
 		//$this->db->where('uid', $e1id);
 		//$query = $this->db->get('user');
