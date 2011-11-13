@@ -26,12 +26,25 @@ class Site extends CI_Controller {
 	 
 	public function index()
 	{	
-		$this->load->view('home');
+		if($this->session->userdata('logged_in')) {
+			redirect('user/profile');
+		}
+		else {
+			$this->load->view('home');
+		}
 	}
 	
 	public function about()
 	{
 		$this->load->view('about');
+	}
+	
+	public function points() {
+		$this->load->view('points');
+	}
+	
+	public function achievements() {
+		$this->load->view('achievements');
 	}
 }
 

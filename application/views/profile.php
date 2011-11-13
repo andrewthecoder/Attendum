@@ -49,9 +49,18 @@
 	</div>
 	<?php //ACHIEVEMENT LISTINGS GO HERE ?>
 	<h3>Compare Achievements</h3>
+	<?php 
+
+	foreach($achievementStrings as $a):
+		echo $a;
+	endforeach;
+
+	?>
+
 	<?php
 		$surl = site_url('user/comparison_chooser');
 		echo '<a href="'.$surl.'">Compare achievements.<a/>';
 	?>
+
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
