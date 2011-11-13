@@ -57,7 +57,7 @@ class Checkin extends CI_Controller {
 					foreach($query->result() as $ach_row) {
 						$test_ach_sql = $ach_row->sql;
 						preg_match_all(
-							"|SET(.+)|s",
+							"|^SET @(.+) = (.+)$|m",
 							$test_ach_sql,
 							$set_matches);
 						
