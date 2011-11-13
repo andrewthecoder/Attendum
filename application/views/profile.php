@@ -62,16 +62,15 @@
 			that means that your achievements and points can be seen by other users for comparisons.</p>
 			<p><strong>We never share your email address with another user. They must have it already to compare their achievements with yours.</strong></p>
 			<?php if($this->session->userdata('opt_in')): ?>
-				<form action="<?php echo site_url('user/hide_data'); ?>" method="post" style="margin:0 auto;width:200px;">
+				<form action="<?php echo site_url('user/hide_data'); ?>" method="post">
 					<input type="submit" name="hide_my_data" value="Hide My Data" class="btn large primary">
 				</form>
 			<?php else: ?>
-				<form action="<?php echo site_url('user/show_data'); ?>" method="post" style="margin:0 auto;width:200px;">
+				<form action="<?php echo site_url('user/show_data'); ?>" method="post">
 					<input type="submit" name="show_my_data" value="Show My Data" class="btn large primary">
 				</form>
 			<?php endif; ?>
 		</div>
 	</div>
-</div>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
