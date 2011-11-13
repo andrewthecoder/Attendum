@@ -80,8 +80,8 @@ class Checkin extends CI_Controller {
 						$sql_to_execute = str_replace("@start",$external_sql_vars['start'],$clean_ach_sql);
 						
 						
-						$this->db->query($sql_to_execute);
-						$row = $query->result();
+						$achievement_obtained_query = $this->db->query($sql_to_execute);
+						$row = $achievement_obtained_query->result();
 						print_r($row);
 						die();
 						if($row->obtained == 1) {
