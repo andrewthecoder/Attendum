@@ -18,7 +18,7 @@ class User_achievement_model extends CI_Model {
 		
 		foreach($query->result() as $ach) {
 			$prep_sql = "SET @uid = ".$uid."; SET @cid = ".$cid.";";
-			$sql = $prep_sql.$ach->sql;
+			$sql = $prep_sql.' '.$ach->sql;
 			
 			$CI =& get_instance();
 			$CI->load->model('module_model');
