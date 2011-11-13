@@ -51,7 +51,7 @@
 	<h3>Compare Achievements</h3>
 	<?php 
 	$achievements = array();
-	$myID = $this->session->userdata['uid']
+	$myID = $this->session->userdata['uid'];
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
