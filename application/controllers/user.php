@@ -355,7 +355,7 @@ class User extends CI_Controller {
 				LEFT JOIN achievement AS a ON a.aid = uam.aid
 				WHERE u.unid = $unid
 				AND u.opt_in = 1
-				AND c.mid = 2
+				AND c.mid = 11
 				GROUP BY email
 				ORDER BY points DESC
 				LIMIT 0,30;");

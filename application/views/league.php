@@ -8,7 +8,7 @@
 		</table>
 	</div>
 	<p></p>
-	<h2>Module League Table</h2>
+	<h2><i>SMS Testing and Repair</i> League Table</h2>
 	<div>
 		<table>
 			<?php echo $modulehtmlout ?>
