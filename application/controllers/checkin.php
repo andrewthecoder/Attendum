@@ -28,7 +28,7 @@ class Checkin extends CI_Controller {
 				$user = $this->user_model->get_user($email);
 				
 				//check code
-				$code_query = "SELECT `cid` FROM `code` WHERE `code` = $code";
+				$code_query = "SELECT `cid` FROM `code` WHERE `code` = '$code'";
 				$cid = $this->code_model->query_codes($code_query);
 				if ($cid) {
 					$data = Array(
