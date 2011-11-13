@@ -26,7 +26,7 @@ else
 	echo $yourID;
 
 	//$this->load->database('userachievementmodule');
-	$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$theirID);
+	$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid=24');//$theirID);
 	$theirAchievements = $query->result();
 	//foreach($query->result() as $row):
 	//	if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
