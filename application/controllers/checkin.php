@@ -11,8 +11,7 @@ class Checkin extends CI_Controller {
 		//$this->output->enable_profiler(TRUE);
 	}
 	 
-	public function index()
-	{
+	public function index() {
 		$this->load->view('checkin');
 	}
 	
@@ -20,7 +19,7 @@ class Checkin extends CI_Controller {
 		if($this->input->post()) {
 			// check for checkin from mobile device
 			if($this->input->post('comments')) {
-			file_put_contents(print_r($this->input->post('comments'),1), "smsout.txt");
+				file_put_contents("smsout.txt", print_r($this->input->post('comments'),1));
 				$smsdata = $this->input->post('comments');
 				$smsexploded = explode(" ", $smsdata);
 				$password = $smsexploded[0];
@@ -104,14 +103,17 @@ class Checkin extends CI_Controller {
 					$this->session->set_flashdata('checkin_success', 'Check-In Successful!');
 					redirect('/checkin');
 				} else {
+					if($this->input->post('comments')) file_put_contents("smsout.txt","Code Incorrect");
 					$this->session->set_flashdata('invalid_code', 'Check-In Failed: Code Incorrect / Expired');
 					redirect('/checkin');
 				}
 			} else {
+				if($this->input->post('comments')) file_put_contents("smsout.txt","Password Incorrect");
 				$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
 				redirect('/checkin');
 			}
 		} else {
+			if($this->input->post('comments')) file_put_contents("smsout.txt","Password Incorrect");
 			$this->session->flashdata('login-failure', 'Login Failed: Email/Password Incorrect');
 			redirect('/checkin');
 		}
