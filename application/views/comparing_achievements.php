@@ -4,7 +4,7 @@
 <?php
 function a()
 {
-return 'hello'
+return 'hello';
 }
 echo a();
 if(strlen($error) > 0)
