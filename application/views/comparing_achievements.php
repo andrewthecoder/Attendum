@@ -16,11 +16,11 @@ else
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
-	$yourID = $this->user_model->get_uid_using_email($yourEmail);
+	$yourID = $this->user_model->emailtouid($yourEmail);
 	$yourAchievements = array();
 
 	$theirEmail = $e2;
-	$theirID = $this->user_model->get_uid_using_email($theirEmail);
+	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
 
 	//if(count($userachievements) > 0){

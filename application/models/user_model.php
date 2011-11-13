@@ -109,7 +109,7 @@ class User_model extends CI_Model {
 		return $row->unid;
 	}
 
-	function get_uid_using_email($email) {
+	function emailtouid($email) {
 		$this->db->select('uid');
 		$this->db->where('email', $email);
 		$query = $this->db->get('user');
