@@ -75,7 +75,7 @@ class Checkin extends CI_Controller {
 						}
 						
 						
-						$clean_ach_sql = preg_replace("|.*SET.+(SELECT.+)|sU","\\1",$test_ach_sql);
+						$clean_ach_sql = implode("\n", array_slice(explode("\n", $test_ach_sql), 2));
 						$clean_ach_sql = str_replace("@cid",$cid,$clean_ach_sql);
 						$clean_ach_sql = str_replace("@uid",$uid,$clean_ach_sql);
 						$clean_ach_sql = str_replace("@mid",$external_sql_vars['mid'],$clean_ach_sql);
