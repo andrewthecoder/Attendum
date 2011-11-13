@@ -26,7 +26,7 @@ class User_achievement_model extends CI_Model {
 			$CI->load->model('module_model');
 			$mid = $CI->module_model->get_mid_cid($cid);
 			
-			$aid = $ach->aid;
+			//$aid = $ach->aid;
 			
 			$query = $this->db->query($sql);
 			
@@ -40,8 +40,9 @@ class User_achievement_model extends CI_Model {
 				$this->load->model('achievement_model');
 				
 				//award achievement
-				$this->achievement_model->award_achievement($uid, $aid, $mid);
-				return $this->achievement_model->get_achievement($aid);
+				//$this->achievement_model->award_achievement($uid, $aid, $mid);
+				//return $this->achievement_model->get_achievement($aid);
+				return true;
 			}
 			else {
 				return false;
