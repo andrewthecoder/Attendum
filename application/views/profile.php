@@ -48,13 +48,15 @@
 			<?php endif; ?>
 		</div>
 	</div>
-	<?php //ACHIEVEMENT LISTINGS GO HERE ?>
+	<h3> 
+	<?php 
+	foreach($achievementStrings as $a):
+		echo $a;
+	endforeach;
+	?>
 	<h3>Compare Achievements</h3>
 	<?php 
 
-	foreach($achievementStrings as $a):
-		echo $a->name;
-	endforeach;
 
 		$surl = site_url('user/comparison_chooser');
 		echo '<a href="'.$surl.'">Compare achievements.<a/>';
