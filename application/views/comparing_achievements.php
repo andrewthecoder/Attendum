@@ -19,7 +19,7 @@ else
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
 
-	$this->load->database('userachievementmodule');
+	//$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
 		if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
