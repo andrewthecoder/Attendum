@@ -63,6 +63,7 @@ class Checkin extends CI_Controller {
 						$vars = $set_matches[1];
 						$queries = $set_matches[2];
 						
+						
 						foreach($vars as $index=>$varname) {
 							$sql_var_query = str_replace("@cid",$cid,$queries[$index]);
 							$sql_select_name = preg_replace("|.+SELECT (.+) FROM.+|","\\1",$sql_var_query);
@@ -74,6 +75,13 @@ class Checkin extends CI_Controller {
 						}
 						
 						print_r($external_sql_vars);
+						
+						$clean_ach_sql = preg_replace("|.*SET.+(SELECT.+)|sU","\\1",$test_ach_sql);
+						
+						echo $clean_ach_sql;
+						
+						
+						
 						/*
 					
 						if($row->obtained == 1) {
