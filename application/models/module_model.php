@@ -19,4 +19,14 @@ class Module_model extends CI_Model {
 	function insert_module($data) {
 		return $this->db->insert('module', $data);
 	}
+	
+	function get_mid_cid($cid) {
+		$this->db->select('mid');
+		$this->db->where('cid', $cid);
+		$query = $this->db->get('code');
+		
+		$row = $query->row();
+		
+		return $row->mid;
+	}
 }
