@@ -55,7 +55,7 @@ class User extends CI_Controller {
 			WHERE u.uid = $myID");
 		$points = $query->result();
 
-		$data['points'] = $points['points'];
+		$data['points'] = $points->points;
 		$data['page_title'] = 'Your Profile';
 		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);
