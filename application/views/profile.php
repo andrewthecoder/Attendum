@@ -51,7 +51,7 @@
 	<h3> 
 	<?php 
 	foreach($achievementStrings as $a):
-		echo $a;
+		echo $a->name;
 	endforeach;
 	?>
 	<h3>Compare Achievements</h3>
