@@ -6,9 +6,18 @@
 	<form action="<?php echo site_url('admin/assign_reward'); ?>" method="post">
 		<table>
 			<tr>
+				<td>Module</td>
+				<td>
+					<?php echo $module_dropdown; ?>
+				</td>
+			</tr>
+			<tr>
 				<td>Achievement</td>
 				<td>
 					<select name="achievement">
+						<?php foreach($achievements as $ach): ?>
+							<option value="<?php echo $ach->aid; ?>"><?php echo $ach->name; ?></option>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
@@ -16,6 +25,9 @@
 				<td>Reward</td>
 				<td>
 					<select name="reward">
+						<?php foreach($rewards as $re): ?>
+							<option value="<?php echo $re->rid; ?>"><?php echo $re->name; ?></option>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
