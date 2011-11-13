@@ -23,6 +23,14 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_uni');
 	}
 	
+	public function assign_reward() {
+		$this->load->view('admin_assign_reward');
+	}
+	
+	public function create_reward() {
+		$this->load->view('admin_create_reward');
+	}
+	
 	public function create_module() {
 		$this->load->view('admin_create_module');
 	}
