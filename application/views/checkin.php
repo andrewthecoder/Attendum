@@ -6,6 +6,24 @@
 					  <p><?php echo $this->session->flashdata('checkin_success'); ?></p>
 					</div>
 				<?php endif; ?>
+				<?php if($this->session->flashdata('invalid_code') != ''): ?>
+					<div class="alert-message error">
+					  <a class="close" href="#">×</a>
+					  <p><?php echo $this->session->flashdata('invalid_code'); ?></p>
+					</div>
+				<?php endif; ?>
+				<?php if($this->session->flashdata('checkin_success') != ''): ?>
+					<div class="alert-message success">
+					  <a class="close" href="#">×</a>
+					  <p><?php echo $this->session->flashdata('checkin_success'); ?></p>
+					</div>
+				<?php endif; ?>
+				<?php if($this->session->flashdata('checkin_success') != ''): ?>
+					<div class="alert-message success">
+					  <a class="close" href="#">×</a>
+					  <p><?php echo $this->session->flashdata('checkin_success'); ?></p>
+					</div>
+				<?php endif; ?>
 				<form action="<?php echo site_url('checkin/login'); ?>" method="post">
 					<table>
 					<tr>

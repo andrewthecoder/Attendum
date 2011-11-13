@@ -46,15 +46,15 @@ class Checkin extends CI_Controller {
 					redirect('/checkin');
 				} else {
 					$this->session->set_flashdata('invalid_code', 'Check-In Failed: Code Incorrect / Expired');
-					redirect('/');
+					redirect('/checkin');
 				}
 			} else {
 				$this->session->set_flashdata('login_failure', 'Login Failed: Email/Password Incorrect');
-				redirect('/');
+				redirect('/checkin');
 			}
 		} else {
 			$this->session->flashdata('login-failure', 'Login Failed: Email/Password Incorrect');
-			redirect('/');
+			redirect('/checkin');
 		}
 	}
 	
