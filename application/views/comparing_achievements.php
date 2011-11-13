@@ -2,12 +2,6 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
-if(strlen($error) > 0)
-{
-	echo $error;
-}
-else
-{
 	function achievementString($aid)
 	{
 		$this->load->database('achievement');
@@ -27,6 +21,13 @@ else
 
 		return $str;
 	}
+if(strlen($error) > 0)
+{
+	echo $error;
+}
+else
+{
+
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
