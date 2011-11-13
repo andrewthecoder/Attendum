@@ -32,9 +32,9 @@ class Admin extends CI_Controller {
 			foreach ($module_rows as $row) {
 				$module_refs[$row->mid] = $row->ref;
 			}
-			$data = form_dropdown('mid', $module_refs);
+			$temp = form_dropdown('mid', $module_refs);
 			$data = array(
-				'module_dropdown' => $data,
+				'module_dropdown' => $temp,
 				'achievements' => $this->achievement_model->get_achievements(),
 				'rewards' => $this->reward_model->get_rewards()
 			);
