@@ -13,8 +13,8 @@
 	
 	<?php foreach($rows as $r): ?>
 	<tr>
-		<td>{$r->name}</td>
-		<td>{$r->description}</td>
+		<td><?php echo $r->name ?></td>
+		<td><?php echo $r->description ?></td>
 	</tr>
 	<?php endforeach; ?>
 	
