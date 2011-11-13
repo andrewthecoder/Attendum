@@ -45,7 +45,7 @@ else
 				foreach($theirAchievements as $b):
 					if($a == $b)
 					{
-						array_push($commonAchievements, $a);
+						$commonAchievements[] = $a);
 						unset($yourAchievements[$a]);
 						unset($theirAchievements[$b]);
 					}
