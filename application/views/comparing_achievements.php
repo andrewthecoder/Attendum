@@ -39,8 +39,8 @@ else
 					if($a == $b)
 					{
 						$commonAchievements[] = $a;
-						unset($yourAchievements[$a]);
-						unset($theirAchievements[$b]);
+						//unset($yourAchievements[$a]);
+						//unset($theirAchievements[$b]);
 					}
 				endforeach;
 			endforeach;
