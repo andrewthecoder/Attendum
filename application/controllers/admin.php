@@ -213,7 +213,7 @@ class Admin extends CI_Controller {
 				$bgcolor = 'B3FFD7';
 			} elseif ($row->end_time < time()) {
 				$bgcolor = 'FFB3B3';
-			}
+			} else $bgcolor = 'FFFFFF';
 			
 			$start_date = date('l jS \of F Y h:i A', $row->start_time);
 			$validity_unix = $row->end_time - $row->start_time;
