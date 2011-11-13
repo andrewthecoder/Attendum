@@ -24,7 +24,26 @@ class Admin extends CI_Controller {
 	}
 	
 	public function assign_reward() {
-		$this->load->view('admin_assign_reward');
+		$this->load->model('module_model', 'reward_model');
+		$this->load->helper('form');
+		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
+		if($module_rows) {		
+			foreach ($module_rows as $row) {
+				$module_refs[$row->mid] = $row->ref;
+			}
+			$data = form_dropdown('mid', $module_refs);
+			$data = array(
+				'module_dropdown' => $data,
+				'achievements' => $this->achievement_model->get_achievements(),
+				'rewards' => $this->reward_model->get_rewards()
+			);
+			$this->load->view('admin_assign_reward', $data);
+		}
+		else {
+			//redirect no modules;	
+			$this->session->set_flashdata('no_modules', 'There are no modules for which to assign a reward.');
+			$this->load->view('admin_assign_reward', $data);
+		}
 	}
 	
 	public function create_reward() {
@@ -120,18 +139,35 @@ class Admin extends CI_Controller {
 	
 	public function insert_reward(){
 		if($this->input->post()){
+		
 			$name = $this->input->post('name');
 			
 			$description = $this->input->post('description');
 			
 			$unid = $this->session->userdata('unid');
 			
-			$this->db->query("INSERT INTO reward VALUES (null, '$name', '$description', $unid);");
+			$this->load->model('reward_model');
+			
+			//$this->db->query("INSERT INTO reward VALUES (null, '$name', '$description', $unid);");
+			
+			$data = array(
+			
+				'name' => $name, 
+				'description' => $description,
+				'unid' => $unid
+			
+			);
+			
+			$this->reward_model->insert_reward($data);
 			
 			$this->session->set_flashdata('add_reward_success','Reward successfully added!');
+			
 			redirect('/admin/create_reward');
+			
 		} else {
+		
 			redirect('/admin/create_reward');
+			
 		}
 	}
 	
