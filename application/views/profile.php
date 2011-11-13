@@ -57,7 +57,7 @@
 	foreach($query->result() as $row):
 		if($row->uid == $myID) array_push($achievements, $row->aid);
 	endforeach;
-	$this->load->model->('adm_model');
+	$this->load->model['adm_model'];
 	foreach($achievements as $a):
 		echo $this->adm_model->achievementString($a);
 	endforeach;
