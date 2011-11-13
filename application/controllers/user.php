@@ -41,7 +41,7 @@ class User extends CI_Controller {
 		foreach($query->result() as $row):
 			if($row->uid == $myID)
 			{
-				array_push($achievementStrings, $this->adm_model->achievementStrings($row->aid));
+				array_push($achievementStrings, $this->adm_model->achievementString($row->aid));
 			}
 		endforeach;
 
