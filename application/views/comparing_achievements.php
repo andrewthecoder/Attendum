@@ -34,7 +34,7 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	$this->load->model('adm');
+	$this->load->model('adm_model');
 
 	if(count($yourAchievements) < 1)
 	{
