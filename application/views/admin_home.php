@@ -6,12 +6,12 @@
 	?>
 	<ul class="pills">
 		<?php if($admin_rights >= 1): ?>
-			<li><a href="#"></a>Create Code</li>
-			<li><a href="#"></a>Create Module</li>
-			<li><a href="#"></a>View Codes</li>
+			<li><a href="#">Create Code</a></li>
+			<li><a href="#">Create Module</a></li>
+			<li><a href="#">View Codes</a></li>
 		<?php endif; ?>
 		<?php if($admin_rights >= 2): ?>
-			<li><a href="#"></a>Statistics</li>
+			<li><a href="#">Statistics</a></li>
 		<?php endif; ?>
 		<?php if($admin_rights >= 3): ?>
 		<?php endif; ?>
