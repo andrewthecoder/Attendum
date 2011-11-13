@@ -3,13 +3,18 @@
 	<?php $this->load->view('inc/header.php'); ?>
 	<h2>Assign Awards</h2>
 	<?php $this->load->view('inc/admin_nav'); ?>
-	<?php //if($this->session->flashdata('no_modules') != ''): ?>
-	<form action="<?php echo site_url('admin/assign_reward'); ?>" method="post">
+	<?php if($this->session->flashdata('assign_reward_success') != ''): ?>
+		<div class="alert-message success">
+			<a class="close" href="#">×</a>
+			<p><?php echo $this->session->flashdata('assign_reward_success'); ?></p>
+		</div>	
+	<?php endif; ?>
+	<form action="<?php echo site_url('admin/do_assign_reward'); ?>" method="post">
 		<table>
 			<tr>
 				<td>Module</td>
 				<td>
-					<select name="module">
+					<select name="mid">
 						<?php foreach($modules as $mod): ?>
 								<option value="<?php echo $mod->mid; ?>"><?php echo $mod->name; ?></option>
 						<?php endforeach; ?>
@@ -19,7 +24,7 @@
 			<tr>
 				<td>Achievement</td>
 				<td>
-					<select name="achievement">
+					<select name="aid">
 						<?php foreach($achievements as $ach): ?>
 							<option value="<?php echo $ach->aid; ?>"><?php echo $ach->name; ?></option>
 						<?php endforeach; ?>
@@ -29,7 +34,7 @@
 			<tr>
 				<td>Reward</td>
 				<td>
-					<select name="reward">
+					<select name="rid">
 						<?php foreach($rewards as $re): ?>
 							<option value="<?php echo $re->rid; ?>"><?php echo $re->name; ?></option>
 						<?php endforeach; ?>
@@ -42,11 +47,5 @@
 			</tr>
 		</table>
 	</form>
-	<?php //else: ?>
-		<div class="alert-message error">
-			<a class="close" href="#">×</a>
-			<p><?php echo $this->session->flashdata('no_modules'); ?></p>
-		</div>	
-	<?php //endif;?>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
