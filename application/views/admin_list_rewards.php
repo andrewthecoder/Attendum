@@ -11,8 +11,8 @@
 	<table>
 	<td>
 	<?php foreach($rewards->result() as $r){ ?>
-		<tr><?php $r->name; ?></tr>
-		<tr><?php $r->description; ?></tr>
+		<tr>{$r->name}</tr>
+		<tr>{$r->description}</tr>
 	<?php } ?>
 	</td>
 	</table>
