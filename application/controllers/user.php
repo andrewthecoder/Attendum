@@ -35,7 +35,6 @@ class User extends CI_Controller {
 
 		$achievementStrings = array();
 		$myID = $this->session->userdata['uid'];
-		$this->load->database('userachievementmodule');
 		$query = $this->db->query('SELECT * FROM userachievementmodule');
 		//$this->load->model('adm_model');
 		foreach($query->result() as $row):
@@ -44,7 +43,19 @@ class User extends CI_Controller {
 				//array_push($achievementStrings, $this->adm_model->achievementString($row->aid));
 			}
 		endforeach;
-
+		
+		$query = $this->db->query("
+			SELECT ((COUNT(c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points 
+			FROM 
+			code AS c 
+			LEFT JOIN usercode AS uc ON c.cid = uc.cid
+			LEFT JOIN user AS u ON u.uid = uc.uid
+			LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+			LEFT JOIN achievement AS a ON a.aid = uam.aid
+			WHERE u.uid = $myID");
+		$points = $query->result();
+		
+		$data['points'] = $points[0]->points;
 		$data['page_title'] = 'Your Profile';
 		$data['achievementStrings'] = $achievementStrings;
 		$this->load->view('profile', $data);

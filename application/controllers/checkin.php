@@ -35,9 +35,11 @@ class Checkin extends CI_Controller {
 				//get user details
 				$user = $this->user_model->get_user($email);
 				$uid = $user->uid;
-				
+
+				// get current timestamp to compare with
+				$time = time();
 				//check code
-				$code_query = "SELECT `cid` FROM `code` WHERE `code` = '$code'";
+				$code_query = "SELECT `cid` FROM `code` WHERE `code` = '$code' AND '$time' BETWEEN `start_time` AND `end_time`";
 				$cid = $this->code_model->query_codes($code_query);
 				if ($cid) {
 					$cid = $cid[0]->cid;

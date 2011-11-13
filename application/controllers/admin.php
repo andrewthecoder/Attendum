@@ -231,4 +231,9 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_list_codes', $outdata);
 	}
 	
+	public function list_rewards()
+	{
+		$this->load->view('admin_list_rewards');
+	}
+	
 }
