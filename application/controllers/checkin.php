@@ -63,7 +63,6 @@ class Checkin extends CI_Controller {
 						$vars = $set_matches[1];
 						$queries = $set_matches[2];
 						
-						
 						foreach($vars as $index=>$varname) {
 							$sql_var_query = str_replace("@cid",$cid,$queries[$index]);
 							$sql_select_name = preg_replace("|.+SELECT (.+) FROM.+|","\\1",$sql_var_query);
@@ -74,20 +73,14 @@ class Checkin extends CI_Controller {
 							}
 						}
 						
-						
 						$clean_ach_sql = implode("\n", array_slice(explode("\n", $test_ach_sql), 2));
 						$clean_ach_sql = str_replace("@cid",$cid,$clean_ach_sql);
 						$clean_ach_sql = str_replace("@uid",$uid,$clean_ach_sql);
 						$clean_ach_sql = str_replace("@mid",$external_sql_vars['mid'],$clean_ach_sql);
 						$sql_to_execute = str_replace("@start",$external_sql_vars['start'],$clean_ach_sql);
 						
-						//$sql_to_execute = explode(";",$clean_ach_sql);
 						
-						print_r($sql_to_execute);
-						
-						
-						/*
-					
+						$row = $this->db->query($sql_to_execute);
 						if($row->obtained == 1) {
 							$this->load->model('achievement_model');
 							
@@ -97,7 +90,7 @@ class Checkin extends CI_Controller {
 						}
 						else {
 							return false;
-						}*/
+						}
 					}
 					die();
 					
