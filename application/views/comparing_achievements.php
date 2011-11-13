@@ -19,11 +19,11 @@ else
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	//$theirAchievements = array();
 	
-	echo $yourEmail;
-	echo 'a';
-	echo $theirID;
-	echo 'a';
-	echo $yourID;
+	//echo $yourEmail;
+	//echo 'a';
+	//echo $theirID;
+	//echo 'a';
+	//echo $yourID;
 
 	//$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT a.name AS name, a.description AS description 
@@ -32,8 +32,8 @@ else
 	//foreach($query->result() as $row):
 	//	if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
 	//endforeach;
-	echo is_numeric($theirID);
-	echo is_numeric($yourID);
+	//echo is_numeric($theirID);
+	//echo is_numeric($yourID);
 	$query1 = $this->db->query('SELECT a.name AS name, a.description AS description 
 	FROM userachievementmodule AS uam LEFT JOIN achievement AS a ON a.aid = uam.aid WHERE uid='.$yourID);
 	$yourAchievements = $query1->result();
@@ -41,8 +41,8 @@ else
 	//	if($row->uid == $yourID){ $yourAchievements[] = $row->aid; }
 	//endforeach;
 	$commonAchievements = array();//achievement ids
-	print_r($yourAchievements);
-	print_r($theirAchievements);
+	//print_r($yourAchievements);
+	//print_r($theirAchievements);
 	if(!empty($yourAchievements))
 	{
 		if(!empty($theirAchievements))
