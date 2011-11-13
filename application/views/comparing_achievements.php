@@ -36,7 +36,7 @@ else
 
 	$commonAchievements = array();//achievement ids
 
-	if(!empty($yourAchievements)
+	if(!empty($yourAchievements))
 	{
 		if(!empty($theirAchievements))
 		{
