@@ -12,18 +12,19 @@ class Admin extends CI_Controller {
 		}
 	}
 	 
-	public function uni_admin()
-	{
-		$this->load->view('uni_admin');
-	}
-	 
 	public function index()
 	{	
+		$data['page_title'] = "Admin Dashboard";
 		$this->load->view('admin_home');
+	}
+		 
+	public function uni()
+	{
+		$this->load->view('admin_uni');
 	}
 	
 	public function create_module() {
-		$this->load->view('create_module');
+		$this->load->view('admin_create_module');
 	}
 	
 	public function submit_module() {
@@ -34,7 +35,7 @@ class Admin extends CI_Controller {
 			$data['uid'] = $this->session->userdata('uid');
 			
 			$this->module_model->insert_module($data);
-			$this->load->view('module_created');
+			$this->load->view('admin_module_created');
 		} else {
 			redirect('/admin/create_module/');
 		}
@@ -50,10 +51,10 @@ class Admin extends CI_Controller {
 			}
 			$data = form_dropdown('mid', $module_refs);
 			$data = Array("module_dropdown" => $data);
-			$this->load->view('create_code', $data);
+			$this->load->view('admin_create_code', $data);
 		} else {
 			$data['no_modules'] = true;
-			$this->load->view('create_code', $data);
+			$this->load->view('admin_create_code', $data);
 		}
 		
 		
@@ -87,7 +88,7 @@ class Admin extends CI_Controller {
 				'code' => $code,
 				'startdate' => $indata['validfrom']
 			);
-			$this->load->view('code_created', $outdata);
+			$this->load->view('admin_code_created', $outdata);
 		} else {
 			redirect('/admin/create_module/');
 		}
@@ -159,7 +160,7 @@ class Admin extends CI_Controller {
 		}
 		
 		$outdata = Array('htmlrows' => $htmlrows);
-		$this->load->view('list_codes', $outdata);
+		$this->load->view('admin_list_codes', $outdata);
 	}
 	
 }
