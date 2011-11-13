@@ -45,7 +45,7 @@ class Checkin extends CI_Controller {
 						'uid' => $uid,
 						'cid' => $cid
 					);
-					achievement($uid, $cid);
+					//achievement($uid, $cid); would go here!
 					// insert usercode data
 					$this->usercode_model->insert_usercode($data);
 					
