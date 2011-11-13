@@ -19,6 +19,8 @@ else
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
 	
+	echo $yourEmail;
+	echo 'a';
 	echo $theirID;
 	echo 'a';
 	echo $yourID;
