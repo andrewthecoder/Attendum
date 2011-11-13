@@ -344,7 +344,30 @@ class User extends CI_Controller {
 				$username = substr($league_entry['email'],0,strpos($league_entry['email'],'@'));
 				$htmlout .= "<tr><td>{$league_entry['points']}</td><td>{$username}</td></tr>";
 			}
-			$dataout = Array('htmlout' => $htmlout);
+			
+			$modulequery = $this->db->query("
+				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, u.uid AS uid, u.email AS email
+				FROM 
+				code AS c 
+				LEFT JOIN usercode AS uc ON c.cid = uc.cid
+				LEFT JOIN user AS u ON u.uid = uc.uid
+				LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+				LEFT JOIN achievement AS a ON a.aid = uam.aid
+				WHERE u.unid = $unid
+				AND u.opt_in = 1
+				AND c.mid = 2
+				GROUP BY email
+				ORDER BY points DESC
+				LIMIT 0,30;");
+			$moduleleagueboard = $modulequery->result_array();
+			
+			$modulehtmlout = '<tr><td>Points</td><td>Username</td></tr>';
+			foreach ($moduleleagueboard as $moduleleague_entry) {
+				$username = substr($moduleleague_entry['email'],0,strpos($moduleleague_entry['email'],'@'));
+				$modulehtmlout .= "<tr><td>{$moduleleague_entry['points']}</td><td>{$username}</td></tr>";
+			}
+			
+			$dataout = Array('htmlout' => $htmlout, 'modulehtmlout' => $modulehtmlout);
 			
 			$this->load->view('league', $dataout);
 		}
