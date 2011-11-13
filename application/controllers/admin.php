@@ -118,6 +118,21 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function create_reward(){
+		if($this->input->post()){
+			$name = $this->input->post('name');
+			
+			$description = $this->input->post('description');
+			
+			$this->db->query("INSERT INTO reward VALUES (null, $name, $description, $this->session->userdata('unid'));");
+			
+			$this->session->set_flashdata('add_reward_success','Lecturer successfully added!');
+			redirect('/admin/admin_create_reward');
+		} else {
+			redirect('/admin/admin_create_reward');
+		}
+	}
+	
 	public function remove_lecturer(){
 		if($this->input->post()) {
 			//get email/password
