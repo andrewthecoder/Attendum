@@ -2,6 +2,8 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
+echo count($yourAchievements);
+echo count($theirAchievements);
 if(strlen($error) > 0)
 {
 	echo $error;
@@ -125,7 +127,6 @@ else
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
 				echo achievementString($ca);
-				echo 'Hello';
 			}
 		}
 		else
