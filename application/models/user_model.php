@@ -114,7 +114,7 @@ class User_model extends CI_Model {
 		$this->db->where('email', $email);
 		$query = $this->db->get('user');
 
-		$row = $query->row();
+		$row = $query->result();//row();
 		
 		return $row->uid;
 	}
