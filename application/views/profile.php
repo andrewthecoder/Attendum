@@ -72,6 +72,6 @@
 			<?php endif; ?>
 		</div>
 	</div>
-	
+</div>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
