@@ -44,19 +44,15 @@ else
 		if($row->uid == $theirID)
 		{
 			array_push($theirAchievements, $row->aid);
-			echo $row->aid;
 		}
 		if($row->uid == $yourID)
 		{
 			array_push($yourAchievements, $row->aid);
-			echo $row->aid;
 		}
 	endforeach;
 	//}
 
 	$commonAchievements = array();//achievement ids
-
-	
 
 	if(count($yourAchievements) > 0)
 	{
@@ -80,7 +76,7 @@ else
 			foreach($commonAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo achievementString($ca);
+				echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -90,7 +86,7 @@ else
 			foreach($yourAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo achievementString($ca);
+				echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -100,7 +96,7 @@ else
 			foreach($theirAchievements as $ca):
 				//echo $achievements[$ca]->name;
 				//echo $achievements[$ca]->description;
-				echo achievementString($ca);
+				echo "achievementString($ca)";
 			endforeach;
 			}
 		}
@@ -113,7 +109,7 @@ else
 				foreach($yourAchievements as $ca):
 					//echo $achievements[$ca]->name;
 					//echo $achievements[$ca]->description;
-					echo achievementString($ca);
+					echo "achievementString($ca)";
 				endforeach;
 			}
 		}
@@ -125,9 +121,9 @@ else
 		{
 			echo 'Their achievements are:';
 			foreach($theirAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo $this->achievementString($ca);
+				echo $achievements[$ca]->name;
+				echo $achievements[$ca]->description;
+				echo achievementString($ca);
 			endforeach;
 		}
 	}
