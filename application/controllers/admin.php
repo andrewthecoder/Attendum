@@ -120,18 +120,35 @@ class Admin extends CI_Controller {
 	
 	public function insert_reward(){
 		if($this->input->post()){
+		
 			$name = $this->input->post('name');
 			
 			$description = $this->input->post('description');
 			
 			$unid = $this->session->userdata('unid');
 			
-			$this->db->query("INSERT INTO reward VALUES (null, '$name', '$description', $unid);");
+			$this->load->model('reward_model');
+			
+			//$this->db->query("INSERT INTO reward VALUES (null, '$name', '$description', $unid);");
+			
+			$data = array(
+			
+				'name' => $name, 
+				'description' => $description,
+				'unid' => $unid
+			
+			);
+			
+			$this->reward_model->insert_reward($data);
 			
 			$this->session->set_flashdata('add_reward_success','Reward successfully added!');
+			
 			redirect('/admin/create_reward');
+			
 		} else {
+		
 			redirect('/admin/create_reward');
+			
 		}
 	}
 	
