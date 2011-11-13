@@ -9,7 +9,7 @@
 			<h3>Current Achievements</h3>
 			<?php 
 			
-			if($achievementStrings == '') {
+			if(!$achievementStrings) {
 				echo '<p>You have no achievements.</p>';
 			} 
 			else {
