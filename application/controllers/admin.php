@@ -129,9 +129,9 @@ class Admin extends CI_Controller {
 			$this->db->query("INSERT INTO reward VALUES (null, '$name', '$description', $unid);");
 			
 			$this->session->set_flashdata('add_reward_success','Lecturer successfully added!');
-			redirect('/admin/admin_create_reward');
+			redirect('/admin/create_reward');
 		} else {
-			redirect('/admin/admin_create_reward');
+			redirect('/admin/create_reward');
 		}
 	}
 	
