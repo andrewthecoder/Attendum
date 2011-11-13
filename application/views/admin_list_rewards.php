@@ -9,9 +9,8 @@
 	$rewards = $this->db->query("SELECT name, description FROM reward WHERE unid =$yourUniID");
 	foreach($rewards as $r)
 	{
-		$row = $r->row();
-		echo $row->name;
-		echo $row->description;
+		echo $r['name'];
+		echo $r['description'];
 	}
 	?>
 </div>
