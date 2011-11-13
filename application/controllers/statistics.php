@@ -28,7 +28,7 @@ class statistics extends CI_Controller {
 	 
 	public function index()
 	{
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 		
 		$this->load->model('statistics_model');
 		
