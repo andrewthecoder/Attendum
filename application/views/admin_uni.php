@@ -1,6 +1,8 @@
 <?php $this->load->view('inc/meta.php'); ?>
 <div class="container">
 	<?php $this->load->view('inc/header.php'); ?>
+	<h2>University Management</h2>
+	<?php $this->load->view('inc/admin_nav'); ?>
 	<div class="row">
 		<div class="span10">
 			<div id="login" class="span6">

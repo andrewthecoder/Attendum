@@ -8,7 +8,8 @@ Achievements Comparison
 <div id="container">
 
 <?php
-if(strlen($error) > 0){
+if(strlen($error) > 0)
+{
 	echo $error;
 }
 else
@@ -16,19 +17,25 @@ else
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
-	$yourID = $this->user_model->get_uid_using_email($yourEmail);
+	$yourID = $this->user_model->emailtouid($yourEmail);
 	$yourAchievements = array();
 
 	$theirEmail = $e2;
-	$theirID = $this->user_model->get_uid_using_email($theirEmail);
+	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
 
 	//if(count($userachievements) > 0){
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
-		if($row->uid == $theirID) array_push($theirAchievements, $row->aid);
-		if($row->uid == $yourID) array_push($yourAchievements, $row->aid);
+		if($row->uid == $theirID)
+		{
+			array_push($theirAchievements, $row->aid);
+		}
+		if($row->uid == $yourID)
+		{
+			array_push($yourAchievements, $row->aid);
+		}
 	endforeach;
 	//}
 
@@ -66,7 +73,7 @@ else
 			foreach($yourAchievements as $ca):
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo $this->adm_model->achievementString($ca);
+				//echo $this->adm_model->achievementString($ca);
 			endforeach;
 			}
 
