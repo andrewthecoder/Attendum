@@ -26,13 +26,14 @@ class Checkin extends CI_Controller {
 			if($this->user_model->check_login($email, sha1($password))) {
 				//get user details
 				$user = $this->user_model->get_user($email);
+				$uid = $user->uid;
 				
 				//check code
 				$code_query = "SELECT `cid` FROM `code` WHERE `code` = '$code'";
 				$cid = $this->code_model->query_codes($code_query);
 				if ($cid) {
 					$data = Array(
-						'uid' => $user->uid,
+						'uid' => $uid,
 						'cid' => $cid
 					);
 					
