@@ -68,12 +68,9 @@ class Checkin extends CI_Controller {
 							$sql_select_name = preg_replace("|.+SELECT (.+) FROM.+|","\\1",$sql_var_query);
 							$var_query_result = $this->db->query($sql_var_query);
 							
-							echo $sql_select_name;
-							die();
-							
 							foreach ($var_query_result->result_array() as $row)
 							{
-							   print_r($row);
+							   echo $row[$sql_select_name];
 							}
 						}
 						
