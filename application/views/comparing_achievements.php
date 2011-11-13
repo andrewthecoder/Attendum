@@ -121,8 +121,8 @@ else
 		{
 			echo 'Their achievements are:';
 			foreach($theirAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
+				echo $achievements[$ca]->name;
+				echo $achievements[$ca]->description;
 				echo achievementString($ca);
 			endforeach;
 		}
