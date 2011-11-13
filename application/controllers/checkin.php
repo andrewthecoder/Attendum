@@ -6,6 +6,7 @@ class Checkin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('user_model');
 		$this->load->model('code_model');
+		$this->load->model('module_model');
 		$this->load->model('usercode_model');
 		$this->output->enable_profiler(TRUE);
 	}
@@ -51,10 +52,16 @@ class Checkin extends CI_Controller {
 					// insert the correctly valid code to database; log attendance! woo!
 					$this->usercode_model->insert_usercode($data);
 					
+					// get mid
+					$mid = $this->module_model->get_mid_cid($cid);
+					
 					//now let's get down to some complicated achievement shit.
 					$query = $this->db->get('achievement');
-		
+					
 					foreach($query->result() as $ach_row) {
+						// get aid
+						$aid = $ach_row->aid;
+						
 						$test_ach_sql = $ach_row->sql;
 						preg_match_all(
 							"|^SET @([^ ]+) = (.+)$|m",
