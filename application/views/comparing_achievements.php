@@ -2,8 +2,6 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
-echo count($yourAchievements);
-echo count($theirAchievements);
 if(strlen($error) > 0)
 {
 	echo $error;
@@ -38,7 +36,8 @@ else
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
-
+echo count($yourAchievements);
+echo count($theirAchievements);
 	//if(count($userachievements) > 0){
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
