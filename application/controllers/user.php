@@ -276,10 +276,10 @@ class User extends CI_Controller {
 		}
 
 		$e1id = $this->session->userdata['uid'];
-		$this->db->where('uid', $e1id);
-		$query = $this->db->get('user');
-		$row = $query->row_array(); 
-		$e1 = $row['uid'];
+		//$this->db->where('uid', $e1id);
+		//$query = $this->db->get('user');
+		//$row = $query->row_array(); 
+		//$e1 = $row['uid'];
 		if(strlen($e1) < 1)
 		{
 			$error = 'You must be logged in to compare your achievements.<br/>';
