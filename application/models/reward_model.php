@@ -1,6 +1,6 @@
 <?php
 
-class Achievement_model extends CI_Model {
+class Reward_model extends CI_Model {
 
     function __construct()
     {
