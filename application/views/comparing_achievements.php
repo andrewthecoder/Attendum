@@ -2,32 +2,13 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
-	function achievementString($aid)
-	{
-		$this->load->database('achievement');
-		$this->db->where('aid', $aid);
-		$query = $this->db->get('achievement');
-		$row = $query->row_array();
-		$name = $row['name'];
-		$description = $row['description'];
-		$image_filename = base_url()+'images/achievements/'+$row['image_filename'];
-		
-		$str = '';
-		$str .= '<p>';
-		$str .= '<img src="'+$image_filename+'" alt"'+$name+'" style="float:right;margin:0 5px 0 0;"/>';
-		$str .= $name+'<br/>';
-		$str .= $description;
-		$str .= '</p>';
 
-		return $str;
-	}
 if(strlen($error) > 0)
 {
 	echo $error;
 }
 else
 {
-
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
@@ -36,20 +17,12 @@ else
 
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
-	echo $theirID; echo $yourID;
 	$theirAchievements = array();
-echo count($yourAchievements);
-echo count($theirAchievements);
+
 	//if(count($userachievements) > 0){
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
-	echo $row->uid;
-	echo '=';
-	echo $theirID;
-	echo '=';
-	echo $yourID;
-	echo '...';
 		if($row->uid == $theirID)
 		{
 			$theirAchievements[] = $row->aid;
@@ -60,9 +33,6 @@ echo count($theirAchievements);
 		}
 	endforeach;
 	//}
-
-echo count($yourAchievements);
-echo count($theirAchievements);
 
 	$commonAchievements = array();//achievement ids
 
@@ -86,9 +56,12 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo '<p><li>';
+				echo $achievements[$ca]->name;
+				echo ' - ';
+				echo $achievements[$ca]->description;
+				echo '</li></p>';
+				//echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -96,9 +69,12 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo '<p><li>';
+				echo $achievements[$ca]->name;
+				echo ' - ';
+				echo $achievements[$ca]->description;
+				echo '</li></p>';
+				//echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -106,42 +82,51 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo '<p><li>';
+				echo $achievements[$ca]->name;
+				echo ' - ';
+				echo $achievements[$ca]->description;
+				echo '</li></p>';
+				//echo "achievementString($ca)";
 			endforeach;
 			}
 		}
 		else
 		{
-			echo 'They have no achievements.';
+			echo '<p>They have no achievements.</p>';
 			if(count($yourAchievements) < 1)
 			{
-				echo 'Your achievements are:';
+				echo '<p>Your achievements are:</p>';
 				foreach($yourAchievements as $ca):
-					//echo $achievements[$ca]->name;
-					//echo $achievements[$ca]->description;
-					echo "achievementString($ca)";
+					echo '<p><li>';
+					echo $achievements[$ca]->name;
+					echo ' - ';
+					echo $achievements[$ca]->description;
+					echo '</li></p>';
+					//echo "achievementString($ca)";
 				endforeach;
 			}
 		}
 	}
 	else
 	{
-		echo 'You have no achievements.';
+		echo '<p>You have no achievements.</p>';
 		if(count($theirAchievements) > 0)
 		{
-			echo 'Their achievements are:';
+			echo '<p>Their achievements are:</p>';
 			foreach($theirAchievements as $ca)
 			{
+				echo '<p><li>';
 				echo $achievements[$ca]->name;
+				echo ' - ';
 				echo $achievements[$ca]->description;
-				echo achievementString($ca);
+				echo '</li></p>';
+				//echo achievementString($ca);
 			}
 		}
 		else
 		{
-			echo 'They have no achievements.';
+			echo '<p>They have no achievements.</p>';
 		}
 	}
 }

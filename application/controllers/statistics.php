@@ -22,13 +22,16 @@ class statistics extends CI_Controller {
 		parent::__construct();
 		
 		if(!$this->session->userdata('logged_in')) {
+			if(!$this->session->userdata('admin_rights') < 2) {
+				redirect('/');
+			}
 			redirect('/');
 		}
 	}
 	 
 	public function index()
 	{
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		
 		$this->load->model('statistics_model');
 		
