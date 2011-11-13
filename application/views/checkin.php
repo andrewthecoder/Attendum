@@ -1,5 +1,11 @@
 			<div id="checkin" class="checkin_div">
 				<h3>Check-In!</h3>
+				<?php if($this->session->flashdata('checkin_success') != ''): ?>
+					<div class="alert-message success">
+					  <a class="close" href="#">×</a>
+					  <p><?php echo $this->session->flashdata('checkin_success'); ?></p>
+					</div>
+				<?php endif; ?>
 				<form action="<?php echo site_url('checkin/login'); ?>" method="post">
 					<table>
 					<tr>
