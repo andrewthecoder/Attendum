@@ -3,13 +3,15 @@
 	<?php $this->load->view('inc/header.php'); ?>
 	<h2>Assign Awards</h2>
 	<?php $this->load->view('inc/admin_nav'); ?>
-	<?php if($this->session->flashdata('no_modules') != ''): ?>
+	<?php //if($this->session->flashdata('no_modules') != ''): ?>
 	<form action="<?php echo site_url('admin/assign_reward'); ?>" method="post">
 		<table>
 			<tr>
 				<td>Module</td>
 				<td>
-					<?php echo $module_dropdown; ?>
+					<?php foreach($modules as $mod): ?>
+							<option value="<?php echo $mod->mid; ?>"><?php echo $mod->name; ?></option>
+					<?php endforeach; ?>
 				</td>
 			</tr>
 			<tr>
@@ -38,11 +40,11 @@
 			</tr>
 		</table>
 	</form>
-	<?php else: ?>
+	<?php //else: ?>
 		<div class="alert-message error">
 			<a class="close" href="#">×</a>
 			<p><?php echo $this->session->flashdata('no_modules'); ?></p>
 		</div>	
-	<?php endif;?>
+	<?php //endif;?>
 </div>
 <?php $this->load->view('inc/footer.php'); ?>
