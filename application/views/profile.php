@@ -53,7 +53,7 @@
 	<?php 
 
 	foreach($achievementStrings as $a):
-		echo $a;
+		echo $a->name;
 	endforeach;
 
 		$surl = site_url('user/comparison_chooser');
