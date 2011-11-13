@@ -15,6 +15,7 @@
 			<li><a href="<?php echo site_url('site/achievements'); ?>">Achievements</a> <span class="divider">/</span></li>
 			<?php if($this->session->userdata('logged_in')): ?>
 				<li><a href="<?php echo site_url('user/profile'); ?>">Profile</a> <span class="divider">/</span></li>
+				<li><a href="<?php echo site_url('user/league'); ?>">League</a> <span class="divider">/</span></li>
 				<?php if($this->session->userdata('admin_rights') > 0): ?>
 					<li><a href="<?php echo site_url('admin'); ?>">Admin</a> <span class="divider">/</span></li>
 				<?php endif; ?>
