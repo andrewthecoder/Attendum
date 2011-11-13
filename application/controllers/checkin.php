@@ -74,10 +74,7 @@ class Checkin extends CI_Controller {
 						}
 						
 						$row = $query->row();
-						
-						echo 'MID: '.$mid;
-						echo 'AID: '.$aid;
-						echo 'CID: '.$cid;
+						print_r($row);
 						
 						if($row->obtained == 1) {
 							$this->load->model('achievement_model');
