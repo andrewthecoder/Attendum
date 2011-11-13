@@ -23,7 +23,7 @@ class User extends CI_Controller {
 		
 		$this->load->model('user_model');
 		
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 	 }
 	 
 	public function index()
