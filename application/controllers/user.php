@@ -304,7 +304,7 @@ class User extends CI_Controller {
 			$unid = $this->session->userdata['unid'];
 		
 			$query = $this->db->query("
-				SELECT ((COUNT(DISTINCT c.cid) * 10) + (SUM(a.points))) AS points, u.uid AS uid, u.email AS email
+				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, u.uid AS uid, u.email AS email
 				FROM 
 				code AS c 
 				LEFT JOIN usercode AS uc ON c.cid = uc.cid
