@@ -29,7 +29,7 @@ else
 		}
 		if($row->uid == $yourID)
 		{
-			$yourAchievements = $row->aid;
+			$yourAchievements[] = $row->aid;
 		}
 	endforeach;
 	//}
