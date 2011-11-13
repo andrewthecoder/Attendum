@@ -314,10 +314,7 @@ class User extends CI_Controller {
 			GROUP BY email
 			ORDER BY points DESC
 			LIMIT 0,30;");		
-		$leagueboard = $query->result();
-		
-		print_r($leagueboard);
-		die();
+		$leagueboard = $query->result_array();
 		
 		$htmlout = '<tr><td>Points</td><td>Username</td></tr>';
 		foreach ($leagueboard as $league_entry) {
