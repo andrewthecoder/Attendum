@@ -111,7 +111,7 @@ else
 	else
 	{
 		echo '<p>You have no achievements.</p>';
-		if(count($theirAchievements) > 0)
+		if(!empty($theirAchievements))
 		{
 			echo '<p>Their achievements are:</p>';
 			foreach($theirAchievements as $ca)
