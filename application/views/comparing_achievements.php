@@ -38,6 +38,7 @@ else
 	//endforeach;
 	$commonAchievements = array();//achievement ids
 	print_r($yourAchievements);
+	print_r($theirAchievements);
 	if(!empty($yourAchievements))
 	{
 		if(!empty($theirAchievements))
