@@ -17,7 +17,7 @@
 			  <p><?php echo $this->session->flashdata('login_failure'); ?></p>
 			</div>
 		<?php endif; ?>
-		<form action="<?php echo site_url('checkin/login'); ?>" method="post">
+		<form action="<?php echo site_url('checkin/process'); ?>" method="post">
 			<table>
 			<tr>
 			<td><label for="username">Email</label></td><td><input type="text" name="email"></td>
