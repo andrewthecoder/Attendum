@@ -5,7 +5,6 @@ class Admin extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		//$this->session->set_userdata('unid', '2');
 		//$this->output->enable_profiler(TRUE);
 		
 		if(!$this->session->userdata('logged_in')) {
@@ -20,7 +19,7 @@ class Admin extends CI_Controller {
 	 
 	public function index()
 	{	
-		$this->load->view('home');
+		$this->load->view('admin_home');
 	}
 	
 	public function create_module() {
