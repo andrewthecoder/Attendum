@@ -303,6 +303,13 @@ class User extends CI_Controller {
 
 	public function league()
 	{
+		$yourUniID = $this->session->userdata['unid'];
+		$query = $this->db->query("SELECT name FROM uni WHERE unid =$yourUniID");
+		$yourUniName = $query->row()->name;
+		$data['uniName'] = $yourUniName;
+		
+		$query = $this->db->query("SELECT uid, point FROM uni WHERE unid =$yourUniID");
+		
 		$this->load->view('league', $data);
 	}
 

@@ -26,27 +26,31 @@ class Admin extends CI_Controller {
 	public function assign_reward() {
 		$this->load->model('module_model');
 		$this->load->model('reward_model');
-		$this->load->helper('form');
-		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
-		if($module_rows) {		
-			foreach ($module_rows as $row) {
-				$module_refs[$row->mid] = $row->ref;
-			}
-			$temp = form_dropdown('mid', $module_refs);
-			$data = array(
-				'module_dropdown' => $temp,
-				'achievements' => $this->achievement_model->get_achievements(),
-				'rewards' => $this->reward_model->get_rewards()
-			);
+		$this->load->model('achievement_model');
+		$data = array(
+			'modules' => $this->module_model->get_modules($this->session->userdata('uid')),
+			'achievements' => $this->achievement_model->get_achievements(),
+			'rewards' => $this->reward_model->get_rewards()
+		);
+		
+		$this->load->view('admin_assign_reward', $data);
+	}
+	
+	public function do_assign_reward() {
+		if($this->input->post()) {
+			$rid = $this->input->post('rid');
+			$aid = $this->input->post('aid');
+			$mid = $this->input->post('mid');
 			
-			echo print_r($data);
+			$this->load->model('reward_model');
 			
-			$this->load->view('admin_assign_reward', $data);
+			$this->reward_model->assign_reward($rid, $aid, $mid);
+			
+			$this->session->set_flashdata('assign_reward_success', 'The reward has been assigned successfully');
+			redirect('admin/assign_reward');
 		}
 		else {
-			//redirect no modules;	
-			$this->session->set_flashdata('no_modules', 'There are no modules for which to assign a reward.');
-			$this->load->view('admin_assign_reward');
+			redirect('/admin/assign_reward');
 		}
 	}
 	
@@ -225,6 +229,11 @@ class Admin extends CI_Controller {
 		
 		$outdata = Array('htmlrows' => $htmlrows);
 		$this->load->view('admin_list_codes', $outdata);
+	}
+	
+	public function list_rewards()
+	{
+		$this->load->view('admin_list_rewards');
 	}
 	
 }
