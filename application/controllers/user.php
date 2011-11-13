@@ -23,7 +23,7 @@ class User extends CI_Controller {
 		
 		$this->load->model('user_model');
 		
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 	 }
 	 
 	public function index()
@@ -35,7 +35,10 @@ class User extends CI_Controller {
 
 		
 		$myID = $this->session->userdata['uid'];
-		$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid = '.$myID);
+		$query = $this->db->query('SELECT a.name AS name,
+								a.points AS points
+								FROM userachievementmodule 
+								AS uam LEFT JOIN achievement AS a ON a.aid = uam.aid WHERE uam.uid = '.$myID);
 		$achievementStrings = $query->result();
 		
 		$query = $this->db->query("
@@ -290,8 +293,6 @@ class User extends CI_Controller {
 			'userachievements' => $this->user_achievement_model->get_user_achievements(),
 			'achievements' => $this->achievement_model->get_achievements()
 		);
-		
-		echo print_r($data);
 		
 		$this->load->view('comparing_achievements', $data);
 	}

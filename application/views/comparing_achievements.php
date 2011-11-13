@@ -8,7 +8,25 @@ if(strlen($error) > 0)
 }
 else
 {
-	//$this->load->model('adm_model');
+	function achievementString($aid)
+	{
+		$this->load->database('achievement');
+		$this->db->where('aid', $aid);
+		$query = $this->db->get('achievement');
+		$row = $query->row_array();
+		$name = $row['name'];
+		$description = $row['description'];
+		$image_filename = base_url()+'images/achievements/'+$row['image_filename'];
+		
+		$str = '';
+		$str .= '<p>';
+		$str .= '<img src="'+$image_filename+'" alt"'+$name+'" style="float:right;margin:0 5px 0 0;"/>';
+		$str .= $name+'<br/>';
+		$str .= $description;
+		$str .= '</p>';
+
+		return $str;
+	}
 	$this->load->model('user_model');
 
 	$yourEmail = $e1;
@@ -18,11 +36,13 @@ else
 	$theirEmail = $e2;
 	$theirID = $this->user_model->emailtouid($theirEmail);
 	$theirAchievements = array();
-
+echo count($yourAchievements);
+echo count($theirAchievements);
 	//if(count($userachievements) > 0){
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
+	echo $row->aid+'</br>';
 		if($row->uid == $theirID)
 		{
 			array_push($theirAchievements, $row->aid);
@@ -34,9 +54,10 @@ else
 	endforeach;
 	//}
 
-	$commonAchievements = array();//achievement ids
+echo count($yourAchievements);
+echo count($theirAchievements);
 
-	
+	$commonAchievements = array();//achievement ids
 
 	if(count($yourAchievements) > 0)
 	{
@@ -58,9 +79,9 @@ else
 			{
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
+				echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -68,9 +89,9 @@ else
 			{
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
+				echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -78,9 +99,9 @@ else
 			{
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
-				echo $achievements[$ca]->name;
-				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
+				//echo $achievements[$ca]->name;
+				//echo $achievements[$ca]->description;
+				echo "achievementString($ca)";
 			endforeach;
 			}
 		}
@@ -91,9 +112,9 @@ else
 			{
 				echo 'Your achievements are:';
 				foreach($yourAchievements as $ca):
-					echo $achievements[$ca]->name;
-					echo $achievements[$ca]->description;
-					//echo $this->adm_model->achievementString($ca);
+					//echo $achievements[$ca]->name;
+					//echo $achievements[$ca]->description;
+					echo "achievementString($ca)";
 				endforeach;
 			}
 		}
@@ -101,14 +122,19 @@ else
 	else
 	{
 		echo 'You have no achievements.';
-		if(count($theirAchievements) < 1)
+		if(count($theirAchievements) > 0)
 		{
 			echo 'Their achievements are:';
-			foreach($theirAchievements as $ca):
+			foreach($theirAchievements as $ca)
+			{
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				//echo $this->adm_model->achievementString($ca);
-			endforeach;
+				echo achievementString($ca);
+			}
+		}
+		else
+		{
+			echo 'They have no achievements.';
 		}
 	}
 }
