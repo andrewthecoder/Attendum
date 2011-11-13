@@ -45,7 +45,7 @@ class Checkin extends CI_Controller {
 						'uid' => $uid,
 						'cid' => $cid
 					);
-					//achievement($uid, $cid); would go here!
+					achievement($uid, $cid);
 					// insert usercode data
 					$this->usercode_model->insert_usercode($data);
 					
@@ -66,7 +66,7 @@ class Checkin extends CI_Controller {
 		}
 	}
 	
-	private achievement($uid, $cid){
+	private function achievement($uid, $cid){
 		//for each achievment (
 		//	if $this->db->query("SET @uid = $uid;
 		//		SET @cid = $cid;".$query field) = 1 
