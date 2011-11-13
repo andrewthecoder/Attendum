@@ -228,6 +228,7 @@ class Admin extends CI_Controller {
 			$start_date = date('l jS \of F Y h:i A', $row->start_time);
 			$validity_unix = $row->end_time - $row->start_time;
 			$validity = (int)date('i', $validity_unix);
+			if($validity == 0) $validity = 60;
 			
 			$htmlrows .= "
 			<tr style='background-color: #{$bgcolor}'>
