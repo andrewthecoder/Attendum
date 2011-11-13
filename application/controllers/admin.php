@@ -118,7 +118,7 @@ class Admin extends CI_Controller {
 		}
 	}
 	
-	public function create_reward(){
+	public function insert_reward(){
 		if($this->input->post()){
 			$name = $this->input->post('name');
 			
