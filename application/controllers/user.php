@@ -314,7 +314,7 @@ class User extends CI_Controller {
 			GROUP BY email
 			ORDER BY points DESC
 			LIMIT 0,30;");		
-		$leagueboard = $query->result_array();
+		$leagueboard = $query->result();
 		
 		print_r($leagueboard);
 		die();
