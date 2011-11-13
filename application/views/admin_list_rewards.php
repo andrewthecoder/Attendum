@@ -7,11 +7,10 @@
 	<?php 
 	$yourUniID = $this->session->userdata['unid'];
 	$rewards = $this->db->query("SELECT name, description FROM reward WHERE unid =$yourUniID");
-	foreach($rewards as $r)
+	foreach($rewards->result() as $r)
 	{
-		echo gettype($r);
 		echo $r->name;
-		echo $r['description'];
+		echo $r->description;
 	}
 	?>
 </div>
