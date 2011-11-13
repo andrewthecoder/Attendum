@@ -20,14 +20,16 @@ else
 	$theirAchievements = array();
 
 	//$this->load->database('userachievementmodule');
-	$query = $this->db->query('SELECT * FROM userachievementmodule');
-	foreach($query->result() as $row):
-		if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
-	endforeach;
-	$query = $this->db->query('SELECT * FROM userachievementmodule');
-	foreach($query->result() as $row):
-		if($row->uid == $yourID){ $yourAchievements[$i] = $row->aid; }
-	endforeach;
+	$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$theirID);
+	$theirAchievements = $query->result();
+	//foreach($query->result() as $row):
+	//	if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
+	//endforeach;
+	$query = $this->db->query('SELECT * FROM userachievementmodule WHERE uid='.$yourID);
+	$yourAchievement = $query->result();
+	//foreach($query->result() as $row):
+	//	if($row->uid == $yourID){ $yourAchievements[] = $row->aid; }
+	//endforeach;
 	$commonAchievements = array();//achievement ids
 	print_r($yourAchievements);
 	if(!empty($yourAchievements))
