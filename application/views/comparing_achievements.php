@@ -43,6 +43,10 @@ echo count($theirAchievements);
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
 	echo $row->uid;
+	echo '=';
+	echo $theirID;
+	echo '=';
+	echo $yourID;
 	echo '...';
 		if($row->uid == $theirID)
 		{
