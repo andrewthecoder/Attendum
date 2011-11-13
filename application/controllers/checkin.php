@@ -69,8 +69,7 @@ class Checkin extends CI_Controller {
 							
 							foreach ($var_query_result->result_array() as $row)
 							{
-							   echo $row[0];
-							   echo $row[1];
+							   print_r($row);
 							}
 						}
 						
