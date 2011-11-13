@@ -34,9 +34,6 @@ else
 	endforeach;
 	//}
 
-echo count($yourAchievements);
-echo count($theirAchievements);
-
 	$commonAchievements = array();//achievement ids
 
 	if(count($yourAchievements) > 0)
