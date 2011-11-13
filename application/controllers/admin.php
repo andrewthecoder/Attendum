@@ -23,6 +23,14 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_uni');
 	}
 	
+	public function assign_reward() {
+		$this->load->view('admin_assign_reward');
+	}
+	
+	public function create_reward() {
+		$this->load->view('admin_create_reward');
+	}
+	
 	public function create_module() {
 		$this->load->view('admin_create_module');
 	}
@@ -107,6 +115,21 @@ class Admin extends CI_Controller {
 		}
 		else {
 			redirect('/admin/uni_admin');
+		}
+	}
+	
+	public function insert_reward(){
+		if($this->input->post()){
+			$name = $this->input->post('name');
+			
+			$description = $this->input->post('description');
+			
+			$this->db->query("INSERT INTO reward VALUES (null, $name, $description, $this->session->userdata('unid'));");
+			
+			$this->session->set_flashdata('add_reward_success','Lecturer successfully added!');
+			redirect('/admin/admin_create_reward');
+		} else {
+			redirect('/admin/admin_create_reward');
 		}
 	}
 	
