@@ -41,7 +41,7 @@ class User extends CI_Controller {
 		
 			$this->form_validation->set_rules('curr_pass', 'Current Password', 'trim|required|callback_check_curr_pass|sha1');
 			$this->form_validation->set_rules('new_pass', 'New Password', 'trim|required|matches[new_pass_conf]|sha1');
-			$this->form_validation->set_rules('new_pass_conf', 'Email', 'trim|required');
+			$this->form_validation->set_rules('new_pass_conf', 'New Password Confirmation', 'trim|required');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -186,7 +186,8 @@ class User extends CI_Controller {
 					//echo $this->input->post('email');
 				
 					$this->user_model->insert_user($data);
-					$this->load->view('signup_complete');
+					$this->session->set_flashdata('signup_success','You\'ve successfully signed up.');
+					redirect('/');
 				
 				}
 				else {

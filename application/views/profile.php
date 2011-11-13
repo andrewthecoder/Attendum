@@ -6,6 +6,12 @@
 	<div class="row">
 		<div class="span8">
 			<h3>Change Password</h3>
+			<?php if($this->session->flashdata('change_pw_success') != ''): ?>
+				<div class="alert-message success">
+				  <a class="close" href="#">×</a>
+				  <p><?php echo $this->session->flashdata('change_pw_success'); ?></p>
+				</div>
+			<?php endif; ?>
 			<?php echo validation_errors('<div class="alert-message error"><a class="close" href="#">×</a><p>','</p></div>'); ?>
 			<form action="<?php echo site_url('user/change_pass'); ?>" method="post">
 				<table>
