@@ -82,8 +82,7 @@ class Checkin extends CI_Controller {
 						
 						$achievement_obtained_query = $this->db->query($sql_to_execute);
 						$row = $achievement_obtained_query->result();
-						print_r($row);
-						die();
+						
 						if($row->obtained == 1) {
 							$this->load->model('achievement_model');
 							
