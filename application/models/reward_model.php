@@ -14,6 +14,6 @@ class Reward_model extends CI_Model {
 	}
 	
 	function insert_reward($data) {
-		$this->db->insert($data);
+		$this->db->insert('reward', $data);
 	}
 }

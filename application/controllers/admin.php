@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
 	}
 	
 	public function assign_reward() {
-		$this->load->model('module_model');
+		$this->load->model('module_model', 'reward_model');
 		$this->load->helper('form');
 		$module_rows = $this->module_model->get_modules($this->session->userdata('uid'));
 		if($module_rows) {		
@@ -33,9 +33,9 @@ class Admin extends CI_Controller {
 			}
 			$data = form_dropdown('mid', $module_refs);
 			$data = array(
-				"module_dropdown" => $data,
-				"achievements" => $this->achievement_model->get_achievements(),
-				"rewards" => $this->reward_model->get_rewards()
+				'module_dropdown' => $data,
+				'achievements' => $this->achievement_model->get_achievements(),
+				'rewards' => $this->reward_model->get_rewards()
 			);
 			$this->load->view('admin_assign_reward', $data);
 		}
