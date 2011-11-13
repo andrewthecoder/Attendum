@@ -293,7 +293,7 @@ class User extends CI_Controller {
 	public function league()
 	{
 		
-		$this->load->view('league', $data)
+		$this->load->view('league', $data);
 	}
 
 }
