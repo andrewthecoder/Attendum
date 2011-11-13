@@ -50,18 +50,13 @@
 	<?php //ACHIEVEMENT LISTINGS GO HERE ?>
 	<h3>Compare Achievements</h3>
 	<?php 
-	$achievements = array();
-	$myID = $this->session->userdata['uid'];
-	$this->load->database('userachievementmodule');
-	$query = $this->db->query('SELECT * FROM userachievementmodule');
-	foreach($query->result() as $row):
-		if($row->uid == $myID) array_push($achievements, $row->aid);
+
+	foreach($achievementStrings as $a):
+		echo $a;
 	endforeach;
-	$this->load->model->('adm_model');
-	foreach($achievements as $a):
-		echo $this->adm_model->achievementString($a);
-	endforeach;
+
 	?>
+
 	<?php
 		$surl = site_url('user/comparison_chooser');
 		echo '<a href="'.$surl.'">Compare achievements.<a/>';
