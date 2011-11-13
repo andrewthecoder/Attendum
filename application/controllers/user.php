@@ -339,7 +339,7 @@ class User extends CI_Controller {
 				LIMIT 0,30;");		
 			$leagueboard = $query->result_array();
 			
-			$htmlout = '<tr><td>Points</td><td>Username</td></tr>';
+			$htmlout = '<tr><td><strong>Points</strong></td><td><strong>Username</strong></td></tr>';
 			foreach ($leagueboard as $league_entry) {
 				$username = substr($league_entry['email'],0,strpos($league_entry['email'],'@'));
 				$htmlout .= "<tr><td>{$league_entry['points']}</td><td>{$username}</td></tr>";
@@ -361,7 +361,7 @@ class User extends CI_Controller {
 				LIMIT 0,30;");
 			$moduleleagueboard = $modulequery->result_array();
 			
-			$modulehtmlout = '<tr><td>Points</td><td>Username</td></tr>';
+			$modulehtmlout = '<tr><td><strong>Points</strong></td><td><strong>Username</strong></td></tr>';
 			foreach ($moduleleagueboard as $moduleleague_entry) {
 				$username = substr($moduleleague_entry['email'],0,strpos($moduleleague_entry['email'],'@'));
 				$modulehtmlout .= "<tr><td>{$moduleleague_entry['points']}</td><td>{$username}</td></tr>";
