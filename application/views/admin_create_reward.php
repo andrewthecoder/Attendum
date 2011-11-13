@@ -16,7 +16,7 @@
 					<td><label for="username">Name</label></td><td><input type="text" name="name"></td>
 					</tr>
 					<tr>
-					<td><label for="username">Description</label></td><td><input type="text" name="description"></td>
+					<td><label for="descripton">Description</label></td><td><textarea name="description"></textarea></td>
 					</tr>
 					<tr>
 					<td></td><td><input type="submit" name="create" class="btn primary" value="Create"></td>
