@@ -49,10 +49,13 @@
 				
 		
 		<h3>Compare Achievements</h3>
-			<?php 
-				$surl = site_url('user/comparison_chooser');
-				echo '<a href="'.$surl.'">Compare achievements.</a>';
-			?>
+			<div class="container">
+			<form action="<?php echo site_url('user/compare_achievements');?>" method="post">
+			<p>Enter the email of the person you want to compare achievements with.</p>
+			<input type="text" name="e2">
+			<input type="submit" value="Go">
+			</form>
+
 		</div>
 		<div class="span8">
 			
