@@ -22,8 +22,8 @@ else
 	$this->load->database('userachievementmodule');
 	$query = $this->db->query('SELECT * FROM userachievementmodule');
 	foreach($query->result() as $row):
-		if($row->uid == $theirID){ $theirAchievements[] = $row->aid; }
-		if($row->uid == $yourID){ $yourAchievements[] = $row->aid; }
+		if($row->uid == $theirID): $theirAchievements[] = $row->aid; 
+		if($row->uid == $yourID): $yourAchievements[] = $row->aid;
 	endforeach;
 
 	$commonAchievements = array();//achievement ids
