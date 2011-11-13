@@ -23,7 +23,7 @@ class User extends CI_Controller {
 		
 		$this->load->model('user_model');
 		
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 	 }
 	 
 	public function index()
@@ -67,7 +67,28 @@ class User extends CI_Controller {
 			if ($this->form_validation->run() == FALSE)
 			{
 				//LOAD SHIT BEFORE PROFILE CALL
-				$this->load->view('profile');
+				$myID = $this->session->userdata['uid'];
+				$query = $this->db->query('SELECT a.name AS name,
+										a.points AS points
+										FROM userachievementmodule 
+										AS uam LEFT JOIN achievement AS a ON a.aid = uam.aid WHERE uam.uid = '.$myID);
+				$achievementStrings = $query->result();
+				
+				$query = $this->db->query("
+					SELECT ((COUNT(c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points 
+					FROM 
+					code AS c 
+					LEFT JOIN usercode AS uc ON c.cid = uc.cid
+					LEFT JOIN user AS u ON u.uid = uc.uid
+					LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+					LEFT JOIN achievement AS a ON a.aid = uam.aid
+					WHERE u.uid = $myID");
+				$points = $query->result();
+				
+				$data['points'] = $points[0]->points;
+				$data['page_title'] = 'Your Profile';
+				$data['achievementStrings'] = $achievementStrings;
+				$this->load->view('profile', $data);
 			}
 			else {
 				//update
@@ -323,7 +344,30 @@ class User extends CI_Controller {
 				$username = substr($league_entry['email'],0,strpos($league_entry['email'],'@'));
 				$htmlout .= "<tr><td>{$league_entry['points']}</td><td>{$username}</td></tr>";
 			}
-			$dataout = Array('htmlout' => $htmlout);
+			
+			$modulequery = $this->db->query("
+				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, u.uid AS uid, u.email AS email
+				FROM 
+				code AS c 
+				LEFT JOIN usercode AS uc ON c.cid = uc.cid
+				LEFT JOIN user AS u ON u.uid = uc.uid
+				LEFT JOIN userachievementmodule AS uam ON uam.uid = u.uid
+				LEFT JOIN achievement AS a ON a.aid = uam.aid
+				WHERE u.unid = $unid
+				AND u.opt_in = 1
+				AND c.mid = 2
+				GROUP BY email
+				ORDER BY points DESC
+				LIMIT 0,30;");
+			$moduleleagueboard = $modulequery->result_array();
+			
+			$modulehtmlout = '<tr><td>Points</td><td>Username</td></tr>';
+			foreach ($moduleleagueboard as $moduleleague_entry) {
+				$username = substr($moduleleague_entry['email'],0,strpos($moduleleague_entry['email'],'@'));
+				$modulehtmlout .= "<tr><td>{$moduleleague_entry['points']}</td><td>{$username}</td></tr>";
+			}
+			
+			$dataout = Array('htmlout' => $htmlout, 'modulehtmlout' => $modulehtmlout);
 			
 			$this->load->view('league', $dataout);
 		}

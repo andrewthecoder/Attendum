@@ -12,10 +12,9 @@
 				echo $a->name.' - '.$a->points.'points<br>'; 
 			endforeach;
 			?>
-			
 		</div>
 		<div class="span8">
-		<h3>Change Password</h3>
+			<h3>Change Password</h3>
 			<?php if($this->session->flashdata('change_pw_success') != ''): ?>
 				<div class="alert-message success">
 				  <a class="close" href="#">×</a>
@@ -39,17 +38,12 @@
 				</tr>
 				</table>
 			</form>
-		
-		
-
 		</div>
 	</div>
 	<div class="row">
 		<div class="span8">
-				
 		
-		<h3>Compare Achievements</h3>
-			<div class="container">
+			<h3>Compare Achievements</h3>
 			<form action="<?php echo site_url('user/compare_achievements');?>" method="post">
 			<p>Enter the email of the person you want to compare achievements with.</p>
 			<input type="text" name="e2">
