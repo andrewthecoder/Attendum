@@ -3,6 +3,7 @@
 	<?php $this->load->view('inc/header.php'); ?>
 	<h2>Your Profile</h2>
 	<h4><strong>Email: </strong><?php echo $this->session->userdata('email'); ?></h4>
+	<h4><strong>Points: </strong><?php echo $points; ?></h4>
 	<div class="row">
 		<div class="span8">
 			<h3>Change Password</h3>

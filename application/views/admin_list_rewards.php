@@ -9,6 +9,7 @@
 	$rewards = $this->db->query("SELECT name, description FROM reward WHERE unid =$yourUniID");
 	foreach($rewards as $r)
 	{
+		echo gettype($r);
 		echo $r['name'];
 		echo $r['description'];
 	}
