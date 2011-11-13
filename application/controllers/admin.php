@@ -11,7 +11,7 @@ class Admin extends CI_Controller {
 			redirect('/');
 		}
 		else {
-			if(!$this->session->userdata('admin_rights') < 1) {
+			if($this->session->userdata('admin_rights') < 1) {
 				redirect('/');
 			}
 		}
