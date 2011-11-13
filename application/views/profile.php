@@ -55,9 +55,6 @@
 		echo $a;
 	endforeach;
 
-	?>
-
-	<?php
 		$surl = site_url('user/comparison_chooser');
 		echo '<a href="'.$surl.'">Compare achievements.<a/>';
 	?>
