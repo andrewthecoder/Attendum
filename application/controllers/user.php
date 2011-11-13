@@ -325,7 +325,7 @@ class User extends CI_Controller {
 			$unid = $this->session->userdata['unid'];
 		
 			$query = $this->db->query("
-				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, u.uid AS uid, u.email AS email
+				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, COUNT(uam.uid) AS achcount, u.uid AS uid, u.email AS email
 				FROM 
 				code AS c 
 				LEFT JOIN usercode AS uc ON c.cid = uc.cid
@@ -339,14 +339,14 @@ class User extends CI_Controller {
 				LIMIT 0,30;");		
 			$leagueboard = $query->result_array();
 			
-			$htmlout = '<tr><td><strong>Points</strong></td><td><strong>Username</strong></td></tr>';
+			$htmlout = '<tr><td><strong>Username</strong></td><td><strong>Achievements</strong></td><td><strong>Points</strong></td></tr>';
 			foreach ($leagueboard as $league_entry) {
 				$username = substr($league_entry['email'],0,strpos($league_entry['email'],'@'));
-				$htmlout .= "<tr><td>{$league_entry['points']}</td><td>{$username}</td></tr>";
+				$htmlout .= "<tr><td>{$username}</td><td>{$league_entry['achcount']}</td><td>{$league_entry['points']}</td></tr>";
 			}
 			
 			$modulequery = $this->db->query("
-				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, u.uid AS uid, u.email AS email
+				SELECT ((COUNT(DISTINCT c.cid) * 10) + IFNULL( (SUM(a.points)),0)  ) AS points, COUNT(uam.uid) AS achcount, u.uid AS uid, u.email AS email
 				FROM 
 				code AS c 
 				LEFT JOIN usercode AS uc ON c.cid = uc.cid
@@ -361,10 +361,10 @@ class User extends CI_Controller {
 				LIMIT 0,30;");
 			$moduleleagueboard = $modulequery->result_array();
 			
-			$modulehtmlout = '<tr><td><strong>Points</strong></td><td><strong>Username</strong></td></tr>';
+			$modulehtmlout = '<tr><td><strong>Username</strong></td><td><strong>Achievements</strong></td><td><strong>Points</strong></td></tr>';
 			foreach ($moduleleagueboard as $moduleleague_entry) {
-				$username = substr($moduleleague_entry['email'],0,strpos($moduleleague_entry['email'],'@'));
-				$modulehtmlout .= "<tr><td>{$moduleleague_entry['points']}</td><td>{$username}</td></tr>";
+				$moduleusername = substr($moduleleague_entry['email'],0,strpos($moduleleague_entry['email'],'@'));
+				$modulehtmlout .= "<tr><td>{$moduleusername}</td><td>{$moduleleague_entry['achcount']}</td><td>{$moduleleague_entry['points']}</td></tr>";
 			}
 			
 			$dataout = Array('htmlout' => $htmlout, 'modulehtmlout' => $modulehtmlout);
