@@ -10,7 +10,7 @@
 	foreach($rewards as $r)
 	{
 		echo gettype($r);
-		echo $r['name'];
+		echo $r->name;
 		echo $r['description'];
 	}
 	?>
