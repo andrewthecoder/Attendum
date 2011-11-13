@@ -2,25 +2,7 @@
 <div class="container">
 <?php $this->load->view('inc/header.php'); ?>
 <?php
-	function achievementString($aid)
-	{
-		$this->load->database('achievement');
-		$this->db->where('aid', $aid);
-		$query = $this->db->get('achievement');
-		$row = $query->row_array();
-		$name = $row['name'];
-		$description = $row['description'];
-		$image_filename = base_url()+'images/achievements/'+$row['image_filename'];
-		
-		$str = '';
-		$str .= '<p>';
-		$str .= '<img src="'+$image_filename+'" alt"'+$name+'" style="float:right;margin:0 5px 0 0;"/>';
-		$str .= $name+'<br/>';
-		$str .= $description;
-		$str .= '</p>';
 
-		return $str;
-	}
 if(strlen($error) > 0)
 {
 	echo $error;
@@ -86,9 +68,9 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements you have in common</p>";
 			foreach($commonAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo $achievements[$ca]->name;
+				echo $achievements[$ca]->description;
+				//echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -96,9 +78,9 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements you have that they don't</p>";
 			foreach($yourAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo $achievements[$ca]->name;
+				echo $achievements[$ca]->description;
+				//echo "achievementString($ca)";
 			endforeach;
 			}
 
@@ -106,9 +88,9 @@ echo count($theirAchievements);
 			{
 			echo "<p>Achievements they have that you don't</p>";
 			foreach($theirAchievements as $ca):
-				//echo $achievements[$ca]->name;
-				//echo $achievements[$ca]->description;
-				echo "achievementString($ca)";
+				echo $achievements[$ca]->name;
+				echo $achievements[$ca]->description;
+				//echo "achievementString($ca)";
 			endforeach;
 			}
 		}
@@ -119,9 +101,9 @@ echo count($theirAchievements);
 			{
 				echo 'Your achievements are:';
 				foreach($yourAchievements as $ca):
-					//echo $achievements[$ca]->name;
-					//echo $achievements[$ca]->description;
-					echo "achievementString($ca)";
+					echo $achievements[$ca]->name;
+					echo $achievements[$ca]->description;
+					//echo "achievementString($ca)";
 				endforeach;
 			}
 		}
@@ -136,7 +118,7 @@ echo count($theirAchievements);
 			{
 				echo $achievements[$ca]->name;
 				echo $achievements[$ca]->description;
-				echo achievementString($ca);
+				//echo achievementString($ca);
 			}
 		}
 		else
